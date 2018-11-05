@@ -49,6 +49,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta name="theme-color" content="#e51515">
     <!-- CSS ================================================== -->
+    {{--<link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css" media="all">--}}
     <link href="{{asset('css/guest/plugin/timber.scss.css')}}" rel="stylesheet" type="text/css" media="all">
     <link href="{{asset('css/guest/plugin/suplo-style.scss.css')}}" rel="stylesheet" type="text/css" media="all">
 

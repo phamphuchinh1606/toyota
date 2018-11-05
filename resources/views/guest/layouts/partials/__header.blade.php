@@ -1,5 +1,5 @@
 <link rel="stylesheet prefetch" href="{{asset('css/guest/toyota/css.css')}}">
-
+<link rel="stylesheet prefetch" href="{{asset('css/guest/toyota/main.css')}}">
 <header id="header">
     <div class="header-desktop">
         <div class="inner">
@@ -35,126 +35,126 @@
                                 <svg class="svg-inline--fa fa-caret-down fa-w-10" aria-hidden="true" data-prefix="fas" data-icon="caret-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg><!-- <i class="fas fa-caret-down"></i> -->
                             </a>
 
+                            @include('guest.layouts.partials.__menu_show_product')
+                            {{--<ul class="no-bullets megamenu-menu clearfix">--}}
 
-                            <ul class="no-bullets megamenu-menu clearfix">
+                                {{--<li>--}}
+                                    {{--<a href="/collections/all">--}}
+                                        {{--Phụ kiện xe hơi--}}
 
-                                <li>
-                                    <a href="/collections/all">
-                                        Phụ kiện xe hơi
+                                    {{--</a>--}}
 
-                                    </a>
+                                    {{--<ul class="no-bullets">--}}
 
-                                    <ul class="no-bullets">
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> Lamboghini</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> Lamboghini</a>
-                                        </li>
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> Misubisi</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> Misubisi</a>
-                                        </li>
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> Mecsedec</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> Mecsedec</a>
-                                        </li>
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> Toyota</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> Toyota</a>
-                                        </li>
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> Honda</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> Honda</a>
-                                        </li>
+                                    {{--</ul>--}}
 
-                                    </ul>
+                                {{--</li>--}}
 
-                                </li>
+                                {{--<li>--}}
+                                    {{--<a href="/collections/all">--}}
+                                        {{--Đồ chơi xe hơi--}}
 
-                                <li>
-                                    <a href="/collections/all">
-                                        Đồ chơi xe hơi
+                                    {{--</a>--}}
 
-                                    </a>
+                                    {{--<ul class="no-bullets">--}}
 
-                                    <ul class="no-bullets">
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> Toyota</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> Toyota</a>
-                                        </li>
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> Mec-se-dec</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> Mec-se-dec</a>
-                                        </li>
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> Honda</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> Honda</a>
-                                        </li>
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> Misubishi</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> Misubishi</a>
-                                        </li>
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> Lexus</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> Lexus</a>
-                                        </li>
+                                    {{--</ul>--}}
 
-                                    </ul>
+                                {{--</li>--}}
 
-                                </li>
+                                {{--<li>--}}
+                                    {{--<a href="/collections/all">--}}
+                                        {{--Nội thất xe hơi--}}
 
-                                <li>
-                                    <a href="/collections/all">
-                                        Nội thất xe hơi
+                                    {{--</a>--}}
 
-                                    </a>
+                                    {{--<ul class="no-bullets">--}}
 
-                                    <ul class="no-bullets">
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> Honda</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> Honda</a>
-                                        </li>
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> Yamaha</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> Yamaha</a>
-                                        </li>
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> Lexus</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> Lexus</a>
-                                        </li>
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> Lamboghini</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> Lamboghini</a>
-                                        </li>
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> Mec-xe-dec</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> Mec-xe-dec</a>
-                                        </li>
+                                    {{--</ul>--}}
 
-                                    </ul>
+                                {{--</li>--}}
 
-                                </li>
+                                {{--<li>--}}
+                                    {{--<a href="/collections/all">--}}
+                                        {{--Các sản phẩm khác--}}
 
-                                <li>
-                                    <a href="/collections/all">
-                                        Các sản phẩm khác
+                                    {{--</a>--}}
 
-                                    </a>
+                                    {{--<ul class="no-bullets">--}}
 
-                                    <ul class="no-bullets">
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> Wave</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> Wave</a>
-                                        </li>
+                                        {{--<li>--}}
+                                            {{--<a href="/collections/all"> X- men</a>--}}
+                                        {{--</li>--}}
 
-                                        <li>
-                                            <a href="/collections/all"> X- men</a>
-                                        </li>
+                                    {{--</ul>--}}
 
-                                    </ul>
+                                {{--</li>--}}
 
-                                </li>
-
-                            </ul>
+                            {{--</ul>--}}
 
                         </li>
 
