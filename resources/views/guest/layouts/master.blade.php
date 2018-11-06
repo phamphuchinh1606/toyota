@@ -134,6 +134,8 @@
     @yield('head.css')
 </head>
 <body id="suplo-car-cua-hang-phu-kien-do-choi-noi-that-xe-hoi-chinh-hang" class="@yield('body.class_body',"template-index")">
+
+    {{--@include('guest.layouts.partials.__menu_show_product')--}}
     {{--Header--}}
     @include('guest.layouts.partials.__nav_drawer')
 

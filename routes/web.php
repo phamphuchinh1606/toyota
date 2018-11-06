@@ -10,27 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('guest.home.index');
-});
-
-Route::get('/products/{a?}', function () {
-    return view('guest.product.product_detail');
-});
-
-Route::get('/collections/all', function () {
-    return view('guest.collection.collection');
-});
-
-Route::get('/pages/lien-he', function () {
-    return view('guest.contact.contact');
-});
-
-Route::get('/blogs/{gaitri?}', function () {
-    return view('guest.blog.blog');
-});
-
-Route::get('/blogs/news/{sd?}', function () {
-    return view('guest.blog.blog_detail');
+//
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/login-admin','Auth\LoginController@showLoginForm')->name('admin.login');
+    Route::post('/login-admin','Auth\LoginController@login')->name('admin.login');
+    Route::get('/logout-admin','Auth\LoginController@logout')->name('admin.logout');
 });

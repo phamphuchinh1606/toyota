@@ -4048,14 +4048,6 @@ button.picker__clear:focus, button.picker__close:focus, button.picker__today:foc
     background-color: #fdf5f4
 }
 
-@font-face {
-    font-family: FontAwesome;
-    src: url(/Content/fonts/fontawesome-webfont.eot?v=4.7.0);
-    src: url(/Content/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0) format("embedded-opentype"), url(/Content/fonts/fontawesome-webfont.woff2?v=4.7.0) format("woff2"), url(/Content/fonts/fontawesome-webfont.woff?v=4.7.0) format("woff"), url(/Content/fonts/fontawesome-webfont.ttf?v=4.7.0) format("truetype"), url(/Content/fonts/fontawesome-webfont.svg?v=4.7.0# regular) format("svg");
-    font-weight: 400;
-    font-style: normal
-}
-
 .fa {
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
