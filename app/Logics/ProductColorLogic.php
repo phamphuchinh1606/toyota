@@ -26,7 +26,9 @@ class ProductColorLogic extends BaseLogic{
         $productColor->product_id = $param['productId'];
         $productColor->color_code = $param['colorCode'];
         $productColor->color_sort = $param['colorSort'];
-        $productColor->color_image = $param['colorImage'];
+        if($param['imageName'] != null){
+            $productColor->color_image = $param['imageName'];
+        }
         $productColor->save();
         return $productColor;
     }
@@ -38,7 +40,9 @@ class ProductColorLogic extends BaseLogic{
             $productColor->product_id = $param['productId'];
             $productColor->color_code = $param['colorCode'];
             $productColor->color_sort = $param['colorSort'];
-            $productColor->color_image = $param['colorImage'];
+            if($param['imageName'] != null){
+                $productColor->color_image = $param['imageName'];
+            }
             $productColor->save();
         }
     }

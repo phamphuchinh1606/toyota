@@ -19,6 +19,7 @@ class CreateProductColorsTable extends Migration
             $table->string('color_code')->nullable(true);
             $table->string('color_name')->nullable(true);
             $table->string('color_image')->nullable(true);
+            $table->integer('color_sort')->nullable(true);
             $table->timestamps();
         });
     }

@@ -63,10 +63,10 @@
                                                             {{$productColor->product_name}}
                                                         </td>
                                                         <td>
-                                                            <img src="{{asset(Constant::$PATH_URL_UPLOAD_IMAGE.$productColor->color_image)}}" width="100" height="100"/>
+                                                            {{$productColor->color_name}}
                                                         </td>
                                                         <td>
-                                                            {{$productColor->color_name}}
+                                                            <img src="{{asset(Constant::$PATH_URL_UPLOAD_IMAGE.$productColor->color_image)}}" style="width: 100px;height:auto;"/>
                                                         </td>
 
                                                         <td class="text-center">

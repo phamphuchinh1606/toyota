@@ -36,4 +36,11 @@ Route::post('/product-color/create','ProductColorController@store')->name('produ
 Route::get('/product-color/update/{id}','ProductColorController@showUpdate')->name('product_color.update');
 Route::post('/product-color/update/{id}','ProductColorController@update')->name('product_color.update');
 
+//Route Product Specification
+Route::get('/product-specification','ProductColorController@index')->name('product_specification.index');
+Route::get('/product-specification/create','ProductColorController@showCreate')->name('product_specification.create');
+Route::post('/product-specification/create','ProductColorController@store')->name('product_specification.create');
+Route::get('/product-specification/update/{id}','ProductColorController@showUpdate')->name('product_specification.update');
+Route::post('/product-specification/update/{id}','ProductColorController@update')->name('product_specification.update');
+
 

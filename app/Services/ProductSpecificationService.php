@@ -6,7 +6,7 @@ use App\Common\AppCommon;
 use App\Common\Constant;
 use Illuminate\Http\Request;
 
-class ProductColorService extends BaseService{
+class ProductSpecificationService extends BaseService{
 
     public function getAll(){
         $productColors = $this->productColorLogic->getAll();

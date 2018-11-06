@@ -3,23 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class ProductColorController extends Controller
+class ProductSpecificationController extends Controller
 {
     public function index(){
-        $productColors = $this->productColorService->getAll();
-        return $this->viewAdmin('productColor.index',[
-            'productColors' => $productColors
-        ]);
+//        $productColors = $this->productColorService->getAll();
+//        return $this->viewAdmin('productColor.index',[
+//            'productColors' => $productColors
+//        ]);
     }
 
     public function showCreate(){
-        return $this->viewAdmin('productColor.create');
+        return $this->viewAdmin('productSpecification.create');
     }
 
     public function store(Request $request){
         $this->productColorService->create($request);
-        return redirect()->route('admin.product_color.index');
+        return redirect()->route('admin.product_specification.index');
     }
 
     public function showUpdate($id){
