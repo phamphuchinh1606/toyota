@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class ProductSpecificationController extends Controller
 {
@@ -15,7 +14,10 @@ class ProductSpecificationController extends Controller
     }
 
     public function showCreate(){
-        return $this->viewAdmin('productSpecification.create');
+        $specificationInfo = $this->settingSpecificationService->getSettingSpecificationInfo();
+        return $this->viewAdmin('productSpecification.create',[
+            'specificationInfo' => $specificationInfo
+        ]);
     }
 
     public function store(Request $request){

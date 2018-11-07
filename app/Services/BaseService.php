@@ -15,7 +15,8 @@ use App\Logics\{ContactLogic,
     BlogLogic,
     AddressLogic,
     ProductColorLogic,
-    ProductSpecificationLogic};
+    ProductSpecificationLogic,
+    SettingSpecificationLogic};
 
 class BaseService {
     protected $productTypeLogic;
@@ -27,6 +28,8 @@ class BaseService {
     protected $productColorLogic;
 
     protected $productSpecificationLogic;
+
+    protected $settingSpecificationLogic;
 
     protected $vendorLogic;
 
@@ -51,13 +54,14 @@ class BaseService {
                                 SettingLogic $settingLogic, BlogLogic $blogLogic, AddressLogic $addressLogic,
                                 ContactLogic $contactLogic, CustomerLogic $customerLogic, OrderAddressLogic $orderAddressLogic,
                                 OrderLogic $orderLogic, OrderDetailLogic $orderDetailLogic, ProductColorLogic $productColorLogic,
-                                ProductSpecificationLogic $productSpecificationLogic)
+                                ProductSpecificationLogic $productSpecificationLogic, SettingSpecificationLogic $settingSpecificationLogic)
     {
         $this->productTypeLogic = $productTypeLogic;
         $this->productLogic = $productLogic;
         $this->productImageLogic = $productImageLogic;
         $this->productColorLogic = $productColorLogic;
         $this->productSpecificationLogic = $productSpecificationLogic;
+        $this->settingSpecificationLogic = $settingSpecificationLogic;
         $this->vendorLogic = $vendorLogic;
         $this->settingLogic = $settingLogic;
         $this->blogLogic = $blogLogic;

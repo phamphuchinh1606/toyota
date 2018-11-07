@@ -17,7 +17,8 @@ use App\Services\{
     SettingService,
     BlogService,
     AddressService,
-    ProductColorService
+    ProductColorService,
+    SettingSpecificationService
 };
 use App\Common\Constant;
 use Storage;
@@ -44,15 +45,18 @@ class Controller extends BaseController
 
     protected $orderService;
 
+    protected $settingSpecificationService;
+
     public function __construct(ProductTypeService $productTypeService, ProductService $productService,
                                 VendorService $vendorService, SettingService $settingService,
                                 BlogService $blogService, AddressService $addressService,
                                 ContactService $contactService, OrderService $orderService,
-                                ProductColorService $productColorService)
+                                ProductColorService $productColorService, SettingSpecificationService $settingSpecificationService)
     {
         $this->productTypeService = $productTypeService;
         $this->productService = $productService;
         $this->productColorService = $productColorService;
+        $this->settingSpecificationService = $settingSpecificationService;
         $this->vendorService = $vendorService;
         $this->settingService = $settingService;
         $this->blogService = $blogService;

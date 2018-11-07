@@ -35,6 +35,12 @@ class TableNameDB{
 
     public static $TableSettingAppInfo = 'setting_app_infos';
 
+    public static $TableSettingSpecificationGroup = "setting_specification_groups";
+
+    public static $TableSettingSpecificationType = "setting_specification_types";
+
+    public static $TableSettingSpecificationItem = "setting_specification_items";
+
     public static $TableUser = 'users';
 
     public static $TableVendor = 'vendors';
