@@ -161,3 +161,20 @@ Popup confirm
 .hide{
     display: none;
 }
+.padding-top-5{
+    padding-top: 5px;
+}
+
+.padding-10{
+    padding: 10px;
+}
+
+.border-solid{
+    border: 1px solid #c8ced3;
+}
+.line-height-40{
+    line-height: 45px;
+}
+div.odd {
+    background-color: #F9f9f9;
+}

@@ -5,6 +5,7 @@ namespace App\Logics;
 use App\Common\Constant;
 use App\Models\{SettingSpecificationItem,SettingSpecificationType, SettingSpecificationGroup};
 use App\Models\TableNameDB;
+use Illuminate\Support\Facades\DB;
 
 class SettingSpecificationLogic extends BaseLogic{
     public function createSpecificationGroup($groupName, $sort){
@@ -37,11 +38,14 @@ class SettingSpecificationLogic extends BaseLogic{
         $tableNameSpecificationGroup = TableNameDB::$TableSettingSpecificationGroup;
         $tableNameSpecificationType = TableNameDB::$TableSettingSpecificationType;
         $tableNameSpecificationItem = TableNameDB::$TableSettingSpecificationItem;
+//        DB::listen(function($query){
+//            dd($query);
+//        });
         return SettingSpecificationItem::join($tableNameSpecificationType,"$tableNameSpecificationType.id",'=',"$tableNameSpecificationItem.specification_type_id")
                 ->join($tableNameSpecificationGroup,"$tableNameSpecificationGroup.id",'=',"$tableNameSpecificationType.specification_group_id")
-                ->orderBy("$tableNameSpecificationGroup.specification_sort",'asc')
-                ->orderBy("$tableNameSpecificationType.specification_type_sort",'asc')
-                ->orderBy("$tableNameSpecificationItem.item_sort")
+                ->orderByRaw("cast($tableNameSpecificationGroup.specification_sort as unsigned) asc")
+                ->orderByRaw("cast($tableNameSpecificationType.specification_type_sort as unsigned) asc")
+                ->orderByRaw("cast($tableNameSpecificationItem.item_sort as unsigned) asc")
                 ->select([
                     "$tableNameSpecificationItem.id as item_id",
                     "$tableNameSpecificationItem.item_name as item_name",

@@ -21,7 +21,7 @@ class ProductSpecificationController extends Controller
     }
 
     public function store(Request $request){
-        $this->productColorService->create($request);
+        $this->productSpecificationService->create($request);
         return redirect()->route('admin.product_specification.index');
     }
 

@@ -35,6 +35,14 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <i class="icon-note"></i> Tạo Mới Sản Phẩm
+                                        <div class="card-header-actions">
+                                            <a class="btn btn-sm btn-primary" href="{{route('admin.product_specification.create',['id' => $product->id])}}">
+                                                Thông số kỹ thuật
+                                            </a>
+                                            <a class="btn btn-sm btn-primary" href="{{route('admin.product_specification.update',['id' => $product->id])}}">
+                                                Cập nhật thông số
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="card-body">
                                         <div class="form-group row">

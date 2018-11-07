@@ -1,18 +1,13 @@
 <?php
-
 use Illuminate\Database\Seeder;
 use App\Services\{SettingSpecificationService};
-
 class SettingSpecificationSeeder extends Seeder
 {
-
     protected $settingSpecificationService;
-
     public function __construct(SettingSpecificationService $settingSpecificationService)
     {
         $this->settingSpecificationService = $settingSpecificationService;
     }
-
     /**
      * Run the database seeds.
      *
@@ -56,7 +51,6 @@ class SettingSpecificationSeeder extends Seeder
                                 'Mô men xoắn tối đa (Nm @ vòng/phút)',
                                 'Tốc độ tối đa',
                                 'Tiêu chuẩn khí thải',
-
                             ]
                     ],
                     [
@@ -87,7 +81,6 @@ class SettingSpecificationSeeder extends Seeder
                                 'Trước',
                                 'Sau'
                             ]
-
                     ],
                     [
                         'typeName' => 'Hệ thống lái',
@@ -562,9 +555,6 @@ class SettingSpecificationSeeder extends Seeder
             ]
         ];
         try{
-
-
-
             \Illuminate\Support\Facades\DB::beginTransaction();
             foreach ($dataGroup as $index => $groupItem){
                 $specificationGroup = $this->settingSpecificationService->createSpecificationGroup($groupItem['groupName'],$index+1);
@@ -583,14 +573,11 @@ class SettingSpecificationSeeder extends Seeder
                         }
                     }
                 }
-
             }
             \Illuminate\Support\Facades\DB::commit();
         }catch (\Exception $ex){
-
             \Illuminate\Support\Facades\DB::rollBack();
             dump($ex);
         }
-
     }
 }

@@ -16,67 +16,79 @@
             <div>
                 <div class="animated fadeIn">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong>Tạo mới thông tin sản phẩm</strong>
-                                    <div class="card-header-actions">
-                                        <a class="btn btn-block btn-outline-secondary active" href="{{route('admin.product_type.index')}}">
-                                            Quay Lại
-                                        </a>
+                        <div class="col-md-12">
+                            <form method="post" action="{{route('admin.product_specification.create')}}">
+                                @csrf
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Tạo mới thông tin sản phẩm</strong>
+                                        <div class="card-header-actions">
+                                            <a class="btn btn-block btn-outline-secondary active"
+                                               href="{{route('admin.product_type.index')}}">
+                                                Quay Lại
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                                <form class="form-horizontal" action="{{route('admin.product_type.create')}}" method="post" enctype="multipart/form-data">
-                                    @csrf
                                     <div class="card-body">
                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label" for="text-input">Tên Danh Mục</label>
-                                            <div class="col-md-9">
-                                                <input class="form-control" id="text-input" type="text" name="product_type_name" placeholder="Tên danh mục" required>
+                                            <label class="col-md-2 col-form-label font-weight-bold" for="text-input">Chọn Sản Phẩm</label>
+                                            <div class="col-md-10">
+                                                @include('both.common.__select_product',['selectName' => 'product_id'])
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-lable" for="">Công Khai</label>
-                                            <div class="col-md-9">
-                                                <label class="switch switch-label switch-outline-primary-alt">
-                                                    <input class="switch-input" type="checkbox" checked="checked" name="is_public">
-                                                    <span class="switch-slider" data-checked="On" data-unchecked="Off"></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-lable" for="">Icon Image</label>
-                                            <div class="col-md-3">
-                                                <div class="upload__area-image">
-                                                <span>
-                                                    <img id="imgAdd" src="http://beats-city.amagumolabs.io/images/upload/no_image_available.jpg">
-                                                    <label for="imageFileAdd">Upload image</label>
-                                                </span>
-                                                    <p><small>( width: 20px , height: 20px)</small></p>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            @foreach($specificationInfo as $index => $group)
+                                                <li class="nav-item">
+                                                    <a class="nav-link @if($index == 0) active show @endif"
+                                                       data-toggle="tab" href="#tab_{{$group->group_id}}" role="tab"
+                                                       aria-controls="tab_{{$group->group_id}}"
+                                                       aria-selected="true">{{$group->group_name}}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                        <div class="tab-content padding-10">
+                                            @foreach($specificationInfo as $index => $group)
+                                                <div class="tab-pane @if($index == 0) active show @endif"
+                                                     id="tab_{{$group->group_id}}" role="tabpanel">
+                                                    @foreach($group->types as $indexType => $type)
+                                                        <div class="row @if($indexType %2==0) odd @endif">
+                                                            <div class="col-md-3 border-solid line-height-40 font-weight-bold">
+                                                                {{$type->type_name}}
+                                                            </div>
+                                                            <div class="col-md-9">
+                                                                @foreach($type->items as $item)
+                                                                    <div class="row">
+                                                                        <div
+                                                                            class="col-md-6 border-solid line-height-40">
+                                                                            @if($item->item_name == '')
+                                                                                &nbsp;
+                                                                            @else
+                                                                                {{$item->item_name}}
+                                                                            @endif
+                                                                        </div>
+                                                                        <div
+                                                                            class="col-md-6 border-solid padding-top-5">
+                                                                            <input class="form-control" id="text-input"
+                                                                                   type="text"
+                                                                                   name="{{$group->group_id.'_'.$type->type_id.'_'.$item->item_id}}"
+                                                                                   placeholder="...">
+                                                                        </div>
+                                                                    </div>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
                                                 </div>
-                                                <div class="form__upload image_icon">
-                                                    <div class="form-inline-simple">
-                                                        <input type="file" name="image_icon" class="form-control imgAnchorInput" id="imageFileAdd" onchange="loadFileImage(event)">
-                                                    </div>
-                                                    <script>
-                                                        var loadFileImage = function(event) {
-                                                            var output = document.getElementById('imgAdd');
-                                                            output.src = URL.createObjectURL(event.target.files[0]);
-                                                        };
-                                                    </script>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
-                                    <div class="card-footer text-right">
+                                    <div class="card-footer text-center">
                                         <button class="btn btn-sm btn-primary" type="submit">
-                                            <i class="fa fa-dot-circle-o"></i>Tạo mới</button>
-                                        <a class="btn btn-sm btn-danger" href="{{route('admin.product_type.index')}}">
-                                            <i class="fa fa-ban"></i>Hủy</a>
+                                            <i class="fa fa-dot-circle-o"></i> Lưu Thông Tin
+                                        </button>
                                     </div>
-                                </form>
-                            </div>
-
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

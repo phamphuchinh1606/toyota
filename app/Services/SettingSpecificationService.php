@@ -20,6 +20,50 @@ class SettingSpecificationService extends BaseService{
     }
 
     public function getSettingSpecificationInfo(){
-        return $this->settingSpecificationLogic->getSettingSpecificationInfo();
+        $listSettingSpecification = $this->settingSpecificationLogic->getSettingSpecificationInfo();
+        $listGroup = [];
+        if(count($listSettingSpecification) > 0){
+            $groupIdOld = $listSettingSpecification[0]->group_id;
+            $typeIdOld = $listSettingSpecification[0]->type_id;
+            $listType = [];
+            $listItem = [];
+            $group = new \StdClass();
+            $type = new \StdClass();
+            foreach ($listSettingSpecification as $settingSpecification){
+                if($typeIdOld != $settingSpecification->type_id){
+                    $type->items = $listItem;
+                    $listType[] = $type;
+                    $listItem = [];
+                    $type = new \StdClass();
+                }
+                $type->type_id = $settingSpecification->type_id;
+                $type->type_name = $settingSpecification->type_name;
+
+                if($groupIdOld != $settingSpecification->group_id){
+                    $group->types = $listType;
+                    $listGroup[] = $group;
+                    $listType = [];
+                    $group = new \StdClass();
+                }
+                $group->group_id = $settingSpecification->group_id;
+                $group->group_name = $settingSpecification->group_name;
+
+                $item = new \StdClass();
+                $item->item_id = $settingSpecification->item_id;
+                $item->item_name = $settingSpecification->item_name;
+                $listItem[] = $item;
+
+                $groupIdOld = $settingSpecification->group_id;
+                $typeIdOld = $settingSpecification->type_id;
+            }
+            if(count($listItem) > 0){
+                $type->items = $listItem;
+                $listType[] = $type;
+                $group->types = $listType;
+                $listGroup[] = $group;
+            }
+
+        }
+        return $listGroup;
     }
 }
