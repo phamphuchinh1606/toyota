@@ -38,9 +38,6 @@ class SettingSpecificationLogic extends BaseLogic{
         $tableNameSpecificationGroup = TableNameDB::$TableSettingSpecificationGroup;
         $tableNameSpecificationType = TableNameDB::$TableSettingSpecificationType;
         $tableNameSpecificationItem = TableNameDB::$TableSettingSpecificationItem;
-//        DB::listen(function($query){
-//            dd($query);
-//        });
         return SettingSpecificationItem::join($tableNameSpecificationType,"$tableNameSpecificationType.id",'=',"$tableNameSpecificationItem.specification_type_id")
                 ->join($tableNameSpecificationGroup,"$tableNameSpecificationGroup.id",'=',"$tableNameSpecificationType.specification_group_id")
                 ->orderByRaw("cast($tableNameSpecificationGroup.specification_sort as unsigned) asc")

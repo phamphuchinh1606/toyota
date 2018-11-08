@@ -24,7 +24,7 @@
                                         <strong>Tạo mới thông tin sản phẩm</strong>
                                         <div class="card-header-actions">
                                             <a class="btn btn-block btn-outline-secondary active"
-                                               href="{{route('admin.product_type.index')}}">
+                                               href="{{route('admin.product.index')}}">
                                                 Quay Lại
                                             </a>
                                         </div>
@@ -33,7 +33,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label font-weight-bold" for="text-input">Chọn Sản Phẩm</label>
                                             <div class="col-md-10">
-                                                @include('both.common.__select_product',['selectName' => 'product_id'])
+                                                @include('both.common.__select_product',['selectName' => 'product_id','defaultValue' => $productId])
                                             </div>
                                         </div>
                                         <ul class="nav nav-tabs" role="tablist">
@@ -71,7 +71,7 @@
                                                                             <input class="form-control" id="text-input"
                                                                                    type="text"
                                                                                    name="{{$group->group_id.'_'.$type->type_id.'_'.$item->item_id}}"
-                                                                                   placeholder="...">
+                                                                                   placeholder="..." value="{{$item->content}}">
                                                                         </div>
                                                                     </div>
                                                                 @endforeach

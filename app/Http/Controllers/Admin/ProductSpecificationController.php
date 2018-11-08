@@ -6,32 +6,26 @@ use Illuminate\Http\Request;
 
 class ProductSpecificationController extends Controller
 {
-    public function index(){
-//        $productColors = $this->productColorService->getAll();
-//        return $this->viewAdmin('productColor.index',[
-//            'productColors' => $productColors
-//        ]);
-    }
 
-    public function showCreate(){
-        $specificationInfo = $this->settingSpecificationService->getSettingSpecificationInfo();
+    public function showCreate(Request $request){
+        $productId = "";
+        if(isset($request->id)){
+            $productId = $request->id;
+            $specificationInfo = $this->productSpecificationService->getProductSpecificationInfo($request->id);
+            if(count($specificationInfo) <= 0){
+                $specificationInfo = $this->settingSpecificationService->getSettingSpecificationInfo();
+            }
+        }else{
+            $specificationInfo = $this->settingSpecificationService->getSettingSpecificationInfo();
+        }
         return $this->viewAdmin('productSpecification.create',[
-            'specificationInfo' => $specificationInfo
+            'specificationInfo' => $specificationInfo,
+            'productId' => $productId
         ]);
     }
 
     public function store(Request $request){
         $this->productSpecificationService->create($request);
-        return redirect()->route('admin.product_specification.index');
-    }
-
-    public function showUpdate($id){
-        $productColor = $this->productColorService->findId($id);
-        return $this->viewAdmin('productColor.update',['productColor' => $productColor]);
-    }
-
-    public function update($id, Request $request){
-        $this->productColorService->update($id, $request);
-        return redirect()->route('admin.product_color.index');
+        return redirect()->route('admin.product.index');
     }
 }

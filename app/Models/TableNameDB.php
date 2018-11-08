@@ -23,6 +23,8 @@ class TableNameDB{
 
     public static $TableProductType = 'product_types';
 
+    public static $TableProductSpecification = 'product_specifications';
+
     public static $TableSettingColors = 'setting_colors';
 
     public static $TableSettingSize = 'setting_sizes';

@@ -8,6 +8,54 @@ use Illuminate\Http\Request;
 
 class ProductSpecificationService extends BaseService{
 
+    public function getProductSpecificationInfo($productId){
+        $list = $this->productSpecificationLogic->getInfoByProduct($productId);
+        $listGroup = [];
+        if(isset($list) && count($list) > 0){
+            $groupIdOld = $list[0]->group_id;
+            $typeIdOld = $list[0]->type_id;
+            $listType = [];
+            $listItem = [];
+            $group = new \StdClass();
+            $type = new \StdClass();
+            foreach ($list as $productSpecification){
+                if($typeIdOld != $productSpecification->type_id){
+                    $type->items = $listItem;
+                    $listType[] = $type;
+                    $listItem = [];
+                    $type = new \StdClass();
+                }
+                $type->type_id = $productSpecification->type_id;
+                $type->type_name = $productSpecification->type_name;
+
+                if($groupIdOld != $productSpecification->group_id){
+                    $group->types = $listType;
+                    $listGroup[] = $group;
+                    $listType = [];
+                    $group = new \StdClass();
+                }
+                $group->group_id = $productSpecification->group_id;
+                $group->group_name = $productSpecification->group_name;
+
+                $item = new \StdClass();
+                $item->item_id = $productSpecification->item_id;
+                $item->item_name = $productSpecification->item_name;
+                $item->content = $productSpecification->content;
+                $listItem[] = $item;
+
+                $groupIdOld = $productSpecification->group_id;
+                $typeIdOld = $productSpecification->type_id;
+            }
+            if(count($listItem) > 0){
+                $type->items = $listItem;
+                $listType[] = $type;
+                $group->types = $listType;
+                $listGroup[] = $group;
+            }
+        }
+        return $listGroup;
+    }
+
     private function getInfoProductFromRequest(Request $request){
         $listParams = $request->except(['_token','product_id']);
         $data = [];
@@ -40,6 +88,10 @@ class ProductSpecificationService extends BaseService{
                 ];
             }
             if(count($productSpecifications) > 0){
+                $countData = $this->productSpecificationLogic->countSpecificationByProduct($productId);
+                if($countData > 0){
+                    $this->productSpecificationLogic->destroyByProduct($productId);
+                }
                 $this->productSpecificationLogic->insert($productSpecifications);
             }
         }

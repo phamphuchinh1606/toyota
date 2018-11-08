@@ -51,6 +51,7 @@ class SettingSpecificationService extends BaseService{
                 $item = new \StdClass();
                 $item->item_id = $settingSpecification->item_id;
                 $item->item_name = $settingSpecification->item_name;
+                $item->content = null;
                 $listItem[] = $item;
 
                 $groupIdOld = $settingSpecification->group_id;
