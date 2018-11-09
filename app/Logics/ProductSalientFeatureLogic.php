@@ -9,6 +9,10 @@ class ProductSalientFeatureLogic extends BaseLogic{
         return ProductSalientFeature::whereProductId($productId)->get();
     }
 
+    public function geetFeatureByFeatureTypeProduct($productId, $featureTypeId){
+        return ProductSalientFeature::whereProductId($productId)->whereFeatureType($featureTypeId)->get();
+    }
+
     public function create($param = []){
         $feature = new ProductSalientFeature();
         $feature->product_id = $param['productId'];
@@ -16,7 +20,7 @@ class ProductSalientFeatureLogic extends BaseLogic{
         $feature->feature_title = $param['featureTitle'];
         $feature->feature_content = $param['featureContent'];
         $feature->feature_image = $param['featureImage'];
-        $feature->feature_sort = $param['feature_sort'];
+//        $feature->feature_sort = $param['feature_sort'];
         $feature->save();
     }
 

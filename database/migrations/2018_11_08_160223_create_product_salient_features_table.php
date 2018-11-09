@@ -18,7 +18,7 @@ class CreateProductSalientFeaturesTable extends Migration
             $table->integer('product_id')->nullable(true);
             $table->string('feature_type',255)->nullable(true);
             $table->string('feature_title',255)->nullable(true);
-            $table->string('feature_content',255)->nullable(true);
+            $table->text('feature_content')->nullable(true);
             $table->string('feature_image',255)->nullable(true);
             $table->string('feature_sort')->default(0)->nullable(true);
             $table->timestamps();

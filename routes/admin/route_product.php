@@ -38,9 +38,14 @@ Route::post('/product-color/update/{id}','ProductColorController@update')->name(
 
 //Route Product Specification
 Route::get('/product-specification','ProductSpecificationController@index')->name('product_specification.index');
+Route::get('/product-specification/load-info','ProductSpecificationController@loadInfo')->name('product_specification.load_info');
 Route::get('/product-specification/create','ProductSpecificationController@showCreate')->name('product_specification.create');
 Route::post('/product-specification/create','ProductSpecificationController@store')->name('product_specification.create');
 Route::get('/product-specification/update/{id}','ProductSpecificationController@showUpdate')->name('product_specification.update');
 Route::post('/product-specification/update/{id}','ProductSpecificationController@update')->name('product_specification.update');
 
+//Route Product SalientFeature
+Route::get('/product-feature/create','ProductSalientFeatureController@showCreate')->name('product_feature.create');
+Route::post('/product-feature/create','ProductSalientFeatureController@store')->name('product_feature.create');
+Route::delete('/product-feature/delete/{id}','ProductSalientFeatureController@delete')->name('product_feature.delete');
 

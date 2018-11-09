@@ -39,7 +39,7 @@
                                             <a class="btn btn-sm btn-primary" href="{{route('admin.product_specification.create',['id' => $product->id])}}">
                                                 Thông số kỹ thuật
                                             </a>
-                                            <a class="btn btn-sm btn-primary" href="{{route('admin.product_specification.create',['id' => $product->id])}}">
+                                            <a class="btn btn-sm btn-primary" href="{{route('admin.product_feature.create',['productId' => $product->id])}}">
                                                 Tính năng nổi bật
                                             </a>
                                         </div>

@@ -47,4 +47,8 @@ class Constant{
     public static $ORDER_STATUS_FINISH_NAME = 'Đã hoàn thành';
     public static $ORDER_STATUS_CANCEL_CODE = '4';
     public static $ORDER_STATUS_CANCEL_NAME = 'Đã hủy';
+
+    public static $FEATURE_TYPE_OPERATE = "1";
+    public static $FEATURE_TYPE_SAFE = "2";
+
 }

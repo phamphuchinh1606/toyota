@@ -19,6 +19,7 @@ use App\Services\{
     AddressService,
     ProductColorService,
     ProductSpecificationService,
+    ProductSalientFeatureService,
     SettingSpecificationService
 };
 use App\Common\Constant;
@@ -35,6 +36,8 @@ class Controller extends BaseController
     protected $productColorService;
 
     protected $productSpecificationService;
+
+    protected $productSalientFeatureService;
 
     protected $vendorService;
 
@@ -55,12 +58,13 @@ class Controller extends BaseController
                                 BlogService $blogService, AddressService $addressService,
                                 ContactService $contactService, OrderService $orderService,
                                 ProductColorService $productColorService, SettingSpecificationService $settingSpecificationService,
-                                ProductSpecificationService $productSpecificationService)
+                                ProductSpecificationService $productSpecificationService, ProductSalientFeatureService $productSalientFeatureService)
     {
         $this->productTypeService = $productTypeService;
         $this->productService = $productService;
         $this->productColorService = $productColorService;
         $this->productSpecificationService = $productSpecificationService;
+        $this->productSalientFeatureService = $productSalientFeatureService;
         $this->settingSpecificationService = $settingSpecificationService;
         $this->vendorService = $vendorService;
         $this->settingService = $settingService;

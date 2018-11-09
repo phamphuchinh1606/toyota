@@ -16,10 +16,6 @@
                             <i class="nav-icon icon-layers"></i>
                             Sản phẩm
                         </a>
-                        <a class="nav-link" href="{{route('admin.product_specification.create')}}">
-                            <i class="nav-icon icon-layers"></i>
-                            Thông số sản phẩm
-                        </a>
                         <a class="nav-link" href="{{route('admin.product_color.index')}}">
                             <i class="nav-icon icon-layers"></i>
                             Màu sản phẩm
