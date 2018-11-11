@@ -28,6 +28,7 @@ class BlogLogic extends BaseLogic{
     public function create($params = []){
         $blog = new Blog();
         $blog->blog_title = $params['blogTitle'];
+        $blog->blog_type = $params['blogType'];
         $blog->slug = $params['slug'];
         $blog->post_date = $params['postDate'];
         $blog->blog_description = $params['blogDescription'];
@@ -41,6 +42,7 @@ class BlogLogic extends BaseLogic{
         $blog = Blog::find($blogId);
         if(isset($blog)){
             $blog->blog_title = $params['blogTitle'];
+            $blog->blog_type = $params['blogType'];
             $blog->slug = $params['slug'];
             $blog->post_date = $params['postDate'];
             $blog->blog_description = $params['blogDescription'];

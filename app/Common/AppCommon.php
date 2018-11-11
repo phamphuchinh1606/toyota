@@ -104,6 +104,22 @@ class AppCommon{
         return $className;
     }
 
+    public static function nameBlogType($blogType){
+        $blogTypeName = "";
+        switch ($blogType){
+            case Constant::$BLOG_TYPE_GENERAL_ID:
+                $blogTypeName = Constant::$BLOG_TYPE_GENERAL_NAME;
+                break;
+            case Constant::$BLOG_TYPE_PROMOTION_ID:
+                $blogTypeName = Constant::$BLOG_TYPE_PROMOTION_NAME;
+                break;
+            case Constant::$BLOG_TYPE_EVENT_ID:
+                $blogTypeName = Constant::$BLOG_TYPE_EVENT_NAME;
+                break;
+        }
+        return $blogTypeName;
+    }
+
     public static function namePublicProductType($statusValue){
         $publicName = "";
         switch ($statusValue){

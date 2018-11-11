@@ -27,6 +27,9 @@
                                 <a class="btn btn-block btn-outline-primary active" href="{{route('admin.blog.create')}}">
                                     Tạo mới
                                 </a>
+                                <a class="btn btn-block btn-outline-primary active" href="{{route('admin.blog.load_info')}}">
+                                    Lấy Tin Tức
+                                </a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -41,6 +44,9 @@
                                                 </th>
                                                 <th>
                                                     Hình ảnh
+                                                </th>
+                                                <th>
+                                                    Loại tin
                                                 </th>
                                                 <th>
                                                     Tiêu đề
@@ -65,6 +71,9 @@
                                                         <td>
                                                             <img src="{{asset(\App\Common\Constant::$PATH_URL_UPLOAD_IMAGE.$blog->blog_image)}}"
                                                                 width="100" height="100"/>
+                                                        </td>
+                                                        <td>
+                                                            {{$blog->blog_type_name}}
                                                         </td>
                                                         <td>
                                                             {{$blog->blog_title}}

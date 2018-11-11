@@ -42,9 +42,11 @@ class ProductSpecificationController extends Controller
         $finder = new \DOMXPath($dom);
         $classname="thong_so_ky_thuat";
         $nodes = $finder->query("//*[contains(@class, '$classname')]");
+        $specificationInfoSetting = $this->settingSpecificationService->getSettingSpecificationInfo();
+
         if(count($nodes) > 0){
             $listDivIds = [
-                'tab_dt_2' => 'Động cơ & Khkung xe',
+                'tab_dt_2' => 'Động cơ & Khung xe',
                 'tab_dt_3' => 'Ngoại thất',
                 'tab_dt_4'=> 'Nội thất',
                 'tab_dt_203' => 'Ghế',
@@ -88,15 +90,39 @@ class ProductSpecificationController extends Controller
                             $typeName = $listGroupValue[count($listGroupValue) - 1]->type_name;
                         }
                         $specificationInfo = new \StdClass();
-                        $specificationInfo->group_name = $value;
-                        $specificationInfo->type_name = $typeName;
-                        $specificationInfo->item_name = $itemName;
-                        $specificationInfo->item_content = $itemContent;
+                        $specificationInfo->group_name = trim($value);
+                        $specificationInfo->type_name = trim($typeName);
+                        $specificationInfo->item_name = trim($itemName);
+                        $specificationInfo->item_content = trim($itemContent);
                         $listGroupValue[] = $specificationInfo;
                     }
                 }
             }
-            dd($listGroupValue);
+            $mapData = [];
+            foreach ($listGroupValue as $itemValue){
+                $key = trim($itemValue->group_name.'_'.$itemValue->type_name.'_'.$itemValue->item_name);
+                $mapData[$key] = $itemValue->item_content;
+            }
+            $dem = 0;
+
+
+            foreach ($specificationInfoSetting as $group){
+                foreach ($group->types as $type){
+                    foreach ($type->items as $item){
+                        $key = trim($group->group_name.'_'.$type->type_name.'_'.$item->item_name);
+                        if(isset($mapData[$key])){
+                            $item->content = $mapData[$key];
+                            $dem++;
+                            unset($mapData[$key]);
+                        }
+                    }
+                }
+            }
         }
+        return $this->viewAdmin('productSpecification.create',[
+            'specificationInfo' => $specificationInfoSetting,
+            'productId' => $productId,
+            'message' => 'Đã lấy thông tin sản phẩm thành công. Vui lòng kiểm tra và nhấn "Lưu" để lưu vào hệ thống.'
+        ]);
     }
 }

@@ -14,6 +14,7 @@ class BlogService extends BaseService{
             $blog->public_class = AppCommon::classPublicProductType($blog->is_public);
             $blog->str_post_date = AppCommon::dateFormat($blog->post_date,'d/m/Y');
             $blog->dot_blog_description = AppCommon::showTextDot($blog->blog_description,140);
+            $blog->blog_type_name = AppCommon::nameBlogType($blog->blog_type);
         }
         return $blogs;
     }
@@ -30,6 +31,7 @@ class BlogService extends BaseService{
 
     public function create(Request $request){
         $params['blogTitle'] = $request->blog_title;
+        $params['blogType'] = $request->blog_type;
         $params['slug'] = $request->slug;
         $params['postDate'] = AppCommon::createFromFormat($request->post_date);
         $params['isPublic'] = AppCommon::getIsPublic($request->is_public);
@@ -49,6 +51,7 @@ class BlogService extends BaseService{
 
     public function update($blogId, Request $request){
         $params['blogTitle'] = $request->blog_title;
+        $params['blogType'] = $request->blog_type;
         $params['slug'] = $request->slug;
         $params['postDate'] = AppCommon::createFromFormat($request->post_date);
         $params['isPublic'] = AppCommon::getIsPublic($request->is_public);

@@ -51,4 +51,12 @@ class Constant{
     public static $FEATURE_TYPE_OPERATE = "1";
     public static $FEATURE_TYPE_SAFE = "2";
 
+//    Blog
+    public static $BLOG_TYPE_GENERAL_ID = '1';
+    public static $BLOG_TYPE_GENERAL_NAME = 'Tin tức chung';
+    public static $BLOG_TYPE_PROMOTION_ID = '2';
+    public static $BLOG_TYPE_PROMOTION_NAME = 'Khuyến mãi';
+    public static $BLOG_TYPE_EVENT_ID = '3';
+    public static $BLOG_TYPE_EVENT_NAME = 'Sự kiện';
+
 }

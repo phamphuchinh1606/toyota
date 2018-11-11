@@ -51,6 +51,7 @@ class SettingSpecificationSeeder extends Seeder
                                 'Mô men xoắn tối đa (Nm @ vòng/phút)',
                                 'Tốc độ tối đa',
                                 'Tiêu chuẩn khí thải',
+                                'Hệ thống ngắt/ mở động cơ tự động'
                             ]
                     ],
                     [
@@ -165,6 +166,7 @@ class SettingSpecificationSeeder extends Seeder
                                 'Chức năng điều chỉnh điện',
                                 'Chức năng gập điện',
                                 'Tích hợp đèn báo rẽ',
+                                'Tích hợp đèn chào mừng',
                                 'Màu',
                                 'Chức năng tự điều chỉnh khi lùi',
                                 'Bộ nhớ vị trí',
@@ -210,6 +212,13 @@ class SettingSpecificationSeeder extends Seeder
                             ]
                     ],
                     [
+                        'typeName' => 'Cản xe',
+                        'items' => [
+                            'Trước',
+                            'Sau'
+                        ]
+                    ],
+                    [
                         'typeName' => 'Thanh cản (giảm va chạm)',
                         'items' => [
                             'Trước',
@@ -230,6 +239,12 @@ class SettingSpecificationSeeder extends Seeder
                     ],
                     [
                         'typeName' => 'Ống xả kép',
+                        'items' => [
+                            ''
+                        ]
+                    ],
+                    [
+                        'typeName' => 'Cánh hướng gió nóc xe',
                         'items' => [
                             ''
                         ]

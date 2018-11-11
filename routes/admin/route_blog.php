@@ -12,6 +12,7 @@
 */
 
 Route::get('/blog','BlogController@index')->name('blog.index');
+Route::get('/blog/load-info','BlogController@loadInfo')->name('blog.load_info');
 Route::get('/blog/create','BlogController@showCreate')->name('blog.create');
 Route::post('/blog/create','BlogController@store')->name('blog.create');
 Route::get('/blog/update/{id}','BlogController@showUpdate')->name('blog.update');

@@ -30,15 +30,20 @@
                                         </div>
                                     </div>
                                     <div class="card-body">
+                                        @if(isset($message))
+                                            <div class="alert alert-warning" role="alert">{{$message}}</div>
+                                        @endif
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label font-weight-bold" for="text-input">Chọn Sản Phẩm</label>
                                             <div class="col-md-8">
                                                 @include('both.common.__select_product',['selectName' => 'product_id','defaultValue' => $productId])
                                             </div>
                                             <div class="col-md-2">
-                                                <a class="btn btn-block btn-outline-primary active" href="{{route('admin.product_specification.load_info',['productId' => $productId])}}">
-                                                    Lấy thông tin sản phẩm
-                                                </a>
+                                                @if(!isset($message))
+                                                    <a class="btn btn-block btn-outline-primary active" href="{{route('admin.product_specification.load_info',['productId' => $productId])}}">
+                                                        Lấy thông tin sản phẩm
+                                                    </a>
+                                                @endif
                                             </div>
                                         </div>
                                         <ul class="nav nav-tabs" role="tablist">

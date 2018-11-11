@@ -38,6 +38,12 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="form-group row">
+                                            <label class="col-md-2 col-form-label" for="text-input">Loại Tin</label>
+                                            <div class="col-md-10">
+                                                @include('admin.blog.__select_blog_type',['defaultValue' => $blog->blog_type])
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
                                             <label class="col-md-2 col-form-label" for="text-input">Tiêu Đề</label>
                                             <div class="col-md-10">
                                                 <input class="form-control" id="text-input" type="text" name="blog_title" placeholder="Tiêu đề"
