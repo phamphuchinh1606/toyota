@@ -49,6 +49,22 @@ class BlogService extends BaseService{
         return $blog;
     }
 
+    public function createFromApi($blogDetail){
+        $params['blogTitle'] = $blogDetail->title;
+        $params['blogType'] = Constant::$BLOG_TYPE_GENERAL_ID;
+        $params['slug'] = $blogDetail->title;
+        $params['postDate'] = AppCommon::createFromFormat($blogDetail->post_date,'d.m.Y');
+        $params['isPublic'] = Constant::$PUBLIC_FLG_ON;
+        $params['blogDescription'] = $blogDetail->title;
+        $params['blogContent'] = $blogDetail->blog_content;
+        $blog = $this->blogLogic->create($params);
+        if(isset($blog)){
+            $blog->blog_image = $blogDetail->image;
+            $blog->save();
+        }
+        return $blog;
+    }
+
     public function update($blogId, Request $request){
         $params['blogTitle'] = $request->blog_title;
         $params['blogType'] = $request->blog_type;
