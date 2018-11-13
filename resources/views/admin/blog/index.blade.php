@@ -69,8 +69,13 @@
                                                             {{$index + 1}}
                                                         </td>
                                                         <td>
-                                                            <img src="{{asset(\App\Common\Constant::$PATH_URL_UPLOAD_IMAGE.$blog->blog_image)}}"
-                                                                width="100" height="100"/>
+                                                            @if(str_contains($blog->blog_image,\App\Common\Constant::$URL_TOYOTA))
+                                                                <img src="{{$blog->blog_image}}" style="width: 150px;height: auto"/>
+                                                            @else
+                                                                <img src="{{asset(\App\Common\Constant::$PATH_URL_UPLOAD_IMAGE.$blog->blog_image)}}"
+                                                                     width="100" height="100"/>
+                                                            @endif
+
                                                         </td>
                                                         <td>
                                                             {{$blog->blog_type_name}}

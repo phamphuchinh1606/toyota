@@ -12,6 +12,7 @@
 */
 
 Route::get('/products','ProductController@index')->name('product.index');
+Route::get('/products/load-info','ProductController@loadAllProduct')->name('product.load_info');
 Route::get('/products/create','ProductController@showCreate')->name('product.create');
 Route::post('/products/create','ProductController@store')->name('product.create');
 Route::get('products/update/{id}','ProductController@showUpdate')->name('product.update');

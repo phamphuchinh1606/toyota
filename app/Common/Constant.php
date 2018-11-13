@@ -59,4 +59,6 @@ class Constant{
     public static $BLOG_TYPE_EVENT_ID = '3';
     public static $BLOG_TYPE_EVENT_NAME = 'Sự kiện';
 
+    public static $URL_TOYOTA = "http://www.toyota.com.vn";
+
 }

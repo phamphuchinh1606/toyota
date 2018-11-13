@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Common\CurlCommon;
 use Illuminate\Http\Request;
 use Storage;
 
@@ -52,5 +53,56 @@ class ProductController extends Controller
         return redirect()->route('admin.product.update',['id' => $productId]);
     }
 
+    private function getInfoProductApi($urlProduct){
+        $finder = CurlCommon::curl_get_page_to_dom_xpath($urlProduct);
+        $nodeTitle = $finder->query("//span[@id='spTitleCar']");
+        if(count($nodeTitle)){
+
+        }
+    }
+
+    public function loadAllProduct(){
+        $urlProductAll = "http://www.toyota.com.vn/xe-moi";
+        $urlHostToyota = "http://www.toyota.com.vn";
+        $finder = CurlCommon::curl_get_page_to_dom_xpath($urlProductAll);
+        $nodePagings = $finder->query("//ul[@id='PaggingSection']");
+        if(count($nodePagings) > 0){
+            $nodePaging = $nodePagings[0];
+            $listPages = $nodePaging->getElementsByTagName('li');
+            $listPageNumber = [];
+            foreach ($listPages as $liPage){
+                $pageNumber = $liPage->getAttribute('data-page');
+                $classPage = $liPage->getAttribute('class');
+                if(isset($pageNumber) && !empty($pageNumber) && !str_contains($classPage,'next') && !str_contains($classPage,'prev')){
+                    $listPageNumber[] = $pageNumber;
+                }
+            }
+            foreach ($listPageNumber as $pageNumber){
+                if($pageNumber != "1"){
+                    $finder = CurlCommon::curl_get_page_to_dom_xpath($urlProductAll."?page=$pageNumber");
+                }
+                $nodeUlProducts = $finder->query("//ul[@id='ulProduct']");
+                if(count($nodeUlProducts) > 0){
+                    $nodeUlProduct = $nodeUlProducts[0];
+                    $listLiProduct = $nodeUlProduct->getElementsByTagName('li');
+                    foreach ($listLiProduct as $liProduct){
+                        $productId = $liProduct->getAttribute('data-id');
+                        $productPrice = $liProduct->getAttribute('value');
+                        $nodeImages = $liProduct->getElementsByTagName('img');
+                        if(count($nodeImages) > 0){
+                            $imagePath = $urlHostToyota.$nodeImages[0]->getAttribute('src');
+                        }
+                        $nodeLinks = $liProduct->getElementsByTagName('a');
+                        if(count($nodeLinks) > 0){
+                            $linkProduct = $urlHostToyota.'/'.$nodeLinks[0]->getAttribute('href');
+                        }
+                        if(isset($linkProduct)){
+
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 }

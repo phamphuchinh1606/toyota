@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Common\Constant;
 use Illuminate\Http\Request;
 use Curl;
 use tests\Mockery\Adapter\Phpunit\EmptyTestCase;
@@ -70,59 +71,79 @@ class BlogController extends Controller
 
     public function loadInfo(){
         $urlBlog = "http://www.toyota.com.vn/tin-tuc/tin-tuc-chung";
-        $response = Curl::to($urlBlog)->get();
-        $dom = new \DOMDocument('1.0', 'UTF-8');
-        $internalErrors = libxml_use_internal_errors(true);
-        $dom->loadHTML($response);
-        $finder = new \DOMXPath($dom);
-        $classname="tab-content-tmv";
-        $nodes = $finder->query("//*[contains(@class, '$classname')]");
-        if(count($nodes) > 0){
-            $urlHostToyota = "http://www.toyota.com.vn";
-            $listDivIds = [
-                'tab02' => 'Tin tức chung',
-                'tab01' => 'Khuyến mãi',
-                'tab03'=> 'Sự kiện'
-            ];
-            $listBlog = [];
-            foreach ($listDivIds as $key => $value){
-                $div = $finder->query("//div[@id='$key']");
-                foreach ($div as $item){
-                    $listLi = $item->getElementsByTagName('li');
-                    foreach ($listLi as $li){
-                        $tagLinka = $li->getElementsByTagName('a');
-                        if(count($tagLinka) > 0){
-                            $linkImage = $tagLinka[0];
-                            $title = $linkImage->getAttribute('title');
-                            $link = $linkImage->getAttribute('href');
-                            $image = $linkImage->getElementsByTagName('img');
-                            $imageLink = '';
-                            if(count($image)){
-                                $imageLink = $image[0]->getAttribute('data-original');
-                            }
-                            $blog = new \StdClass();
-                            $blog->title = $title;
-                            $blog->link = $urlHostToyota.$link;
-                            $blog->image = $urlHostToyota.$imageLink;
-                            $blogDetail = $this->apiGetBlogInfoDetail($blog->link);
-                            if(isset($blogDetail->body)){
-//                                dump($blogDetail->body);
-//                                dd(str_replace('src="',"src=\"$urlHostToyota/",$blogDetail->body));
-                                $blog->blog_content = str_replace('src="',"src=\"$urlHostToyota/",$blogDetail->body) ;
-                            }
-                            if(isset($blogDetail->postDate)){
-                                $blog->post_date = $blogDetail->postDate;
-                            }
-                            if(!is_null($title) && !empty($title)){
-                                $listBlog[] = $blog;
+        $listBlogUrl = [
+            'tab02' => "http://www.toyota.com.vn/tin-tuc/tin-tuc-chung",
+            'tab01' => "http://www.toyota.com.vn/tin-tuc/tin-khuyen-mai?page=1&years=",
+            'tab03' => "http://www.toyota.com.vn/tin-tuc/tin-su-kien?page=1&years="
+        ];
+        foreach ($listBlogUrl as $key => $url){
+            $response = Curl::to($url)->get();
+            $dom = new \DOMDocument('1.0', 'UTF-8');
+            $internalErrors = libxml_use_internal_errors(true);
+            $dom->loadHTML($response);
+            $finder = new \DOMXPath($dom);
+            $classname="tab-content-tmv";
+            $nodes = $finder->query("//*[contains(@class, '$classname')]");
+            if(count($nodes) > 0){
+                $urlHostToyota = "http://www.toyota.com.vn";
+                $listDivIds = [
+                    'tab02' => 'Tin tức chung',
+                    'tab01' => 'Khuyến mãi',
+                    'tab03'=> 'Sự kiện'
+                ];
+                $listBlogType = [
+                    'tab02' => Constant::$BLOG_TYPE_GENERAL_ID,
+                    'tab01' => Constant::$BLOG_TYPE_PROMOTION_ID,
+                    'tab03'=> Constant::$BLOG_TYPE_EVENT_ID
+                ];
+                $listBlog = [];
+//                foreach ($listDivIds as $keyTag => $value){
+                    $div = $finder->query("//div[@id='$key']");
+                    foreach ($div as $item){
+                        $listLi = $item->getElementsByTagName('li');
+                        foreach ($listLi as $li){
+                            $tagLinka = $li->getElementsByTagName('a');
+                            $tagDivs = $li->getElementsByTagName('div');
+                            if(count($tagLinka) > 0){
+                                $linkImage = $tagLinka[0];
+                                $title = $linkImage->getAttribute('title');
+                                $link = $linkImage->getAttribute('href');
+                                $image = $linkImage->getElementsByTagName('img');
+                                $imageLink = '';
+                                if(count($image)){
+                                    $imageLink = $image[0]->getAttribute('data-original');
+                                }
+                                $blogDescription = "";
+                                foreach ($tagDivs as $tagDiv){
+                                    if($tagDiv->getAttribute('class') == 'item__txt__2'){
+                                        $blogDescription = trim($this->innerHTML($tagDiv));
+                                        break;
+                                    }
+                                }
+                                $blog = new \StdClass();
+                                $blog->title = $title;
+                                $blog->blog_description = $blogDescription;
+                                $blog->link = $urlHostToyota.$link;
+                                $blog->image = $urlHostToyota.$imageLink;
+                                $blog->blog_type = $listBlogType[$key];
+                                $blogDetail = $this->apiGetBlogInfoDetail($blog->link);
+                                if(isset($blogDetail->body)){
+                                    $blog->blog_content = str_replace('src="',"src=\"$urlHostToyota/",$blogDetail->body) ;
+                                }
+                                if(isset($blogDetail->postDate)){
+                                    $blog->post_date = $blogDetail->postDate;
+                                }
+                                if(!is_null($title) && !empty($title)){
+                                    $listBlog[] = $blog;
+                                }
                             }
                         }
                     }
-                }
-            }
+//                }
 
-            foreach ($listBlog as $blogDetail){
-                $this->blogService->createFromApi($blogDetail);
+                foreach ($listBlog as $blogDetail){
+                    $this->blogService->createFromApi($blogDetail);
+                }
             }
         }
     }

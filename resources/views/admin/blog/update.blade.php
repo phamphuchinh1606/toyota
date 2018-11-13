@@ -96,11 +96,9 @@
                                             <input type="file" class="'form-control" id="blog_image" name="blog_image"/>
                                         </div>
                                     </div>
-                                    <div class="card-footer text-right">
-                                        <button class="btn btn-sm btn-primary" type="submit">
-                                            <i class="fa fa-dot-circle-o"></i>Cập Nhật</button>
-                                        <button class="btn btn-sm btn-danger" type="reset">
-                                            <i class="fa fa-ban"></i> Hủy</button>
+                                    <div class="card-footer text-center">
+                                        <button class="btn btn-primary" type="submit">
+                                            <i class="fa fa-dot-circle-o"></i> Cập Nhật</button>
                                     </div>
                                 </div>
                             </form>
@@ -116,7 +114,12 @@
                                         <div class="box-body">
                                             <div class="upload__area-image">
                                                 <span>
-                                                    <img id="imgHandle" src="{{asset(Constant::$PATH_URL_UPLOAD_IMAGE.$blog->blog_image)}}">
+                                                    @if(str_contains($blog->blog_image,\App\Common\Constant::$URL_TOYOTA))
+                                                        <img id="imgHandle" src="{{$blog->blog_image}}">
+                                                    @else
+                                                        <img id="imgHandle" src="{{asset(Constant::$PATH_URL_UPLOAD_IMAGE.$blog->blog_image)}}">
+                                                    @endif
+
                                                     <label for="imgAnchorInput">Upload image</label>
                                                 </span>
                                                 <p><small>(Please upload a file of type: jpeg, png, jpg, gif, svg.)</small></p>
