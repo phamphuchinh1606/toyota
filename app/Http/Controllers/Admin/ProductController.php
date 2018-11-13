@@ -53,19 +53,12 @@ class ProductController extends Controller
         return redirect()->route('admin.product.update',['id' => $productId]);
     }
 
-    private function getInfoProductApi($urlProduct){
-        $finder = CurlCommon::curl_get_page_to_dom_xpath($urlProduct);
-        $nodeTitle = $finder->query("//span[@id='spTitleCar']");
-        if(count($nodeTitle)){
-
-        }
-    }
-
     public function loadAllProduct(){
         $urlProductAll = "http://www.toyota.com.vn/xe-moi";
         $urlHostToyota = "http://www.toyota.com.vn";
         $finder = CurlCommon::curl_get_page_to_dom_xpath($urlProductAll);
         $nodePagings = $finder->query("//ul[@id='PaggingSection']");
+        $listProductInfo = [];
         if(count($nodePagings) > 0){
             $nodePaging = $nodePagings[0];
             $listPages = $nodePaging->getElementsByTagName('li');
@@ -86,23 +79,26 @@ class ProductController extends Controller
                     $nodeUlProduct = $nodeUlProducts[0];
                     $listLiProduct = $nodeUlProduct->getElementsByTagName('li');
                     foreach ($listLiProduct as $liProduct){
-                        $productId = $liProduct->getAttribute('data-id');
-                        $productPrice = $liProduct->getAttribute('value');
+                        $productInfo = new \StdClass();
+                        $productInfo->product_id = $liProduct->getAttribute('data-id');
+                        $productInfo->product_price = $liProduct->getAttribute('value');
                         $nodeImages = $liProduct->getElementsByTagName('img');
                         if(count($nodeImages) > 0){
-                            $imagePath = $urlHostToyota.$nodeImages[0]->getAttribute('src');
+                            $productInfo->product_image = $urlHostToyota.$nodeImages[0]->getAttribute('src');
                         }
                         $nodeLinks = $liProduct->getElementsByTagName('a');
                         if(count($nodeLinks) > 0){
                             $linkProduct = $urlHostToyota.'/'.$nodeLinks[0]->getAttribute('href');
                         }
                         if(isset($linkProduct)){
-
+                            $productInfo = $this->toyotaService->getProductInfo($linkProduct,$productInfo);
+                            $listProductInfo[] = $productInfo;
                         }
                     }
                 }
             }
         }
+        dd($listProductInfo);
     }
 
 }
