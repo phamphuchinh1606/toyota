@@ -182,4 +182,81 @@ class ProductService extends BaseService{
         }
         return $products;
     }
+
+    private function getProductTypeByProductName($productTypes , $productName){
+        foreach ($productTypes as $productType){
+            if(str_contains($productName,$productType->product_type_name)){
+                return $productType->id;
+            }
+        }
+        return null;
+    }
+
+    public function createListProductApi($listProductInfo){
+        $productTypes = $this->productTypeLogic->getAll();
+        foreach ($listProductInfo as $product){
+            $params['productName'] = $product->product_name;
+            $params['productTitle'] = $product->product_title;
+            $params['productTypeId'] = $this->getProductTypeByProductName($productTypes,$product->product_name);
+            $params['productPrice'] = $product->product_price;
+            $params['productCostPrice'] = 0;
+            $params['productComparePrice'] = 0;
+            $params['productSalePercent'] = 0;
+            $params['isPublic'] = Constant::$PUBLIC_FLG_ON;
+            $params['productDescription'] = '';
+            $params['productContent'] = '';
+            $params['productNumberOfSeat'] = $product->product_number_of_seat;
+            $params['productFuel'] = $product->product_fuel;
+            $params['productOrigin'] = $product->product_origin;
+            $params['productDesign'] = $product->product_design;
+            $params['productOtherInformation'] = $product->product_other_information;
+            $params['productImage'] = $product->product_image;
+            $productInsert = $this->productLogic->createProduct($params);
+            if($product != null){
+                //Create Product Color
+                foreach ($product->product_colors as $index => $productColor){
+                    $paramImage = [];
+                    $paramImage['colorName'] = $productColor->color_name;
+                    $paramImage['productId'] = $productInsert->id;
+                    $paramImage['colorSort'] = $index;
+                    $paramImage['colorCode'] = $productColor->color_code;
+                    $paramImage['imageName'] = $productColor->color_image;
+                    $this->productColorLogic->create($paramImage);
+                }
+
+                //Create Product Salient Feature
+                foreach ($product->product_salient_features as $feature){
+                    $paramsFeature['featureTitle'] = $feature->feature_title;
+                    $paramsFeature['featureContent'] = $feature->feature_content;
+                    $paramsFeature['productId'] = $productInsert->id;
+                    $paramsFeature['featureType'] = $feature->feature_type;
+                    $paramsFeature['featureImage'] = $feature->feature_image;
+                    $this->productSalientFeatureLogic->create($paramsFeature);
+                }
+
+                //Create Product Specification
+                $productSpecifications = [];
+                foreach ($product->specification_info as $group){
+                    foreach ($group->types as $type){
+                        foreach ($type->items as $item){
+                            $productSpecifications[] = [
+                                'product_id' => $productInsert->id,
+                                'specification_item_id' => $item->item_id,
+                                'specification_type_id' => $type->type_id,
+                                'specification_group_id' => $group->group_id,
+                                'specification_content' => $item->content
+                            ];
+                        }
+                    }
+                }
+                if(count($productSpecifications) > 0){
+                    $countData = $this->productSpecificationLogic->countSpecificationByProduct($productInsert->id);
+                    if($countData > 0){
+                        $this->productSpecificationLogic->destroyByProduct($productInsert->id);
+                    }
+                    $this->productSpecificationLogic->insert($productSpecifications);
+                }
+            }
+        }
+    }
 }

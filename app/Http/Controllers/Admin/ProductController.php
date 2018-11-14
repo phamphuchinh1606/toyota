@@ -54,6 +54,7 @@ class ProductController extends Controller
     }
 
     public function loadAllProduct(){
+        ini_set('max_execution_time', 300);
         $urlProductAll = "http://www.toyota.com.vn/xe-moi";
         $urlHostToyota = "http://www.toyota.com.vn";
         $finder = CurlCommon::curl_get_page_to_dom_xpath($urlProductAll);
@@ -81,11 +82,12 @@ class ProductController extends Controller
                     foreach ($listLiProduct as $liProduct){
                         $productInfo = new \StdClass();
                         $productInfo->product_id = $liProduct->getAttribute('data-id');
-                        $productInfo->product_price = $liProduct->getAttribute('value');
+                        $productInfo->product_price = explode('.',str_replace(' VND','',$liProduct->getAttribute('value')))[0];
                         $nodeImages = $liProduct->getElementsByTagName('img');
                         if(count($nodeImages) > 0){
                             $productInfo->product_image = $urlHostToyota.$nodeImages[0]->getAttribute('src');
                         }
+                        dd($liProduct->innerHTML);
                         $nodeLinks = $liProduct->getElementsByTagName('a');
                         if(count($nodeLinks) > 0){
                             $linkProduct = $urlHostToyota.'/'.$nodeLinks[0]->getAttribute('href');
@@ -98,6 +100,7 @@ class ProductController extends Controller
                 }
             }
         }
+        $this->productService->createListProductApi($listProductInfo);
         dd($listProductInfo);
     }
 

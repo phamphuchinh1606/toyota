@@ -22,4 +22,11 @@ class ImageCommon{
             unlink($pathFile);
         }
     }
+
+    public static function showImage($image){
+        if(str_contains($image,Constant::$URL_TOYOTA)){
+            return $image;
+        }
+        return asset(Constant::$PATH_URL_UPLOAD_IMAGE.$image);
+    }
 }

@@ -1,3 +1,4 @@
+<?php use App\Common\ImageCommon; ?>
 @extends('admin.layouts.master')
 
 @section('head.title','Danh Sách Sản Phẩm')
@@ -67,7 +68,7 @@
                                                         {{$key + 1}}
                                                     </td>
                                                     <td >
-                                                        <img src="{{asset(\App\Common\Constant::$PATH_URL_UPLOAD_IMAGE.$product->product_image)}}" width="100" height="100"/>
+                                                        <img src="{{ImageCommon::showImage($product->product_image)}}" width="100" height="100"/>
                                                     </td>
                                                     <td class="">
                                                         {{$product->product_name}}

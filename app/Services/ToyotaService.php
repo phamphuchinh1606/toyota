@@ -47,15 +47,15 @@ class ToyotaService extends BaseService{
                 if(str_contains($className,'txt_dt ')){
                     $productInfo->product_title = trim($nodeP->nodeValue);
                 }
-                if(str_contains($className,'price_dt')){
-                    $productInfo->product_price = trim($nodeP->nodeValue);
-                }
+//                if(str_contains($className,'price_dt')){
+//                    $productInfo->product_price = explode('.',str_replace(' VND','',trim($nodeP->nodeValue)))[0];;
+//                }
                 if(str_contains($className,'txt_dt_2')){
                     $nodeSpans = $nodeP->getElementsByTagName('span');
                     foreach ($nodeSpans as $nodeSpan){
                         $valueSpan = $nodeSpan->nodeValue;
                         if(str_contains($valueSpan,'Số chỗ ngồi')){
-                            $productInfo->product_number_ofSeat = trim(explode(':',$valueSpan)[1]);
+                            $productInfo->product_number_of_seat = trim(explode(':',$valueSpan)[1]);
                         }
                         if(str_contains($valueSpan,'Kiểu dáng')){
                             $productInfo->product_design = trim(explode(':',$valueSpan)[1]);
@@ -65,6 +65,9 @@ class ToyotaService extends BaseService{
                         }
                         if(str_contains($valueSpan,'Xuất xứ')){
                             $productInfo->product_origin = trim(explode(':',$valueSpan)[1]);
+                        }
+                        if(str_contains($valueSpan,'Thông tin khác')){
+                            $productInfo->product_other_information = trim(explode(':',$valueSpan)[1]);
                         }
                     }
                 }
@@ -120,9 +123,7 @@ class ToyotaService extends BaseService{
                 }
             }
         }
-
         $nodeTabVHs = $finder->query("//div[@id='popup_pc_safe']");
-        $productFeatures = [];
         if(count($nodeTabVHs) > 0){
             $nodeTag = $nodeTabVHs[0];
             foreach ($nodeTag->getElementsByTagName('div') as $tagDiv){
