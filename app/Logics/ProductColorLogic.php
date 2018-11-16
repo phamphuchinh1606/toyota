@@ -16,6 +16,13 @@ class ProductColorLogic extends BaseLogic{
             ->get();
     }
 
+    public function getByProduct($productId){
+        return ProductColor::whereProductId($productId)
+            ->orderBy('color_sort','asc')
+            ->select()
+            ->get();
+    }
+
     public function findId($colorId){
         return ProductColor::find($colorId);
     }

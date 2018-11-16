@@ -85,9 +85,8 @@ class ProductController extends Controller
                         $productInfo->product_price = explode('.',str_replace(' VND','',$liProduct->getAttribute('value')))[0];
                         $nodeImages = $liProduct->getElementsByTagName('img');
                         if(count($nodeImages) > 0){
-                            $productInfo->product_image = $urlHostToyota.$nodeImages[0]->getAttribute('src');
+                            $productInfo->product_image = $urlHostToyota.$nodeImages[0]->getAttribute('data-original');
                         }
-                        dd($liProduct->innerHTML);
                         $nodeLinks = $liProduct->getElementsByTagName('a');
                         if(count($nodeLinks) > 0){
                             $linkProduct = $urlHostToyota.'/'.$nodeLinks[0]->getAttribute('href');
@@ -101,7 +100,7 @@ class ProductController extends Controller
             }
         }
         $this->productService->createListProductApi($listProductInfo);
-        dd($listProductInfo);
+        return redirect()->route('admin.product.index');
     }
 
 }

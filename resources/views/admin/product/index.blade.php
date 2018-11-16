@@ -1,4 +1,4 @@
-<?php use App\Common\ImageCommon; ?>
+<?php use App\Common\ImageCommon; use App\Common\AppCommon;?>
 @extends('admin.layouts.master')
 
 @section('head.title','Danh Sách Sản Phẩm')
@@ -80,7 +80,7 @@
                                                         {{$product->product_type_name}}
                                                     </td>
                                                     <td class="text-right">
-                                                        {{$product->product_price}}
+                                                        {{AppCommon::formatMoney($product->product_price)}} VNĐ
                                                     </td>
                                                     <td class="">
                                                         <span class="badge {{$product->public_class}}">{{$product->public_name}}</span>

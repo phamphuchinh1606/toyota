@@ -16,4 +16,17 @@ class CurlCommon{
         return $finder;
     }
 
+    public static function innerHTML(\DOMElement $element)
+    {
+        $doc = $element->ownerDocument;
+
+        $html = '';
+
+        foreach ($element->childNodes as $node) {
+            $html .= $doc->saveHTML($node);
+        }
+
+        return $html;
+    }
+
 }

@@ -1,4 +1,4 @@
-<?php use App\Common\Constant; ?>
+<?php use App\Common\Constant; use App\Common\ImageCommon;?>
 @extends('admin.layouts.master')
 @section('head.title','Cập nhật danh mục sản phẩm')
 @section('head.css')
@@ -62,7 +62,7 @@
                                             <div class="col-md-9">
                                                 <div class="upload__area-image">
                                                 <span>
-                                                    <img id="imgAdd" src="{{asset(Constant::$PATH_URL_UPLOAD_IMAGE.$productColor->color_image)}}" style="width: 100%;height: auto">
+                                                    <img id="imgAdd" src="{{ImageCommon::showImage($productColor->color_image)}}" style="width: 100%;height: auto">
                                                     <label for="imageFileAdd">Upload image</label>
                                                 </span>
                                                     <p><small>( width: 600px , height: 249px)</small></p>

@@ -1,4 +1,4 @@
-<?php use App\Common\Constant; ?>
+<?php use App\Common\Constant; use App\Common\ImageCommon;?>
 <div class="card list-image">
     <div class="card-header">
         <i class="fa fa-align-justify"></i> {{$featureTitleGroup}}
@@ -90,7 +90,7 @@
                             <td>{{$index + 1}}</td>
                             <td>{{$feature->feature_title}}</td>
                             <td>
-                                <img src="{{asset(\App\Common\Constant::$PATH_URL_UPLOAD_IMAGE.$feature->feature_image)}}" style="width:100px;height:auto"/>
+                                <img src="{{ImageCommon::showImage($feature->feature_image)}}" style="width:100px;height:auto"/>
                             </td>
                             <td class="">
                                 <a data-toggle="modal" class="btn btn-danger anchorClick"

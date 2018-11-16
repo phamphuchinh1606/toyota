@@ -1,4 +1,4 @@
-<?php use App\Common\Constant; ?>
+<?php use App\Common\Constant; use App\Common\ImageCommon;?>
 
 @extends('admin.layouts.master')
 
@@ -66,7 +66,7 @@
                                                             {{$productColor->color_name}}
                                                         </td>
                                                         <td>
-                                                            <img src="{{asset(Constant::$PATH_URL_UPLOAD_IMAGE.$productColor->color_image)}}" style="width: 100px;height:auto;"/>
+                                                            <img src="{{ImageCommon::showImage($productColor->color_image)}}" style="width: 100px;height:auto;"/>
                                                         </td>
 
                                                         <td class="text-center">

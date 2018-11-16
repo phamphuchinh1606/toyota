@@ -29,6 +29,11 @@ class ProductTypeSeeder extends Seeder
             [
                 'product_type_name' => 'Vios',
                 'parrent_id' => '',
+                'image_icon' => 'product_types/1537764886_sidebarleft_icon2.png'
+            ],
+            [
+                'product_type_name' => 'Corolla Altis',
+                'parrent_id' => '',
                 'image_icon' => 'product_types/1537764895_sidebarleft_icon3.png'
             ],
             [

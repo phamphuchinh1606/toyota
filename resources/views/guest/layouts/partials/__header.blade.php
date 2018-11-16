@@ -6,29 +6,18 @@
             <div class="header-logo">
                 <h1>
                     <a href="/">
-                        Suplo Car | Cửa hàng phụ kiện,đồ chơi, nội thất xe hơi chính hãng<img src="//theme.hstatic.net/1000305059/1000394224/14/logo.png?v=3615" alt="Suplo Car | Cửa hàng phụ kiện,đồ chơi, nội thất xe hơi chính hãng">
+                        {{$appInfo->app_name}}<img src="{{asset($appInfo->app_src_icon)}}" alt="{{$appInfo->app_name}}">
                     </a>
                 </h1>
-
-
-
             </div>
             <div class="header-navbar-wrapper">
                 <div class="header-navbar text-right">
                     <ul class="no-bullets">
-
-
-
                         <li class="active ">
-                            <a href="/" class="text-center">
+                            <a href="{{route('home')}}" class="text-center">
                                 <span>Trang chủ</span>
-
                             </a>
-
                         </li>
-
-
-
                         <li class=" megamenu">
                             <a href="/collections/all" class="text-center menu-collection">
                                 <span>Sản phẩm của chúng tôi</span>
@@ -36,126 +25,6 @@
                             </a>
 
                             @include('guest.layouts.partials.__menu_show_product')
-                            {{--<ul class="no-bullets megamenu-menu clearfix">--}}
-
-                                {{--<li>--}}
-                                    {{--<a href="/collections/all">--}}
-                                        {{--Phụ kiện xe hơi--}}
-
-                                    {{--</a>--}}
-
-                                    {{--<ul class="no-bullets">--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> Lamboghini</a>--}}
-                                        {{--</li>--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> Misubisi</a>--}}
-                                        {{--</li>--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> Mecsedec</a>--}}
-                                        {{--</li>--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> Toyota</a>--}}
-                                        {{--</li>--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> Honda</a>--}}
-                                        {{--</li>--}}
-
-                                    {{--</ul>--}}
-
-                                {{--</li>--}}
-
-                                {{--<li>--}}
-                                    {{--<a href="/collections/all">--}}
-                                        {{--Đồ chơi xe hơi--}}
-
-                                    {{--</a>--}}
-
-                                    {{--<ul class="no-bullets">--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> Toyota</a>--}}
-                                        {{--</li>--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> Mec-se-dec</a>--}}
-                                        {{--</li>--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> Honda</a>--}}
-                                        {{--</li>--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> Misubishi</a>--}}
-                                        {{--</li>--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> Lexus</a>--}}
-                                        {{--</li>--}}
-
-                                    {{--</ul>--}}
-
-                                {{--</li>--}}
-
-                                {{--<li>--}}
-                                    {{--<a href="/collections/all">--}}
-                                        {{--Nội thất xe hơi--}}
-
-                                    {{--</a>--}}
-
-                                    {{--<ul class="no-bullets">--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> Honda</a>--}}
-                                        {{--</li>--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> Yamaha</a>--}}
-                                        {{--</li>--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> Lexus</a>--}}
-                                        {{--</li>--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> Lamboghini</a>--}}
-                                        {{--</li>--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> Mec-xe-dec</a>--}}
-                                        {{--</li>--}}
-
-                                    {{--</ul>--}}
-
-                                {{--</li>--}}
-
-                                {{--<li>--}}
-                                    {{--<a href="/collections/all">--}}
-                                        {{--Các sản phẩm khác--}}
-
-                                    {{--</a>--}}
-
-                                    {{--<ul class="no-bullets">--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> Wave</a>--}}
-                                        {{--</li>--}}
-
-                                        {{--<li>--}}
-                                            {{--<a href="/collections/all"> X- men</a>--}}
-                                        {{--</li>--}}
-
-                                    {{--</ul>--}}
-
-                                {{--</li>--}}
-
-                            {{--</ul>--}}
-
                         </li>
 
 

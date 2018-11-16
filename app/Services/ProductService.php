@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Common\AppCommon;
 use App\Common\Constant;
-use App\Models\Product;
 use Illuminate\Http\Request;
 use Storage;
 
@@ -42,9 +41,9 @@ class ProductService extends BaseService{
         $listTree = [];
         $mapTree = [];
         $productTypeIdOld = -1;
-        $productType = new \StdClass();
         foreach ($listProduct as $product){
             if($productTypeIdOld != $product->product_type_id){
+                $productType = new \StdClass();
                 $productType->product_type_id = $product->product_type_id;
                 $productType->product_type_name = $product->product_type_name;
                 $productType->products = [$product];
@@ -65,7 +64,6 @@ class ProductService extends BaseService{
             }
             $productTypeIdOld = $product->product_type_id;
         }
-
         return $listTree;
     }
 
@@ -147,7 +145,9 @@ class ProductService extends BaseService{
     public function getInfoProduct($productId){
         $product = $this->productLogic->getProductInfo($productId);
         if(isset($product->id)){
-            $product->images = $this->productImageLogic->getListImageByProductId($productId);
+//            $product->images = $this->productImageLogic->getListImageByProductId($productId);
+            $product->colors = $this->productColorLogic->getByProduct($product->id);
+            $product->salient_features = $this->productSalientFeatureLogic->getFeatureByProduct($productId);
         }
         return $product;
     }

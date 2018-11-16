@@ -20,10 +20,27 @@ class ProductLogic extends BaseLogic{
     }
 
     public function getAllProductByTree(){
+        $select = [
+            'product.id',
+            'product.product_name',
+            'product.product_type_id',
+            'product.product_name',
+            'product.product_number_of_seat',
+            'product.product_design',
+            'product.product_fuel',
+            'product.product_origin',
+            'product.product_other_information',
+            'product.product_price',
+            'product.product_image',
+            'product.slug',
+            'type.product_type_name'
+        ];
+
         $listProducts = Db::table(TableNameDB::$TableProduct.' as product')
             ->join(TableNameDB::$TableProductType.' as type', 'product.product_type_id','=','type.id')
             ->where('product.is_delete', Constant::$DELETE_FLG_OFF)
-            ->select('product.id','product.product_name','product.product_type_id', 'type.product_type_name')
+            ->select($select)
+            ->orderBy('product.product_type_id')
             ->get();
         return $listProducts;
     }

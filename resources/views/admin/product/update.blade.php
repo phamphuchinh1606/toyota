@@ -1,4 +1,4 @@
-<?php use App\Common\Constant; ?>
+<?php use App\Common\Constant; use App\Common\ImageCommon;?>
 
 @extends('admin.layouts.master')
 
@@ -210,7 +210,7 @@
                                         <div class="box-body">
                                             <div class="upload__area-image">
                                                 <span>
-                                                    <img id="imgHandle" src="{{asset(Constant::$PATH_URL_UPLOAD_IMAGE.$product->product_image)}}">
+                                                    <img id="imgHandle" src="{{ImageCommon::showImage($product->product_image)}}">
                                                     <label for="imgAnchorInput">Upload image</label>
                                                 </span>
                                                 <p><small>(Please upload a file of type: jpeg, png, jpg, gif, svg.)</small></p>

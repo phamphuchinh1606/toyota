@@ -11,38 +11,7 @@
 @section('body.class_body',"body-other template-product")
 
 @section('body.js')
-    <!-- Owl carousel init -->
-    <script>
-        $(document).ready(function() {
-            $("#owl-related-products-slider").owlCarousel({
-                smartSpeed: 1000,
-                nav: false,
-                dots: false,
-                loop: false,
-                autoplay: false,
-                autoplayHoverPause: true,
-                responsiveRefreshRate : 200,
-                margin: 5,
-                responsive:{
-                    0:{
-                        items:2
-                    },
-                    480:{
-                        items:3
-                    },
-                    768:{
-                        items:3,
-                        margin: 15,
-                    },
-                    1000:{
-                        items:4,
-                        margin: 30,
-                    }
-                }
-            });
-        });
-    </script>
-
+    <script src="{{asset('js/guest/product_detail.js')}}" type='text/javascript'></script>
 @endsection
 
 @section('body.content')
