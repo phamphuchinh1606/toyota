@@ -1,5 +1,6 @@
 $(document).ready(function(){
     changeProductColor();
+    checkResizeMobile();
     <!-- Owl carousel init -->
     $("#owl-related-products-slider").owlCarousel({
         smartSpeed: 1000,
@@ -31,10 +32,27 @@ $(document).ready(function(){
 
 function changeProductColor(){
     $('.chk_color_box .list-color li').on('click',function(){
-        var $spanColor = $(this).find('span');
-        var colorName = $spanColor.attr('data-cl');
-        var colorImage = $spanColor.attr('data-img');
+        let $spanColor = $(this).find('span');
+        let colorName = $spanColor.attr('data-cl');
+        let colorImage = $spanColor.attr('data-img');
         $(this).closest('ul').find('.txt-color').html(colorName);
         $(this).closest('.chk_color_box').find('img.lazy').attr('src',colorImage);
     })
+}
+
+function checkResizeMobile(){
+    $( window ).resize(function() {
+        let isMobile = window.matchMedia("only screen and (max-width: 760px)");
+        if (isMobile.matches) {
+            $('#product-wrapper').find('.inner').addClass('isPhone');
+        }else{
+            $('#product-wrapper').find('.inner').removeClass('isPhone');
+        }
+    });
+    let isMobile = window.matchMedia("only screen and (max-width: 760px)");
+    if (isMobile.matches) {
+        $('#product-wrapper').find('.inner').addClass('isPhone');
+    }else{
+        $('#product-wrapper').find('.inner').removeClass('isPhone');
+    }
 }

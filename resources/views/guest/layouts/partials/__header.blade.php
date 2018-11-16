@@ -26,9 +26,6 @@
 
                             @include('guest.layouts.partials.__menu_show_product')
                         </li>
-
-
-
                         <li class=" ">
                             <a href="/pages/lien-he" class="text-center">
                                 <span>Liên hệ</span>
@@ -36,9 +33,6 @@
                             </a>
 
                         </li>
-
-
-
                         <li class=" dropdown">
                             <a href="/pages/tat-ca-tin-tuc" class="text-center">
                                 <span>Blog</span>

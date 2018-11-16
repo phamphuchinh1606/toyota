@@ -2501,7 +2501,7 @@ html:not(.mb).popup_accessories .txt_accessories .txt1 {
     margin-right: 0px
 }
 
-.isPhone .box_tabs .tabs .tab a {
+.isPhone .box_tabs .tabs .tab button {
     padding-left: 1.3em;
     padding-right: 1.3em;
     font-size: 0.9rem;

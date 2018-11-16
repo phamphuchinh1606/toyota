@@ -2243,7 +2243,7 @@ background-color: $colorPrimary;
 }
 
 .product-item .product-item-info .product-price {
-    padding: 15px 0 0;
+    padding: 0 0 0;
 }
 
 .product-item .product-item-info .product-price > span {
@@ -2364,6 +2364,9 @@ background-color: $colorPrimary;
 
     #home-aboutus .aboutus-content .word2 {
         font-size: 22px !important;
+    }
+    .product-item .product-item-info .product-description{
+        display: none;
     }
 }
 
