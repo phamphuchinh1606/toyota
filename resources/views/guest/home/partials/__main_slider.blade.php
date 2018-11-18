@@ -46,63 +46,34 @@
         })
     </script>
     <div id="owl-main-slider" class="owl-carousel owl-theme owl-loaded">
+        @foreach($banners as $banner)
+            <div class="item">
+                <div class="ms-img">
+                    <a href="{{$banner->link_url}}" target="_blank">
+                        <img src="{{asset(\App\Common\Constant::$PATH_URL_UPLOAD_IMAGE.$banner->src_image)}}"
+                             alt="{{$appInfo->app_name}}"/>
+                    </a>
 
-
-
-                    <div class="item">
-                        <div class="ms-img">
-                            <img src="//theme.hstatic.net/1000305059/1000394224/14/ms_banner_img1.jpg?v=3615"
-                                 alt="Các mẫu xe thể thao">
-                            <div class="ms-desc">
-                                <div class="line-1 wow fadeInLeft animated" data-wow-duration="0.75s"
-                                     data-wow-delay="0.5s"
-                                     style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.5s; animation-name: fadeInLeft;">
-                                    Các mẫu xe thể thao
-                                </div>
-                                <div class="line-2 wow fadeInRight animated" data-wow-duration="0.75s"
-                                     data-wow-delay="0.5s"
-                                     style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.5s; animation-name: fadeInRight;">
-                                    Bằng tất cả tâm huyết, năng lực vượt trội và quy mô không ngừng phát triển, Suplo
-                                    cam kết nỗ lực hết mình nhằm cung cấp sản phẩm và dịch vụ đúng với những giá trị mà
-                                    khách hàng mong đợi.
-                                </div>
-                                <a href="/collections/all" class="wow fadeInUp animated" data-wow-duration="0.5s"
-                                   data-wow-delay="1.5s"
-                                   style="visibility: visible; animation-duration: 0.5s; animation-delay: 1.5s; animation-name: fadeInUp;">Xem
-                                    thêm</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-            <div class="ms-img">
-                <img src="//theme.hstatic.net/1000305059/1000394224/14/ms_banner_img2.jpg?v=3615" alt="Các mẫu xe động cơ khỏe">
-                <div class="ms-desc">
-                    <div class="line-1 wow fadeInLeft animated" data-wow-duration="0.75s" data-wow-delay="0.5s" style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.5s; animation-name: fadeInLeft;">
-                        Các mẫu xe động cơ khỏe
-                    </div>
-                    <div class="line-2 wow fadeInRight animated" data-wow-duration="0.75s" data-wow-delay="0.5s" style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.5s; animation-name: fadeInRight;">
-                        Bằng tất cả tâm huyết, năng lực vượt trội và quy mô không ngừng phát triển, Suplo cam kết nỗ lực hết mình nhằm cung cấp sản phẩm và dịch vụ đúng với những giá trị mà khách hàng mong đợi.
-                    </div>
-                    <a href="/collections/all" class="wow fadeInUp animated" data-wow-duration="0.5s" data-wow-delay="1.5s" style="visibility: visible; animation-duration: 0.5s; animation-delay: 1.5s; animation-name: fadeInUp;">Mua ngay</a>
+                    {{--<div class="ms-desc">--}}
+                        {{--<div class="line-1 wow fadeInLeft animated" data-wow-duration="0.75s"--}}
+                             {{--data-wow-delay="0.5s"--}}
+                             {{--style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.5s; animation-name: fadeInLeft;">--}}
+                            {{--Các mẫu xe thể thao--}}
+                        {{--</div>--}}
+                        {{--<div class="line-2 wow fadeInRight animated" data-wow-duration="0.75s"--}}
+                             {{--data-wow-delay="0.5s"--}}
+                             {{--style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.5s; animation-name: fadeInRight;">--}}
+                            {{--Bằng tất cả tâm huyết, năng lực vượt trội và quy mô không ngừng phát triển, Suplo--}}
+                            {{--cam kết nỗ lực hết mình nhằm cung cấp sản phẩm và dịch vụ đúng với những giá trị mà--}}
+                            {{--khách hàng mong đợi.--}}
+                        {{--</div>--}}
+                        {{--<a href="/collections/all" class="wow fadeInUp animated" data-wow-duration="0.5s"--}}
+                           {{--data-wow-delay="1.5s"--}}
+                           {{--style="visibility: visible; animation-duration: 0.5s; animation-delay: 1.5s; animation-name: fadeInUp;">Xem--}}
+                            {{--thêm</a>--}}
+                    {{--</div>--}}
                 </div>
             </div>
-        </div>
-
-                    <div class="item">
-                        <div class="ms-img">
-                            <img src="//theme.hstatic.net/1000305059/1000394224/14/ms_banner_img3.jpg?v=3615" alt="Các mẫu xe quý tộc">
-                            <div class="ms-desc">
-                                <div class="line-1 wow fadeInLeft animated" data-wow-duration="0.75s" data-wow-delay="0.5s" style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.5s; animation-name: fadeInLeft;">
-                                    Các mẫu xe quý tộc
-                                </div>
-                                <div class="line-2 wow fadeInRight animated" data-wow-duration="0.75s" data-wow-delay="0.5s" style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.5s; animation-name: fadeInRight;">
-                                    Bằng tất cả tâm huyết, năng lực vượt trội và quy mô không ngừng phát triển, Suplo cam kết nỗ lực hết mình nhằm cung cấp sản phẩm và dịch vụ đúng với những giá trị mà khách hàng mong đợi.
-                                </div>
-                                <a href="/collections/all" class="wow fadeInUp animated" data-wow-duration="0.5s" data-wow-delay="1.5s" style="visibility: visible; animation-duration: 0.5s; animation-delay: 1.5s; animation-name: fadeInUp;">Bộ sưu tập</a>
-                            </div>
-                        </div>
-                    </div>
-
+        @endforeach
     </div>
 </div>

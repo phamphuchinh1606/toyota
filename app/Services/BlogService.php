@@ -13,16 +13,23 @@ class BlogService extends BaseService{
             $blog->public_name = AppCommon::namePublicProductType($blog->is_public);
             $blog->public_class = AppCommon::classPublicProductType($blog->is_public);
             $blog->str_post_date = AppCommon::dateFormat($blog->post_date,'d/m/Y');
+            $blog->str_day_post_date = AppCommon::dateFormat($blog->post_date,'d');
+            $blog->str_month_post_date = AppCommon::dateFormat($blog->post_date,'m');
+            $blog->str_year_post_date = AppCommon::dateFormat($blog->post_date,'Y');
+            $blog->dot_blog_title = AppCommon::showTextDot($blog->blog_title,70);
             $blog->dot_blog_description = AppCommon::showTextDot($blog->blog_description,140);
             $blog->blog_type_name = AppCommon::nameBlogType($blog->blog_type);
         }
         return $blogs;
     }
 
-    public function getBlogNews($limit = 6){
-        $blogs = $this->blogLogic->getBlogNews($limit);
+    public function getBlogNews($limit = 6, $blogType = null){
+        $blogs = $this->blogLogic->getBlogNews($limit,$blogType);
         foreach ($blogs as $blog){
             $blog->str_post_date = AppCommon::dateFormat($blog->post_date,'d/m/Y');
+            $blog->str_day_post_date = AppCommon::dateFormat($blog->post_date,'d');
+            $blog->str_month_post_date = AppCommon::dateFormat($blog->post_date,'m');
+            $blog->str_year_post_date = AppCommon::dateFormat($blog->post_date,'Y');
             $blog->dot_blog_title = AppCommon::showTextDot($blog->blog_title,30);
             $blog->dot_blog_description = AppCommon::showTextDot($blog->blog_description,140);
         }

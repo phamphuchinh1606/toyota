@@ -42,8 +42,11 @@
                                                     <th class="sorting_asc">
                                                         Số Thứ Tự
                                                     </th>
-                                                    <th class="sorting">
-                                                        Icon Danh Mục
+                                                    {{--<th class="sorting">--}}
+                                                        {{--Icon Danh Mục--}}
+                                                    {{--</th>--}}
+                                                    <th>
+                                                        Loại Thương Hiệu
                                                     </th>
                                                     <th class="sorting">
                                                         Tên Danh Mục
@@ -61,8 +64,11 @@
                                                             {{$index + 1}}
                                                         </td>
                                                         <td>
-                                                            <img src="{{asset(Constant::$PATH_URL_UPLOAD_IMAGE.$productType->image_icon)}}" width="20" height="20"/>
+                                                            {{$productType->vendor_name}}
                                                         </td>
+                                                        {{--<td>--}}
+                                                            {{--<img src="{{asset(Constant::$PATH_URL_UPLOAD_IMAGE.$productType->image_icon)}}" width="20" height="20"/>--}}
+                                                        {{--</td>--}}
                                                         <td>
                                                             {{$productType->product_type_name}}
                                                         </td>

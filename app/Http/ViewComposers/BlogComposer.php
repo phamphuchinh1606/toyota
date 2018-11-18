@@ -35,7 +35,8 @@ class BlogComposer
      */
     public function compose(View $view)
     {
-        $blogNews = $this->blogService->getBlogNews(5);
-        $view->with('blogNews', $blogNews);
+        $blogNews = $this->blogService->getBlogNews(6,Constant::$BLOG_TYPE_GENERAL_ID);
+        $blogPromotionNews = $this->blogService->getBlogNews(6, Constant::$BLOG_TYPE_PROMOTION_ID);
+        $view->with('blogNews', $blogNews)->with('blogPromotionNews',$blogPromotionNews);
     }
 }

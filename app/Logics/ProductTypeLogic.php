@@ -4,6 +4,7 @@ namespace App\Logics;
 
 use App\Common\Constant;
 use App\Models\ProductType;
+use App\Models\TableNameDB;
 use Slug;
 
 class ProductTypeLogic extends BaseLogic{
@@ -13,8 +14,13 @@ class ProductTypeLogic extends BaseLogic{
     }
 
     public function getAllNotParent(){
-        return ProductType::where('is_delete',Constant::$DELETE_FLG_OFF)
-                ->whereNull('parent_id')->get();
+        $vendorTable = TableNameDB::$TableVendor;
+        $productTypeTable = TableNameDB::$TableProductType;
+        return ProductType::leftjoin($vendorTable,"$vendorTable.id","$productTypeTable.vendor_id")
+                ->where("$productTypeTable.is_delete",Constant::$DELETE_FLG_OFF)
+                ->whereNull("$productTypeTable.parent_id")
+                ->select("$productTypeTable.*","$vendorTable.vendor_name")
+                ->get();
     }
 
     public function getByParentId($productTypeId){
@@ -22,9 +28,10 @@ class ProductTypeLogic extends BaseLogic{
             ->where('parent_id',$productTypeId)->get();
     }
 
-    public function create($productTypeName, $isPublic, $imageIcon = null){
+    public function create($productTypeName, $isPublic, $vendorId, $imageIcon = nul){
         $productType = new ProductType();
         $productType->product_type_name = $productTypeName;
+        $productType->vendor_id = $vendorId;
         $productType->is_public = $isPublic;
         if($imageIcon != null){
             $productType->image_icon = $imageIcon;
@@ -46,10 +53,11 @@ class ProductTypeLogic extends BaseLogic{
         return $productType->save();
     }
 
-    public function update($productTypeId, $productTypeName, $isPublic, $imageIcon = null){
+    public function update($productTypeId, $productTypeName, $isPublic, $vendorId, $imageIcon = null){
         $productType = ProductType::find($productTypeId);;
         if(isset($productType)){
             $productType->product_type_name = $productTypeName;
+            $productType->vendor_id = $vendorId;
             $productType->is_public = $isPublic;
             if($imageIcon != null){
                 $productType->image_icon = $imageIcon;

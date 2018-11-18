@@ -96,7 +96,7 @@
         $('.tabsmenu .tab a').hover(function(){
             $('.tabsmenu .tab a').removeClass('active');
             $(this).addClass('active');
-            $contentId = $(this).attr("href");
+            $contentId = $(this).attr("data-tab");
             $('.menuHeaderContent').css('display','none');
             $($contentId).css('display','block');
 
@@ -113,7 +113,12 @@
             <ul class="tabs" style="width: 100%;">
                 @foreach($productTrees as $index => $tree)
                     <li class="tab" onclick="window.location = 'yaris-g-cvt';">
-                        <a href="#tab_li_{{$tree->product_type_id}}" class="@if($index==0) first @endif">{{$tree->product_type_name}}</a>
+                        <?php
+                            $urlCollection = "#tab_li_$tree->product_type_id";
+                            if(count($tree->products) > 0)
+                                $urlCollection = route('product_detail',['slug' => $tree->products[0]->slug, 'id' => $tree->products[0]->id ]);
+                        ?>
+                        <a href="{{$urlCollection}}" data-tab="#tab_li_{{$tree->product_type_id}}" class="@if($index==0) first @endif">{{$tree->product_type_name}}</a>
                     </li>
                 @endforeach
                 <div class="indicator" style="right: 92.8571px; left: 0px;"></div>

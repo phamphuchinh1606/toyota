@@ -19,7 +19,9 @@ class SettingService extends BaseService{
         $fileImage = $request->file('src_image');
         if(isset($fileImage)){
             $srcImage = AppCommon::moveImage($fileImage, Constant::$PATH_FOLDER_UPLOAD_IMAGE_BANNER);
-            return $this->settingLogic->createBanner($srcImage);
+            $linkUrl = $request->link_url;
+            $sortNum = $request->sort_num;
+            return $this->settingLogic->createBanner($srcImage,$linkUrl,$sortNum);
         }
         return null;
     }
@@ -59,12 +61,13 @@ class SettingService extends BaseService{
     public function createTag(Request $request){
         $tagName = $request->tag_name;
         $productTypeId = $request->product_type_id;
+        $linkUrl = $request->link_url;
         $sortNumber = $request->sort_number;
         if(isset($sortNumber)){
             $sortNumber = 1;
         }
         $tabTypeId = $request->tab_type;
-        $this->settingLogic->createTag($tabTypeId,$productTypeId,$tagName,$sortNumber);
+        $this->settingLogic->createTag($tabTypeId,$productTypeId,$tagName,$sortNumber,$linkUrl);
         return null;
     }
 

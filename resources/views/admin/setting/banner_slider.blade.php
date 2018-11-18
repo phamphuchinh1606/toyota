@@ -46,6 +46,18 @@
                                                     };
                                                 </script>
                                             </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label" for="text-input">Link url</label>
+                                                <div class="col-md-9">
+                                                    <input class="form-control" id="text-input" type="text" name="link_url" placeholder="Link url" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label" for="text-input">Thứ tự</label>
+                                                <div class="col-md-9">
+                                                    <input value="1" class="form-control" id="text-input" type="number" min="1" name="sort_num" placeholder="Thứ tự" required>
+                                                </div>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -81,7 +93,9 @@
                                     <div class="carousel-inner">
                                         @foreach($banners as $index => $banner)
                                             <div class="carousel-item @if($index == 0) active @endif">
-                                                <img class="d-block w-100" alt="Image Banner" src="{{asset(Constant::$PATH_URL_UPLOAD_IMAGE.$banner->src_image)}}" data-holder-rendered="true">
+                                                <a href="{{$banner->link_url}}" target="_blank">
+                                                    <img class="d-block w-100" alt="Image Banner" src="{{asset(Constant::$PATH_URL_UPLOAD_IMAGE.$banner->src_image)}}" data-holder-rendered="true">
+                                                </a>
                                             </div>
                                         @endforeach
                                     </div>

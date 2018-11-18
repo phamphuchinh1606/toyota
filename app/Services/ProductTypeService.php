@@ -10,13 +10,14 @@ class ProductTypeService extends BaseService{
 
     public function create(Request $request){
         $productTypeName = $request->product_type_name;
+        $vendorId = $request->vendor_id;
         $isPublic = AppCommon::getIsPublic($request->is_public);
         $imageIcon = $request->image_icon;
         $imageName = null;
         if(isset($imageIcon)){
             $imageName = AppCommon::moveImage($imageIcon,Constant::$PATH_FOLDER_UPLOAD_PRODUCT_TYPE);
         }
-        return $this->productTypeLogic->create($productTypeName, $isPublic, $imageName);
+        return $this->productTypeLogic->create($productTypeName, $isPublic, $vendorId, $imageName);
     }
 
     public function createChildren($productTypeId,$productTypeName, $isPublic){
@@ -25,6 +26,7 @@ class ProductTypeService extends BaseService{
 
     public function update($productTypeId,Request $request){
         $productTypeName = $request->product_type_name;
+        $vendorId = $request->vendor_id;
         $isPublic = AppCommon::getIsPublic($request->is_public);
         $imageIcon = $request->image_icon;
         $imageName = null;
@@ -35,7 +37,7 @@ class ProductTypeService extends BaseService{
             }
             $imageName = AppCommon::moveImage($imageIcon,Constant::$PATH_FOLDER_UPLOAD_PRODUCT_TYPE);
         }
-        $this->productTypeLogic->update($productTypeId,$productTypeName, $isPublic, $imageName);
+        $this->productTypeLogic->update($productTypeId,$productTypeName, $isPublic, $vendorId, $imageName);
     }
 
     public function findId($productTypeId){

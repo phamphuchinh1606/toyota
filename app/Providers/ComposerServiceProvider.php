@@ -18,15 +18,15 @@ class ComposerServiceProvider extends ServiceProvider
             ['admin.common.__select_product_type', 'admin.common.__select_vendor',
                 'guest.home.partials.__menu_sidebar','guest.common.__right_linklist_menu',
                 'guest.layouts.master', 'guest.common.__search_product',
-                'both.common.__select_product'],
+                'both.common.__select_product','guest.collection.partials.__search_product'],
             'App\Http\ViewComposers\ProductComposer'
         );
         //Build data tag
-        View::composer(['guest.common.__tag_key_one','guest.common.__tag_key_two'],
+        View::composer(['guest.common.__tag_key_one','guest.common.__tag_key_two','guest.blog.blog_detail'],
             'App\Http\ViewComposers\TagComposer');
 
         //Build data blog
-        View::composer(['guest.blog.__blog_new','guest.home.partials.__blog_new'],
+        View::composer(['guest.blog.__blog_new','guest.home.partials.__blog_new','guest.home.partials.__promotion_product'],
             'App\Http\ViewComposers\BlogComposer');
 
         //Build data app info

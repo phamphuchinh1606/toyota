@@ -1,5 +1,4 @@
-<link rel="stylesheet prefetch" href="{{asset('css/guest/toyota/css.css')}}">
-{{--<link rel="stylesheet prefetch" href="{{asset('css/guest/toyota/main.css')}}">--}}
+
 <header id="header">
     <div class="header-desktop">
         <div class="inner">
@@ -15,122 +14,39 @@
                     <ul class="no-bullets">
                         <li class="active ">
                             <a href="{{route('home')}}" class="text-center">
-                                <span>Trang chủ</span>
+                                <span>Trang Chủ</span>
                             </a>
                         </li>
                         <li class=" megamenu">
-                            <a href="/collections/all" class="text-center menu-collection">
-                                <span>Sản phẩm của chúng tôi</span>
+                            <a href="{{route('collection_all')}}" class="text-center menu-collection">
+                                <span>Sản Phẩm</span>
                                 <svg class="svg-inline--fa fa-caret-down fa-w-10" aria-hidden="true" data-prefix="fas" data-icon="caret-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg><!-- <i class="fas fa-caret-down"></i> -->
                             </a>
-
                             @include('guest.layouts.partials.__menu_show_product')
                         </li>
+                        <li class="">
+                            <a href="{{route('blog')}}" class="text-center">
+                                <span>Tin Tức</span>
+                            </a>
+                        </li>
                         <li class=" ">
-                            <a href="/pages/lien-he" class="text-center">
+                            <a href="{{route('contact')}}" class="text-center">
                                 <span>Liên hệ</span>
-
                             </a>
-
                         </li>
-                        <li class=" dropdown">
-                            <a href="/pages/tat-ca-tin-tuc" class="text-center">
-                                <span>Blog</span>
-                                <svg class="svg-inline--fa fa-caret-down fa-w-10" aria-hidden="true" data-prefix="fas" data-icon="caret-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg><!-- <i class="fas fa-caret-down"></i> -->
-                            </a>
-
-                            <ul class="no-bullets dropdown-menu">
-
-                                <li>
-                                    <a href="/blogs/news">
-                                        Công nghệ ô tô
-                                        <svg class="svg-inline--fa fa-caret-right fa-w-6" aria-hidden="true" data-prefix="fas" data-icon="caret-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" data-fa-i2svg=""><path fill="currentColor" d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></svg><!-- <i class="fas fa-caret-right"></i> -->
-                                    </a>
-
-                                    <ul class="no-bullets">
-
-                                        <li>
-                                            <a href="/blogs/news"> Thế giới siêu xe</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="/blogs/news"> Độ xe</a>
-                                        </li>
-
-                                    </ul>
-
-                                </li>
-
-                                <li>
-                                    <a href="/blogs/tin-sieu-xe">
-                                        Siêu xe
-
-                                    </a>
-
-                                </li>
-
-                                <li>
-                                    <a href="/blogs/hoi-choi-xe">
-                                        Hội chơi xe
-                                        <svg class="svg-inline--fa fa-caret-right fa-w-6" aria-hidden="true" data-prefix="fas" data-icon="caret-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" data-fa-i2svg=""><path fill="currentColor" d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></svg><!-- <i class="fas fa-caret-right"></i> -->
-                                    </a>
-
-                                    <ul class="no-bullets">
-
-                                        <li>
-                                            <a href="/blogs/hoi-choi-xe"> Hội chơi xe Hà Nội</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="/blogs/hoi-choi-xe"> Hội chơi xe Sài Gòn</a>
-                                        </li>
-
-                                    </ul>
-
-                                </li>
-
-                                <li>
-                                    <a href="/blogs/huong-dan-bao-quan-xe">
-                                        Bảo quản ô tô
-
-                                    </a>
-
-                                </li>
-
-                            </ul>
-
-                        </li>
-
-
 
                         <li class=" ">
                             <a href="/pages/about-us" class="text-center">
                                 <span>Dự toán chi phí</span>
 
                             </a>
-
                         </li>
-
-
-
                         <li class=" ">
                             <a href="#" class="text-center">
                                 <span>Đăng lý lái thử</span>
-
                             </a>
 
                         </li>
-
-
-
-                        <li class=" ">
-                            <a href="#" class="text-center">
-                                <span>Hệ thống cửa hàng</span>
-
-                            </a>
-
-                        </li>
-
                     </ul>
                 </div>
             </div>
@@ -621,8 +537,6 @@
                                             </div>
                                         </div>
                                     </li>
-
-
                                 </ul>
 
                                 <div class="qv-cart-total">

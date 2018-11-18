@@ -19,6 +19,7 @@ class ProductTypeSeeder extends Seeder
             [
                 'product_type_name' => 'Yaris',
                 'parrent_id' => '',
+                'vendor_id' => '1',
                 'image_icon' => 'product_types/1537764639_sidebarleft_icon1.png'
             ],
             [
@@ -29,61 +30,73 @@ class ProductTypeSeeder extends Seeder
             [
                 'product_type_name' => 'Vios',
                 'parrent_id' => '',
+                'vendor_id' => '2',
                 'image_icon' => 'product_types/1537764886_sidebarleft_icon2.png'
             ],
             [
                 'product_type_name' => 'Corolla Altis',
                 'parrent_id' => '',
+                'vendor_id' => '2',
                 'image_icon' => 'product_types/1537764895_sidebarleft_icon3.png'
             ],
             [
                 'product_type_name' => 'Camry',
                 'parrent_id' => '',
+                'vendor_id' => '2',
                 'image_icon' => 'product_types/1537764902_sidebarleft_icon4.png'
             ],
             [
                 'product_type_name' => 'Fortuner',
                 'parrent_id' => '',
+                'vendor_id' => '3',
                 'image_icon' => 'product_types/1537764915_sidebarleft_icon5.png'
             ],
             [
                 'product_type_name' => 'Land Cruiser Prado',
                 'parrent_id' => '',
+                'vendor_id' => '3',
                 'image_icon' => 'product_types/1537764928_sidebarleft_icon6.png'
             ],
             [
                 'product_type_name' => 'Land Cruiser',
                 'parrent_id' => '',
+                'vendor_id' => '3',
                 'image_icon' => 'product_types/1537764936_sidebarleft_icon7.png'
             ],
             [
                 'product_type_name' => 'Alphard luxury',
                 'parrent_id' => '',
+                'vendor_id' => '4',
                 'image_icon' => 'product_types/1537764947_sidebarleft_icon9.png'
             ],
             [
                 'product_type_name' => 'Rush',
                 'parrent_id' => '',
+                'vendor_id' => '3',
                 'image_icon' => 'product_types/1537764955_sidebarleft_icon8.png'
             ],
             [
                 'product_type_name' => 'Innova',
                 'parrent_id' => '',
+                'vendor_id' => '4',
                 'image_icon' => 'product_types/1537764962_sidebarleft_icon10.png'
             ],
             [
                 'product_type_name' => 'Avanza',
                 'parrent_id' => '',
+                'vendor_id' => '4',
                 'image_icon' => 'product_types/1537764962_sidebarleft_icon10.png'
             ],
             [
                 'product_type_name' => 'Hiace',
                 'parrent_id' => '',
+                'vendor_id' => '5',
                 'image_icon' => 'product_types/1537764962_sidebarleft_icon10.png'
             ],
             [
                 'product_type_name' => 'Hilux',
                 'parrent_id' => '',
+                'vendor_id' => '6',
                 'image_icon' => 'product_types/1537764962_sidebarleft_icon10.png'
             ]
         ];

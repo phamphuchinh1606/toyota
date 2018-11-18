@@ -11,12 +11,16 @@ use App\Models\TableNameDB;
 
 class SettingLogic extends BaseLogic{
     public function getBannerAll(){
-        return SettingBanner::all();
+        return SettingBanner::orderBy('sort_num','asc')->get();
     }
 
-    public function createBanner($srcImage){
+    public function createBanner($srcImage, $linkUrl, $sortNum){
         $banner = new SettingBanner();
         $banner->src_image = $srcImage;
+        $banner->link_url = $linkUrl;
+        if(isset($sortNum)){
+            $banner->sort_num = $sortNum;
+        }
         $banner->save();
         return $banner;
     }
@@ -53,12 +57,13 @@ class SettingLogic extends BaseLogic{
             ->select('setting_tags.*','productType.product_type_name', 'productType.slug')->get();
     }
 
-    public function createTag($tagType = 1, $productTypeId, $tagName, $sortNumber){
+    public function createTag($tagType = 1, $productTypeId, $tagName, $sortNumber, $linkUrl){
         $tag = new SettingTag();
         $tag->product_type_id = $productTypeId;
         $tag->tag_type = $tagType;
         $tag->tag_name = $tagName;
         $tag->sort_number = $sortNumber;
+        $tag->link_url = $linkUrl;
         $tag->save();
         return $tag;
     }

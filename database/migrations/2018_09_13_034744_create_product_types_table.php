@@ -16,6 +16,7 @@ class CreateProductTypesTable extends Migration
         Schema::create('product_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('product_type_name',255)->nullable(true);
+            $table->integer('vendor_id')->nullable(true);
             $table->integer('parent_id')->nullable(true);
             $table->string('image_icon',255)->nullable(true);
             $table->string('slug',255)->nullable(true);

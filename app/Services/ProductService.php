@@ -36,6 +36,24 @@ class ProductService extends BaseService{
         return $listProduct;
     }
 
+    public function getProductByVendor(){
+        $listProduct = $this->productLogic->getProductByVendor();
+        $productApp = new \StdClass();
+        $arrayVendors = ['Hatchback','Sedan','SUV','Đa dụng','Thương mại','Bán tải'];
+        $mapVendorProduct = [];
+        foreach($arrayVendors as $vendor){
+            $mapVendorProduct[$vendor] = [];
+        }
+        $productApp->product_all = $listProduct;
+        foreach ($listProduct as $product){
+            if(isset($mapVendorProduct[$product->product_design])){
+                $mapVendorProduct[$product->product_design][] = $product;
+            }
+        }
+        $productApp->product_vendors = $mapVendorProduct;
+        return $productApp;
+    }
+
     public function getAllByTree(){
         $listProduct = $this->productLogic->getAllProductByTree();
         $listTree = [];

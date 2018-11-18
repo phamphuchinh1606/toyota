@@ -29,10 +29,11 @@
                             @include('guest.product.partials.__product_specification')
                         </div>
                     </div>
-
-                    <div itemscope="" itemtype="http://schema.org/Product">
-                        @include('guest.product.partials.__product_type_same')
-                    </div>
+                    @if(count($productSameTypes) > 0)
+                        <div itemscope="" itemtype="http://schema.org/Product">
+                            @include('guest.product.partials.__product_type_same')
+                        </div>
+                    @endif
                 </div>
             </div>
         </section>

@@ -68,25 +68,63 @@ class ProductLogic extends BaseLogic{
                 $query->where(function($query) use ($productPrices) {
                     foreach ($productPrices as $productPrice){
                         switch ($productPrice){
-                            case 'less_100000':
-                                $query->orWhere('product.product_price','<',100000);
+                            case 'less_500t':
+                                $query->orWhere('product.product_price','<',500000000);
                                 break;
-                            case '100000_300000':
-                                $query->orWhereBetween('product.product_price',array(100000, 300000));
+                            case '500t_1ti':
+                                $query->orWhereBetween('product.product_price',array(500000000, 1000000000));
                                 break;
-                            case '300000_500000':
-                                $query->orWhereBetween('product.product_price',array(300000, 500000));
+                            case '1ti_2ti':
+                                $query->orWhereBetween('product.product_price',array(1000000000, 2000000000));
                                 break;
-                            case '500000_1000000':
-                                $query->orWhereBetween('product.product_price',array(500000, 1000000));
+                            case '2ti_3ti':
+                                $query->orWhereBetween('product.product_price',array(2000000000, 3000000000));
                                 break;
-                            case 'bigger_1000000':
-                                $query->orWhere('product.product_price','>',1000000);
+                            case '3ti_4ti':
+                                $query->orWhereBetween('product.product_price',array(3000000000, 4000000000));
+                                break;
+                            case 'bigger_4ti':
+                                $query->orWhere('product.product_price','>',4000000000);
                                 break;
                         }
                     }
                 });
-
+            }
+            if(isset($searchInfo->product_fuel) && $searchInfo->product_fuel != ''){
+                $productFuels = explode($delimiter,$searchInfo->product_fuel);
+                $query->where(function($query) use ($productFuels) {
+                    foreach ($productFuels as $productFuel){
+                        switch ($productFuel){
+                            case 'dau':
+                                $query->orWhere('product.product_fuel','like','%Dầu%');
+                                break;
+                            case 'xang':
+                                $query->orWhere('product.product_fuel','like','%Xăng%');
+                                break;
+                        }
+                    }
+                });
+            }
+            if(isset($searchInfo->product_number_of_seat) && $searchInfo->product_number_of_seat != ''){
+                $productNumberOfSeat = explode($delimiter,$searchInfo->product_number_of_seat);
+                $query->where(function($query) use ($productNumberOfSeat) {
+                    foreach ($productNumberOfSeat as $productNumberOfSeat){
+                        switch ($productNumberOfSeat){
+                            case '5cho':
+                                $query->orWhere('product.product_number_of_seat','like','5 chỗ%');
+                                break;
+                            case '7cho':
+                                $query->orWhere('product.product_number_of_seat','like','%7 chỗ%');
+                                break;
+                            case '8cho':
+                                $query->orWhere('product.product_number_of_seat','like','%8 chỗ%');
+                                break;
+                            case '15cho':
+                                $query->orWhere('product.product_number_of_seat','like','%15 chỗ%');
+                                break;
+                        }
+                    }
+                });
             }
         }
         if($sortBy != null){
@@ -120,8 +158,7 @@ class ProductLogic extends BaseLogic{
             $query->orderBy('created_at','desc');
         }
         $listProducts = $query->select('product.*', 'type.product_type_name')
-//        dd($query->toSql());
-            ->paginate(20);
+            ->paginate(18);
         return $listProducts;
     }
 
@@ -143,6 +180,28 @@ class ProductLogic extends BaseLogic{
             ->orderBy('created_at', 'desc')
             ->select('product.*', 'type.product_type_name')
             ->limit($limit)->get();
+        return $listProducts;
+    }
+
+    public function getProductByVendor(){
+        $productTable = TableNameDB::$TableProduct;
+        $productSubTable = "productSub";
+        $productSub = Db::table($productTable)
+                        ->where("$productTable.is_delete", Constant::$DELETE_FLG_OFF)
+                        ->where("$productTable.is_public",Constant::$PUBLIC_FLG_ON)
+                        ->groupBy("$productTable.product_design")
+                        ->groupBy("$productTable.product_type_id")
+                        ->orderBy("$productTable.created_at", 'asc')
+                        ->selectRaw("MIN($productTable.id) as id");
+        $listProducts = Db::table($productTable)
+            ->joinSub($productSub,$productSubTable,function($join) use ($productSubTable,$productTable){
+                $join->on("$productSubTable.id", '=', "$productTable.id");})
+            ->where("$productTable.is_delete", Constant::$DELETE_FLG_OFF)
+            ->where("$productTable.is_public",Constant::$PUBLIC_FLG_ON)
+            ->orderBy("$productTable.product_type_id",'asc')
+            ->orderBy("$productTable.created_at", 'desc')
+            ->select("$productTable.*")
+            ->get();
         return $listProducts;
     }
 

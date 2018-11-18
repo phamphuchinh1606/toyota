@@ -16,6 +16,8 @@ class CreateSettingBannersTable extends Migration
         Schema::create('setting_banners', function (Blueprint $table) {
             $table->increments('id');
             $table->string('src_image')->nullable(true);
+            $table->string('link_url')->nullable(true);
+            $table->string('sort_num')->nullable(true)->default(1);
             $table->timestamps();
         });
     }

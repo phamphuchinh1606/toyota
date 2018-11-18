@@ -152,7 +152,7 @@ Popup confirm
 /*list image*/
 .list-image img{
     width: 100%;
-    height: 200px;
+    height: auto;
 }
 .list-image .delete-image{
     text-align: center;

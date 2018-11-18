@@ -11,10 +11,6 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
 
-
-
-
-
     <!-- Trigger/Open The Modal -->
     <button id="popup-btn"></button>
 
@@ -6753,11 +6749,4 @@
             var img_ = $('#variant-swatch-0-quickview .swatch-element[data-value = "'+_avi_op1+'"] input').data('img-src');
         }
     </script>
-
-
-
-
-
-
-
 @endsection

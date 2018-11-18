@@ -18,6 +18,7 @@ class CreateSettingTagsTable extends Migration
             $table->integer('tag_type')->default(1)->nullable(true);
             $table->string('tag_name')->nullable(true);
             $table->integer('product_type_id')->nullable(true);
+            $table->string('link_url')->nullable(true);
             $table->integer('sort_number')->nullable(true);
             $table->timestamps();
         });

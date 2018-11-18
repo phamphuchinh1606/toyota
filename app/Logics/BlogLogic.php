@@ -11,6 +11,9 @@ class BlogLogic extends BaseLogic{
         if(isset($params['isPublic'])){
             $query->where('is_public', $params['isPublic']);
         }
+        if(isset($params['blogType']) && $params['blogType'] != null){
+            $query->where('blog_type', $params['blogType']);
+        }
         $limit = 20;
         if(isset($params['limit'])){
             $limit = $params['limit'];
@@ -19,10 +22,13 @@ class BlogLogic extends BaseLogic{
         return $blogs;
     }
 
-    public function getBlogNews($limit){
-        return Blog::where('is_delete',Constant::$DELETE_FLG_OFF)
-            ->where('is_public',Constant::$PUBLIC_FLG_ON)
-            ->orderBy('post_date','desc')->limit($limit)->get();
+    public function getBlogNews($limit, $blogType = null){
+        $query = Blog::where('is_delete',Constant::$DELETE_FLG_OFF)
+            ->where('is_public',Constant::$PUBLIC_FLG_ON);
+        if($blogType != null){
+            $query->where('blog_type',$blogType);
+        }
+        return $query->orderBy('post_date','desc')->limit($limit)->get();
     }
 
     public function create($params = []){

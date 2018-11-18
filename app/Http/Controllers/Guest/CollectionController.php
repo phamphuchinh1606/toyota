@@ -40,6 +40,14 @@ class CollectionController extends Controller
         if(isset($request->product_price)){
             $searchInfo->product_price = $request->product_price;
         }
+        $searchInfo->product_fuel = "";
+        if(isset($request->product_fuel)){
+            $searchInfo->product_fuel = $request->product_fuel;
+        }
+        $searchInfo->product_number_of_seat = "";
+        if(isset($request->product_number_of_seat)){
+            $searchInfo->product_number_of_seat = $request->product_number_of_seat;
+        }
         return $searchInfo;
     }
 

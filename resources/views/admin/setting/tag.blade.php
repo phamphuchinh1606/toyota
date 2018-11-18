@@ -37,6 +37,12 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
+                                                            <label class="col-md-3 col-form-label" for="text-input">Link Url</label>
+                                                            <div class="col-md-9">
+                                                                <input class="form-control" id="text-input" type="text" name="link_url" placeholder="Link Url" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
                                                             <label class="col-md-3 col-form-label" for="text-input">Danh Mục</label>
                                                             <div class="col-md-9">
                                                                 @include('admin.common.__select_product_type',['selectName' => 'product_type_id'])

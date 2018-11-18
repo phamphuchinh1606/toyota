@@ -15,7 +15,8 @@ class ProductTypeController extends Controller
     }
 
     public function showCreate(){
-        return $this->viewAdmin('productType.create');
+        $vendors = $this->vendorService->getAll();
+        return $this->viewAdmin('productType.create',['vendors' => $vendors]);
     }
 
     private function getIsPulic($request){
@@ -40,9 +41,11 @@ class ProductTypeController extends Controller
             $productType->is_check_public = "checked='checked'";
         }
         $listChildren = $this->productTypeService->getByParentId($id);
+        $vendors = $this->vendorService->getAll();
         return $this->viewAdmin('productType.update',[
             'productType' => $productType,
-            'listChildren' => $listChildren
+            'listChildren' => $listChildren,
+            'vendors' => $vendors
         ]);
     }
 
