@@ -18,7 +18,8 @@ class ComposerServiceProvider extends ServiceProvider
             ['admin.common.__select_product_type', 'admin.common.__select_vendor',
                 'guest.home.partials.__menu_sidebar','guest.common.__right_linklist_menu',
                 'guest.layouts.master', 'guest.common.__search_product',
-                'both.common.__select_product','guest.collection.partials.__search_product'],
+                'both.common.__select_product','guest.collection.partials.__search_product',
+                'guest.costEstimate.estimate'],
             'App\Http\ViewComposers\ProductComposer'
         );
         //Build data tag

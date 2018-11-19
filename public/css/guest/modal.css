@@ -1,0 +1,63 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100% !important;;
+    height: 100% !important;
+    max-height:100%;
+    overflow: hidden;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    transtion: all .5s;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 5px;
+    border: 1px solid #888;
+    width: 95%;
+    max-width: 780px;
+    transform: translatey(-30px);
+    transition: all .5s;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    text-align: center;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.gt{
+    text-align: right;
+}
+
+table
+{
+    float: left;
+    width: 100%;
+}
+
+td{
+    padding: 8px 5px;
+
+}
+.cls_duno
+{
+    color: #d9534f;
+    font-weight: bold;
+}

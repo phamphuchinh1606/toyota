@@ -25,6 +25,7 @@ class ProductTypeSeeder extends Seeder
             [
                 'product_type_name' => 'Wigo',
                 'parrent_id' => '',
+                'vendor_id' => '1',
                 'image_icon' => 'product_types/1537764886_sidebarleft_icon2.png'
             ],
             [
@@ -103,6 +104,7 @@ class ProductTypeSeeder extends Seeder
         foreach ($productTypes as $productType){
             $productTypeDb = new ProductType();
             $productTypeDb->product_type_name = $productType['product_type_name'];
+            $productTypeDb->vendor_id = $productType['vendor_id'];
             if($productType['parrent_id'] != ''){
                 $productTypeDb->parent_id = $productType['parrent_id'];
             }

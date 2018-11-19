@@ -14,8 +14,9 @@
     <link rel="shortcut icon" href="//theme.hstatic.net/1000305059/1000394224/14/favicon.png?v=3615" type="image/png">
 
     <!-- Title and description ================================================== -->
+    <meta name="_token" content="{{ csrf_token() }}">
     <title>
-        Suplo Car | Cửa hàng phụ kiện,đồ chơi, nội thất xe hơi chính hãng
+        @yield('head.title',$appInfo->app_name)
     </title>
 
     <meta name="description" content="Hãy đến với cửa hàng phụ kiện ô tô SUPLO CAR để tìm kiếm những sản phẩm phụ kiện,đồ chơi, nội thất cho chiếc xe ô tô xinh xắn của bạn. Suplo. Theme Suplo. Haravan.">
@@ -136,6 +137,13 @@
             font-family: Tahoma, arial, sans-serif;
         }
     </style>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+    </script>
     @yield('head.css')
 </head>
 <body id="suplo-car-cua-hang-phu-kien-do-choi-noi-that-xe-hoi-chinh-hang" class="@yield('body.class_body',"template-index")">
@@ -166,5 +174,7 @@
     <script defer="" src="{{asset('js/guest/plugin/handlebars.min.js')}}"></script>
     <script defer="" src="{{asset('js/guest/plugin/ajax-cart.js')}}"></script>
     @yield('body.js')
+
+    @yield('body.modal')
 </body>
 </html>

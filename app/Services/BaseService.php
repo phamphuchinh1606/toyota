@@ -17,7 +17,8 @@ use App\Logics\{ContactLogic,
     ProductColorLogic,
     ProductSpecificationLogic,
     ProductSalientFeatureLogic,
-    SettingSpecificationLogic};
+    SettingSpecificationLogic,
+    CostEstimateLogic};
 
 class BaseService {
     protected $productTypeLogic;
@@ -52,13 +53,15 @@ class BaseService {
 
     protected $orderAddressLogic;
 
+    protected $costEstimateLogic;
+
     public function __construct(ProductTypeLogic $productTypeLogic, ProductLogic $productLogic,
                                 ProductImageLogic $productImageLogic , VendorLogic $vendorLogic,
                                 SettingLogic $settingLogic, BlogLogic $blogLogic, AddressLogic $addressLogic,
                                 ContactLogic $contactLogic, CustomerLogic $customerLogic, OrderAddressLogic $orderAddressLogic,
                                 OrderLogic $orderLogic, OrderDetailLogic $orderDetailLogic, ProductColorLogic $productColorLogic,
                                 ProductSpecificationLogic $productSpecificationLogic, SettingSpecificationLogic $settingSpecificationLogic,
-                                ProductSalientFeatureLogic $productSalientFeatureLogic)
+                                ProductSalientFeatureLogic $productSalientFeatureLogic, CostEstimateLogic $costEstimateLogic)
     {
         $this->productTypeLogic = $productTypeLogic;
         $this->productLogic = $productLogic;
@@ -76,5 +79,6 @@ class BaseService {
         $this->orderAddressLogic = $orderAddressLogic;
         $this->orderLogic = $orderLogic;
         $this->orderDetailLogic = $orderDetailLogic;
+        $this->costEstimateLogic = $costEstimateLogic;
     }
 }

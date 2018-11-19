@@ -124,6 +124,12 @@ class RouteServiceProvider extends ServiceProvider
             ->prefix($this->prefixAdmin)
             ->name($this->prefixAdmin.'.')
             ->group(base_path('routes/admin/route_order.php'));
+
+        Route::middleware($middleareAdmin)
+            ->namespace($this->namespaceAdmin)
+            ->prefix($this->prefixAdmin)
+            ->name($this->prefixAdmin.'.')
+            ->group(base_path('routes/admin/route_cost_estimate.php'));
     }
 
     private function routeGuest(){
@@ -155,6 +161,10 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->namespaceGuest)
             ->group(base_path('routes/guest/route_about.php'));
+
+        Route::middleware('web')
+            ->namespace($this->namespaceGuest)
+            ->group(base_path('routes/guest/route_cost_estimate.php'));
     }
 
     /**

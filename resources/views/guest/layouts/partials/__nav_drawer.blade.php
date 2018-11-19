@@ -66,13 +66,13 @@
             <a href="{{route('blog')}}" class="mobile-nav__link">Tin tức</a>
         </li>
         <li class="mobile-nav__item">
-            <a href="{{route('contact')}}" class="mobile-nav__link">Liên hệ</a>
+            {{--<a href="{{route('contact')}}" class="mobile-nav__link">Liên hệ</a>--}}
         </li>
         <li class="mobile-nav__item">
-            <a href="{{route('contact')}}" class="mobile-nav__link">Dự toán chi phí</a>
+            <a href="{{route('cost_estimate')}}" class="mobile-nav__link">Dự toán chi phí</a>
         </li>
         <li class="mobile-nav__item">
-            <a href="{{route('contact')}}" class="mobile-nav__link">Đăng ký lái thử</a>
+            <a href="{{route('cost_estimate')}}" class="mobile-nav__link">Đăng ký lái thử</a>
         </li>
         {{--<li class="mobile-nav__item">--}}
             {{--<a href="/account/login" id="customer_login_link">Đăng nhập</a>--}}

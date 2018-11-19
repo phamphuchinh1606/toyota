@@ -9,6 +9,10 @@ use Storage;
 
 class ProductService extends BaseService{
 
+    public function findProduct($productId){
+        return $this->productLogic->findProduct($productId);
+    }
+
     public function getAllLProduct($searchInfo = null, $sortBy = null){
         if(isset($searchInfo)){
             $listProduct = $this->productLogic->getAllProductBySearchInfo($searchInfo,$sortBy);

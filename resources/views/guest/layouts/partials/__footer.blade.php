@@ -68,11 +68,11 @@
                             <ul class="no-bullets">
 
                                 <li>
-                                    <a href="/pages/about-us">Dự toán chi phí</a>
+                                    <a href="{{route('cost_estimate')}}">Dự toán chi phí</a>
                                 </li>
 
                                 <li>
-                                    <a href="/pages/about-us">Đăng ký lái thử</a>
+                                    <a href="{{route('cost_estimate')}}">Đăng ký lái thử</a>
                                 </li>
 
                                 <li>

@@ -192,6 +192,7 @@ class AppCommon{
     }
 
     public static function formatMoney($value){
+
         return number_format($value);
     }
 }

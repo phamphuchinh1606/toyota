@@ -10,6 +10,10 @@ use Slug;
 
 class ProductLogic extends BaseLogic{
 
+    public function findProduct($productId){
+        return Product::find($productId);
+    }
+
     public function getAllLProduct(){
         $listProducts = Db::table(TableNameDB::$TableProduct.' as product')
                             ->join(TableNameDB::$TableProductType.' as type', 'product.product_type_id','=','type.id')
@@ -191,7 +195,6 @@ class ProductLogic extends BaseLogic{
                         ->where("$productTable.is_public",Constant::$PUBLIC_FLG_ON)
                         ->groupBy("$productTable.product_design")
                         ->groupBy("$productTable.product_type_id")
-                        ->orderBy("$productTable.created_at", 'asc')
                         ->selectRaw("MIN($productTable.id) as id");
         $listProducts = Db::table($productTable)
             ->joinSub($productSub,$productSubTable,function($join) use ($productSubTable,$productTable){

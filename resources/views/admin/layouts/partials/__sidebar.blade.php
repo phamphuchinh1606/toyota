@@ -80,11 +80,17 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.order.index')}}">
-                    <i class="nav-icon icon-basket"></i>
-                    Đơn hàng
+                <a class="nav-link" href="{{route('admin.cost_estimate.estimate')}}">
+                    <i class="nav-icon icon-calendar"></i>
+                    Thiết Lặp Chi Phí
                 </a>
             </li>
+            {{--<li class="nav-item">--}}
+                {{--<a class="nav-link" href="{{route('admin.order.index')}}">--}}
+                    {{--<i class="nav-icon icon-basket"></i>--}}
+                    {{--Đơn hàng--}}
+                {{--</a>--}}
+            {{--</li>--}}
         </ul>
         <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
             <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>

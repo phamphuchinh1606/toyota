@@ -36,7 +36,7 @@
                         </li>
 
                         <li class=" ">
-                            <a href="/pages/about-us" class="text-center">
+                            <a href="{{route('cost_estimate')}}" class="text-center">
                                 <span>Dự toán chi phí</span>
 
                             </a>
