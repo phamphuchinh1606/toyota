@@ -217,6 +217,11 @@ class ProductService extends BaseService{
     public function createListProductApi($listProductInfo){
         $productTypes = $this->productTypeLogic->getAll();
         foreach ($listProductInfo as $product){
+            //Check product exit
+            $productCheck = $this->productLogic->getProductByName($product->product_name);
+            if(isset($productCheck)){
+                continue;
+            }
             $params['productName'] = $product->product_name;
             $params['productTitle'] = $product->product_title;
             $params['productTypeId'] = $this->getProductTypeByProductName($productTypes,$product->product_name);

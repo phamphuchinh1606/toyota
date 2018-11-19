@@ -24,10 +24,10 @@
                         <div class="card-header">
                             <i class="fa fa-edit"></i> Danh Sách Tin Tức
                             <div class="card-header-actions">
-                                <a class="btn btn-block btn-outline-primary active" href="{{route('admin.blog.create')}}">
+                                <a class="btn btn-sm btn-primary" href="{{route('admin.blog.create')}}">
                                     Tạo mới
                                 </a>
-                                <a class="btn btn-block btn-outline-primary active" href="{{route('admin.blog.load_info')}}">
+                                <a class="btn btn-sm btn-primary" href="{{route('admin.blog.load_info')}}">
                                     Lấy Tin Tức
                                 </a>
                             </div>

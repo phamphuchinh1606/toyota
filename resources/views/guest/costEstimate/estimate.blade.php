@@ -51,7 +51,7 @@
                                                 <h1>Dự toán chi phí xe ( Chưa bao gồm khuyến mãi )</h1>
                                             </div>
                                         </div>
-                                        <div class="grid__item">
+                                        <div class="grid__item" style="padding-top:30px">
                                             <form action="{{route('cost_estimate.estimate')}}" method="post" id="form-estimate">
                                                 @csrf
                                                 <div class="row">

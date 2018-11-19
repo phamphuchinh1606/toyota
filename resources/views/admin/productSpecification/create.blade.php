@@ -38,13 +38,13 @@
                                             <div class="col-md-8">
                                                 @include('both.common.__select_product',['selectName' => 'product_id','defaultValue' => $productId])
                                             </div>
-                                            <div class="col-md-2">
-                                                @if(!isset($message))
-                                                    <a class="btn btn-block btn-outline-primary active" href="{{route('admin.product_specification.load_info',['productId' => $productId])}}">
-                                                        Lấy thông tin sản phẩm
-                                                    </a>
-                                                @endif
-                                            </div>
+                                            {{--<div class="col-md-2">--}}
+                                                {{--@if(!isset($message))--}}
+                                                    {{--<a class="btn btn-block btn-outline-primary active" href="{{route('admin.product_specification.load_info',['productId' => $productId])}}">--}}
+                                                        {{--Lấy thông tin sản phẩm--}}
+                                                    {{--</a>--}}
+                                                {{--@endif--}}
+                                            {{--</div>--}}
                                         </div>
                                         <ul class="nav nav-tabs" role="tablist">
                                             @foreach($specificationInfo as $index => $group)

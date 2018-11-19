@@ -212,6 +212,10 @@ class ProductLogic extends BaseLogic{
         return Product::find($productId);
     }
 
+    public function getProductByName($productName){
+        return Product::where('product_name',$productName)->first();
+    }
+
     public function getProductInfo($productId){
         $product = Db::table(TableNameDB::$TableProduct.' as product')
             ->leftjoin(TableNameDB::$TableProductType.' as type', 'product.product_type_id','=','type.id')

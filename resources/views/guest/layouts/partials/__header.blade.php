@@ -12,30 +12,35 @@
             <div class="header-navbar-wrapper">
                 <div class="header-navbar text-right">
                     <ul class="no-bullets">
-                        <li class="active ">
+                        <?php
+                            $isPageHome = true;
+                            if(\Request::is('collection-all') || \Request::is('blog') || \Request::is('contact') || \Request::is('cost-estimate'))
+                                $isPageHome = false;
+                        ?>
+                        <li class="@if($isPageHome) active @endif">
                             <a href="{{route('home')}}" class="text-center">
                                 <span>Trang Chủ</span>
                             </a>
                         </li>
-                        <li class=" megamenu">
+                        <li class="megamenu @if(\Request::is('collection-all')) active @endif">
                             <a href="{{route('collection_all')}}" class="text-center menu-collection">
                                 <span>Sản Phẩm</span>
                                 <svg class="svg-inline--fa fa-caret-down fa-w-10" aria-hidden="true" data-prefix="fas" data-icon="caret-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg><!-- <i class="fas fa-caret-down"></i> -->
                             </a>
                             @include('guest.layouts.partials.__menu_show_product')
                         </li>
-                        <li class="">
+                        <li class="@if(\Request::is('blog')) active @endif">
                             <a href="{{route('blog')}}" class="text-center">
                                 <span>Tin Tức</span>
                             </a>
                         </li>
-                        <li class=" ">
+                        <li class="@if(\Request::is('contact')) active @endif">
                             <a href="{{route('contact')}}" class="text-center">
                                 <span>Liên hệ</span>
                             </a>
                         </li>
 
-                        <li class=" ">
+                        <li class="@if(\Request::is('cost-estimate')) active @endif">
                             <a href="{{route('cost_estimate')}}" class="text-center">
                                 <span>Dự toán chi phí</span>
 
@@ -483,11 +488,9 @@
                 <div class="grid">
                     <div class="grid__item large--one-third medium--one-third small--one-third">
                         <div class="hd-logo text-left">
-
                             <a href="/">
-                                <img src="//theme.hstatic.net/1000305059/1000394224/14/mb_logo.png?v=3615" alt="Suplo Car | Cửa hàng phụ kiện,đồ chơi, nội thất xe hơi chính hãng">
+                                <img src="{{asset($appInfo->app_src_icon)}}" alt="{{$appInfo->app_name}}">
                             </a>
-
                         </div>
                     </div>
                     <div class="clearfix grid__item large--two-thirds medium--two-thirds small--two-thirds clearfix text-right">
@@ -495,59 +498,6 @@
                             <a href="javascript:void(0)" class="icon-fallback-text site-nav__link js-drawer-open-right" aria-controls="NavDrawer" aria-expanded="false">
                                 <svg class="svg-inline--fa fa-bars fa-w-14" aria-hidden="true" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg><!-- <i class="fas fa-bars"></i> -->
                             </a>
-                        </div>
-                        <div class="desktop-cart-wrapper1">
-                            <a href="javascript:void(0)" class="hd-cart">
-                                <svg class="svg-inline--fa fa-shopping-cart fa-w-18" aria-hidden="true" data-prefix="fas" data-icon="shopping-cart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg><!-- <i class="fas fa-shopping-cart"></i> -->
-                                <span class="hd-cart-count">1</span>
-                            </a>
-                            <div class="quickview-cart">
-                                <h3>
-
-                                    Giỏ hàng của tôi (1 sản phẩm)
-
-                                    <span class="btnCloseQVCart"><svg class="svg-inline--fa fa-times fa-w-12" aria-hidden="true" data-prefix="fa" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M323.1 441l53.9-53.9c9.4-9.4 9.4-24.5 0-33.9L279.8 256l97.2-97.2c9.4-9.4 9.4-24.5 0-33.9L323.1 71c-9.4-9.4-24.5-9.4-33.9 0L192 168.2 94.8 71c-9.4-9.4-24.5-9.4-33.9 0L7 124.9c-9.4 9.4-9.4 24.5 0 33.9l97.2 97.2L7 353.2c-9.4 9.4-9.4 24.5 0 33.9L60.9 441c9.4 9.4 24.5 9.4 33.9 0l97.2-97.2 97.2 97.2c9.3 9.3 24.5 9.3 33.9 0z"></path></svg><!-- <i class="fa fa-times" aria-hidden="true"></i> --></span>
-                                </h3>
-                                <ul class="no-bullets">
-
-
-                                    <li class="cart-item">
-                                        <a href="/cart/change?line=1&amp;quantity=0" class="cart__remove"><svg class="svg-inline--fa fa-times fa-w-12" aria-hidden="true" data-prefix="fa" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M323.1 441l53.9-53.9c9.4-9.4 9.4-24.5 0-33.9L279.8 256l97.2-97.2c9.4-9.4 9.4-24.5 0-33.9L323.1 71c-9.4-9.4-24.5-9.4-33.9 0L192 168.2 94.8 71c-9.4-9.4-24.5-9.4-33.9 0L7 124.9c-9.4 9.4-9.4 24.5 0 33.9l97.2 97.2L7 353.2c-9.4 9.4-9.4 24.5 0 33.9L60.9 441c9.4 9.4 24.5 9.4 33.9 0l97.2-97.2 97.2 97.2c9.3 9.3 24.5 9.3 33.9 0z"></path></svg><!-- <i class="fa fa-times" aria-hidden="true"></i> --></a>
-                                        <div class="grid mg-left-15">
-                                            <div class="grid__item large--four-twelfths medium--four-twelfths small--four-twelfths pd-left15">
-                                                <div class="cart-item-img text-center">
-                                                    <a href="/products/suplo-smart-gravity-holder-cute-mount-10w-fast-wireless-car-charger-bracket-car-accessories-9">
-
-                                                        <img src="//product.hstatic.net/1000305059/product/suplo-012a-01_b4073d98b6534c619a361549e0b2f118_small.jpg" alt="SUPLO Smart Gravity Holder Cute Mount 10W Fast Wireless Car Charger Bracket Car Accessories">
-
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="grid__item large--eight-twelfths medium--eight-twelfths small--eight-twelfths pd-left15">
-                                                <div class="cart-item-info text-left">
-                                                    <a href="/products/suplo-smart-gravity-holder-cute-mount-10w-fast-wireless-car-charger-bracket-car-accessories-9">SUPLO Smart Gravity Holder Cute Mount 10W Fast ...</a>
-
-                                                    <small>Nâu</small>
-
-                                                </div>
-                                                <div class="cart-item-price-quantity text-left">
-                                                    <span class="quantity">Số lượng: 1</span>
-                                                    <span class="current-price">Giá/sp: 150,000₫</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-
-                                <div class="qv-cart-total">
-                                    Tạm tính: <span>150,000₫</span>
-                                </div>
-                                <div class="quickview-cartactions clearfix">
-                                    <a href="/cart">Xem giỏ hàng</a>
-                                    <a href="/checkout">Thanh toán</a>
-                                </div>
-
-                            </div>
                         </div>
                     </div>
                 </div>

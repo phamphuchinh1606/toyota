@@ -160,11 +160,11 @@
 
     @include('guest.layouts.partials.__footer')
 
-    @include('guest.layouts.partials.__fixed_social_network')
+    {{--@include('guest.layouts.partials.__fixed_social_network')--}}
 
     @include('guest.layouts.partials.__back_to_top')
 
-    @include('guest.layouts.partials.__mobile_bottom_navigation')
+    {{--@include('guest.layouts.partials.__mobile_bottom_navigation')--}}
 
     <script defer="" src="{{asset('js/guest/plugin/api.jquery.js')}}"></script>
     <script defer="" src="{{asset('js/guest/plugin/option_selection.js')}}"></script>

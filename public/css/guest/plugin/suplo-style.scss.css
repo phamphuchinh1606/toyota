@@ -855,6 +855,7 @@ background-color: $colorPrimary;
 #header .header-desktop > .inner {
     padding: 0 50px;
     position: relative;
+    min-height: 72px;
 }
 
 #header .header-desktop .header-logo {

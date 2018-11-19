@@ -1326,7 +1326,9 @@ body {
       padding: 0 30px; } }
 
 .main-content {
-  display: block; }
+  display: block;
+    padding-top:10px;
+}
 
 /*============================================================================
 #Helper Classes

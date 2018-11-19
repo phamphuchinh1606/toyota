@@ -20,10 +20,10 @@
                         <div class="card-header">
                             <i class="fa fa-edit"></i> Danh Sách Sản Phẩm
                             <div class="card-header-actions">
-                                <a class="btn btn-block btn-outline-primary active" href="{{route('admin.product.create')}}">
+                                <a class="btn btn-sm btn-primary" href="{{route('admin.product.create')}}">
                                     Tạo mới
                                 </a>
-                                <a class="btn btn-block btn-outline-primary active" href="{{route('admin.product.load_info')}}">
+                                <a class="btn btn-sm btn-primary" href="{{route('admin.product.load_info')}}">
                                     Lấy Sản Phẩm
                                 </a>
                             </div>

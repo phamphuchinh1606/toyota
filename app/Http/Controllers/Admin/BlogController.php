@@ -110,7 +110,7 @@ class BlogController extends Controller
                                 $link = $linkImage->getAttribute('href');
                                 $image = $linkImage->getElementsByTagName('img');
                                 $imageLink = '';
-                                if(count($image)){
+                                if(count($image) && isset($image[0]) ){
                                     $imageLink = $image[0]->getAttribute('data-original');
                                 }
                                 $blogDescription = "";
@@ -142,9 +142,14 @@ class BlogController extends Controller
 //                }
 
                 foreach ($listBlog as $blogDetail){
+                    $blog = $this->blogService->getByBlogTitle($blogDetail->title);
+                    if(isset($blog)){
+                        continue;
+                    }
                     $this->blogService->createFromApi($blogDetail);
                 }
             }
         }
+        return redirect()->route('admin.blog.index');
     }
 }

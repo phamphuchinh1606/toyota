@@ -104,6 +104,10 @@ class BlogService extends BaseService{
         return $blog;
     }
 
+    public function getByBlogTitle($blogTitle){
+        return $this->blogLogic->getByBlogTitle($blogTitle);
+    }
+
     public function delete($blogId){
         $this->blogLogic->delete($blogId);
     }
