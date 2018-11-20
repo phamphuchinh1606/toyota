@@ -16,7 +16,11 @@ class CreateProductImagesTable extends Migration
         Schema::create('product_images', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id');
+            $table->integer('image_type')->nullable(true);
             $table->string('image_src',255)->nullable(true);
+            $table->string('image_name',255)->nullable(true);
+            $table->string('image_title',255)->nullable(true);
+            $table->text('image_content')->nullable(true);
             $table->timestamps();
         });
     }

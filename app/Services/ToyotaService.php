@@ -99,6 +99,28 @@ class ToyotaService extends BaseService{
         return $productInfo;
     }
 
+    private function getProductListImage($finder, $productInfo){
+        //Get List Image
+        $nodeImages = $finder->query("//div[@class='thuvien clearfix hide-mb']");
+        $productImages = [];
+        if(count($nodeImages) > 0){
+            $nodeImage = $nodeImages[0];
+            $nodeDivs = $nodeImage->getElementsByTagName('div');
+            foreach ($nodeDivs as $nodeDiv){
+                $className = $nodeDiv->getAttribute('class');
+                if(str_contains($className,'item animated fadeInRightShort')){
+                    $nodeSrcImage = $nodeDiv->getElementsByTagName('img');
+                    if(count($nodeSrcImage) > 0){
+                        $productImages[] = $this->urlHostToyota.$nodeSrcImage[0]->getAttribute('data-original');
+                    }
+                }
+            }
+        }
+        dd($productImages);
+        $productInfo->product_images = $productImages;
+        return $productInfo;
+    }
+
     private function getProductSalientFeature($finder, $productInfo){
         $nodeTabVHs = $finder->query("//div[@id='popup_pc_operate']");
         $productFeatures = [];
@@ -232,13 +254,15 @@ class ToyotaService extends BaseService{
     public function getProductInfo($urlProduct, $productInfo){
         $finder = CurlCommon::curl_get_page_to_dom_xpath($urlProduct);
         //Get product content
-        $this->getProductContent($finder, $productInfo);
+//        $this->getProductContent($finder, $productInfo);
         //Get info color Product
-        $productInfo = $this->getProductColorInfo($finder,$productInfo);
+//        $productInfo = $this->getProductColorInfo($finder,$productInfo);
+        //Get product image
+        $productInfo = $this->getProductListImage($finder, $productInfo);
         //Get SalientFeature
-        $productInfo = $this->getProductSalientFeature($finder, $productInfo);
+//        $productInfo = $this->getProductSalientFeature($finder, $productInfo);
         //Get Specification
-        $productInfo = $this->getProductSpecification($finder, $productInfo);
+//        $productInfo = $this->getProductSpecification($finder, $productInfo);
         return $productInfo;
     }
 
