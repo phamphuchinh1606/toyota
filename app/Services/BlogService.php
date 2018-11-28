@@ -36,6 +36,10 @@ class BlogService extends BaseService{
         return $blogs;
     }
 
+    public function getBlogByType($blogType){
+        return $this->blogLogic->getBlogNews(100,$blogType);
+    }
+
     public function create(Request $request){
         $params['blogTitle'] = $request->blog_title;
         $params['blogType'] = $request->blog_type;

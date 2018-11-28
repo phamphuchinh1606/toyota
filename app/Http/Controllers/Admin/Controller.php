@@ -22,7 +22,8 @@ use App\Services\{
     ProductSalientFeatureService,
     SettingSpecificationService,
     ToyotaService,
-    CostEstimateService
+    CostEstimateService,
+    ProductImageService
 };
 use App\Common\Constant;
 use Storage;
@@ -59,13 +60,15 @@ class Controller extends BaseController
 
     protected $costEstimateService;
 
+    protected $productImageService;
+
     public function __construct(ProductTypeService $productTypeService, ProductService $productService,
                                 VendorService $vendorService, SettingService $settingService,
                                 BlogService $blogService, AddressService $addressService,
                                 ContactService $contactService, OrderService $orderService,
                                 ProductColorService $productColorService, SettingSpecificationService $settingSpecificationService,
                                 ProductSpecificationService $productSpecificationService, ProductSalientFeatureService $productSalientFeatureService,
-                                ToyotaService $toyotaService, CostEstimateService $costEstimateService)
+                                ToyotaService $toyotaService, CostEstimateService $costEstimateService, ProductImageService $productImageService)
     {
         $this->productTypeService = $productTypeService;
         $this->productService = $productService;
@@ -81,6 +84,7 @@ class Controller extends BaseController
         $this->orderService = $orderService;
         $this->toyotaService = $toyotaService;
         $this->costEstimateService = $costEstimateService;
+        $this->productImageService = $productImageService;
     }
 
     protected function viewAdmin($viewName,$arrayData = []){

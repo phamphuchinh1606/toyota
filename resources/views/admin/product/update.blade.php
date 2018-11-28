@@ -36,6 +36,9 @@
                                     <div class="card-header">
                                         <i class="icon-note"></i> Tạo Mới Sản Phẩm
                                         <div class="card-header-actions">
+                                            <a class="btn btn-sm btn-primary" href="{{route('admin.product_image.create',['productId' => $product->id])}}">
+                                                Hình ảnh
+                                            </a>
                                             <a class="btn btn-sm btn-primary" href="{{route('admin.product_specification.create',['id' => $product->id])}}">
                                                 Thông số kỹ thuật
                                             </a>
@@ -63,6 +66,17 @@
                                             <label class="col-md-2 col-form-label" for="text-input">Loại Sản Phẩm</label>
                                             <div class="col-md-10">
                                                 @include('admin.common.__select_product_type',['selectName' => 'product_type','defaultValue' => $product->product_type_id])
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label" for="text-input">Tin khuyến mãi</label>
+                                            <div class="col-md-10">
+                                                <select name="blog_id" class="form-control">
+                                                    <option value="">Chọn tin khuyến mãi</option>
+                                                    @foreach($blogPromotion as $blog)
+                                                        <option value="{{$blog->id}}" @if($product->blog_id == $blog->id) selected @endif>{{$blog->blog_title}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -192,9 +206,9 @@
                                     </div>
                                     <div class="card-footer text-right">
                                         <button class="btn btn-sm btn-primary" type="submit">
-                                            <i class="fa fa-dot-circle-o"></i> Submit</button>
+                                            <i class="fa fa-dot-circle-o"></i> Cập Nhật</button>
                                         <button class="btn btn-sm btn-danger" type="reset">
-                                            <i class="fa fa-ban"></i> Reset</button>
+                                            <i class="fa fa-ban"></i> Hủy</button>
                                     </div>
                                 </div>
                             </form>

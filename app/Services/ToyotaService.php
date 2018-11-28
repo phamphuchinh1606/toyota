@@ -116,8 +116,49 @@ class ToyotaService extends BaseService{
                 }
             }
         }
-        dd($productImages);
         $productInfo->product_images = $productImages;
+
+        //Get List Image Furniture
+        $nodeImages = $finder->query("//div[@class='ngoaithat clearfix rows dpflex']");
+        $productFurnitureImages = [];
+        if(count($nodeImages) > 0){
+            $nodeImage = $nodeImages[0];
+            $nodeParent = $nodeImage->parentNode;
+            $nodeDivs = $nodeParent->getElementsByTagName('div');
+            foreach ($nodeDivs as $nodeDiv){
+                $className = $nodeDiv->getAttribute('class');
+                if(str_contains($className, 'owl-carousel slide_img_sm')){
+                    $nodeSrcImages = $nodeDiv->getElementsByTagName('img');
+                    if(count($nodeSrcImages) > 0){
+                        foreach ($nodeSrcImages as $nodeSrcImage){
+                            $productFurnitureImages[] = $this->urlHostToyota.$nodeSrcImage->getAttribute('data-src');
+                        }
+                    }
+                }
+            }
+        }
+        $productInfo->product_furniture_images = $productFurnitureImages;
+
+        //Get List Image Exterior
+        $nodeImages = $finder->query("//div[@class='noithat clearfix rows dpflex']");
+        $productExteriorImages = [];
+        if(count($nodeImages) > 0){
+            $nodeImage = $nodeImages[0];
+            $nodeParent = $nodeImage->parentNode;
+            $nodeDivs = $nodeParent->getElementsByTagName('div');
+            foreach ($nodeDivs as $nodeDiv){
+                $className = $nodeDiv->getAttribute('class');
+                if(str_contains($className, 'owl-carousel slide_img_sm')){
+                    $nodeSrcImages = $nodeDiv->getElementsByTagName('img');
+                    if(count($nodeSrcImages) > 0){
+                        foreach ($nodeSrcImages as $nodeSrcImage){
+                            $productExteriorImages[] = $this->urlHostToyota.$nodeSrcImage->getAttribute('data-src');
+                        }
+                    }
+                }
+            }
+        }
+        $productInfo->product_exterior_images = $productExteriorImages;
         return $productInfo;
     }
 
@@ -254,15 +295,15 @@ class ToyotaService extends BaseService{
     public function getProductInfo($urlProduct, $productInfo){
         $finder = CurlCommon::curl_get_page_to_dom_xpath($urlProduct);
         //Get product content
-//        $this->getProductContent($finder, $productInfo);
+        $this->getProductContent($finder, $productInfo);
         //Get info color Product
-//        $productInfo = $this->getProductColorInfo($finder,$productInfo);
+        $productInfo = $this->getProductColorInfo($finder,$productInfo);
         //Get product image
         $productInfo = $this->getProductListImage($finder, $productInfo);
         //Get SalientFeature
-//        $productInfo = $this->getProductSalientFeature($finder, $productInfo);
+        $productInfo = $this->getProductSalientFeature($finder, $productInfo);
         //Get Specification
-//        $productInfo = $this->getProductSpecification($finder, $productInfo);
+        $productInfo = $this->getProductSpecification($finder, $productInfo);
         return $productInfo;
     }
 

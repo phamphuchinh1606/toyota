@@ -10,10 +10,15 @@ class ProductImageLogic extends BaseLogic{
         return ProductImage::where('product_id',$productId)->get();
     }
 
-    public function create($productId, $srcImage){
+    public function getListImageTypeByProductId($productId, $imageType){
+        return ProductImage::where('product_id',$productId)->where('image_type',$imageType)->get();
+    }
+
+    public function create($productId, $srcImage, $imageType){
         $productImage = new ProductImage();
         $productImage->product_id = $productId;
         $productImage->image_src = $srcImage;
+        $productImage->image_type = $imageType;
         $productImage->save();
         return $productImage;
     }

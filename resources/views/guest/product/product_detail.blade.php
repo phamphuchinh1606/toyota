@@ -24,6 +24,8 @@
                         <div id="sec_dt_01">
                             @include('guest.product.partials.__product_main_info')
 
+                            @include('guest.product.partials.__product_image')
+
                             @include('guest.product.partials.__product_highlight_function')
 
                             @include('guest.product.partials.__product_specification')

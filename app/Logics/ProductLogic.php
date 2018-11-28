@@ -303,6 +303,9 @@ class ProductLogic extends BaseLogic{
                 $product->product_fuel = $params['productFuel'];
                 $product->product_origin = $params['productOrigin'];
                 $product->product_other_information = $params['productOtherInformation'];
+                if(isset($params['blogId'])){
+                    $product->blog_id = $params['blogId'];
+                }
                 $product->save();
             }
             return $product;

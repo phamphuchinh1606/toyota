@@ -59,6 +59,11 @@ class Constant{
     public static $BLOG_TYPE_EVENT_ID = '3';
     public static $BLOG_TYPE_EVENT_NAME = 'Sự kiện';
 
+//    Product
+    public static $PRODUCT_IMAGE_TYPE_IMAGE = '0';
+    public static $PRODUCT_IMAGE_TYPE_FURNITURE = '1';
+    public static $PRODUCT_IMAGE_TYPE_EXTERIOR = '2';
+
     public static $URL_TOYOTA = "http://www.toyota.com.vn";
 
 }

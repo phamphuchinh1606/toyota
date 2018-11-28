@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Common\Constant;
 use App\Common\CurlCommon;
 use Illuminate\Http\Request;
 use Storage;
@@ -25,8 +26,10 @@ class ProductController extends Controller
 
     public function showUpdate($id){
         $product = $this->productService->getInfoProduct($id);
+        $blogPromotion = $this->blogService->getBlogByType(Constant::$BLOG_TYPE_PROMOTION_ID);
         return view('admin.product.update',[
-            'product' => $product
+            'product' => $product,
+            'blogPromotion' => $blogPromotion
         ]);
     }
 

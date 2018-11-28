@@ -24,7 +24,7 @@
                                         <strong>Tạo mới thông tin sản phẩm</strong>
                                         <div class="card-header-actions">
                                             <a class="btn btn-block btn-outline-secondary active"
-                                               href="{{route('admin.product.index')}}">
+                                               href="{{route('admin.product.update',['id' => $productId])}}">
                                                 Quay Lại
                                             </a>
                                         </div>

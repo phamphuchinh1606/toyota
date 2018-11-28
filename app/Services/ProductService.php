@@ -147,6 +147,7 @@ class ProductService extends BaseService{
         $params['productOrigin'] = $request->product_origin;
         $params['productDesign'] = $request->product_design;
         $params['productOtherInformation'] = $request->product_other_information;
+        $params['blogId'] = $request->blog_id;
         $productImage = $request->file('product_main_image') ;
         if(isset($productImage)){
             $productDb = $this->productLogic->getProduct($productId);
@@ -167,7 +168,9 @@ class ProductService extends BaseService{
     public function getInfoProduct($productId){
         $product = $this->productLogic->getProductInfo($productId);
         if(isset($product->id)){
-//            $product->images = $this->productImageLogic->getListImageByProductId($productId);
+            $product->images = $this->productImageLogic->getListImageTypeByProductId($productId, Constant::$PRODUCT_IMAGE_TYPE_IMAGE);
+            $product->furniture_images = $this->productImageLogic->getListImageTypeByProductId($productId, Constant::$PRODUCT_IMAGE_TYPE_FURNITURE);
+            $product->exterlor_images = $this->productImageLogic->getListImageTypeByProductId($productId, Constant::$PRODUCT_IMAGE_TYPE_EXTERIOR);
             $product->colors = $this->productColorLogic->getByProduct($product->id);
             $product->salient_features = $this->productSalientFeatureLogic->getFeatureByProduct($productId);
         }
@@ -240,6 +243,7 @@ class ProductService extends BaseService{
             $params['productImage'] = $product->product_image;
             $productInsert = $this->productLogic->createProduct($params);
             if($product != null){
+                $productId = $productInsert->id;
                 //Create Product Color
                 foreach ($product->product_colors as $index => $productColor){
                     $paramImage = [];
@@ -283,6 +287,23 @@ class ProductService extends BaseService{
                     }
                     $this->productSpecificationLogic->insert($productSpecifications);
                 }
+                //Create Product Image
+                if(isset($product->product_images)){
+                    foreach ($product->product_images as $image){
+                        $this->productImageLogic->create($productId, $image, Constant::$PRODUCT_IMAGE_TYPE_IMAGE);
+                    }
+                }
+                if(isset($product->product_furniture_images)){
+                    foreach ($product->product_furniture_images as $image){
+                        $this->productImageLogic->create($productId, $image, Constant::$PRODUCT_IMAGE_TYPE_FURNITURE);
+                    }
+                }
+                if(isset($product->product_exterior_images)){
+                    foreach ($product->product_exterior_images as $image){
+                        $this->productImageLogic->create($productId, $image, Constant::$PRODUCT_IMAGE_TYPE_EXTERIOR);
+                    }
+                }
+
             }
         }
     }

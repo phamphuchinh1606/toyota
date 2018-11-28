@@ -30,6 +30,11 @@ Route::post('/product-type/update/{id}','ProductTypeController@update')->name('p
 Route::post('/product-type/create-children/{id}','ProductTypeController@createProductTypeChildren')->name('product_type.create_children');
 Route::delete('/product-type/delete-children/{id}/{childId}','ProductTypeController@deleteProductTypeChildren')->name('product_type.delete_children');
 
+//Route Product Image
+Route::delete('/product-image/delete/{id}/{productId}','ProductImageController@delete')->name('product_image.delete');
+Route::get('/product-image/create','ProductImageController@showCreate')->name('product_image.create');
+Route::post('/product-image/create','ProductImageController@store')->name('product_image.create');
+
 //Route Product Color
 Route::get('/product-color','ProductColorController@index')->name('product_color.index');
 Route::get('/product-color/create','ProductColorController@showCreate')->name('product_color.create');
