@@ -27,4 +27,8 @@ class ProductSalientFeatureLogic extends BaseLogic{
     public function destroy($featureId){
         return ProductSalientFeature::whereId($featureId)->delete();
     }
+
+    public function destroyByProduct($productId){
+        ProductSalientFeature::whereProductId($productId)->delete();
+    }
 }

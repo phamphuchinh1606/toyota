@@ -76,4 +76,8 @@ class BlogLogic extends BaseLogic{
             $blog->save();
         }
     }
+
+    public function destroy($blogId){
+        Blog::whereId($blogId)->delete();
+    }
 }

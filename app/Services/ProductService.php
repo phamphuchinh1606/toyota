@@ -173,6 +173,9 @@ class ProductService extends BaseService{
             $product->exterlor_images = $this->productImageLogic->getListImageTypeByProductId($productId, Constant::$PRODUCT_IMAGE_TYPE_EXTERIOR);
             $product->colors = $this->productColorLogic->getByProduct($product->id);
             $product->salient_features = $this->productSalientFeatureLogic->getFeatureByProduct($productId);
+            if(isset($product->blog_id) && $product->blog_id != ''){
+                $product->blog = $this->blogLogic->findId($product->blog_id);
+            }
         }
         return $product;
     }
@@ -186,7 +189,14 @@ class ProductService extends BaseService{
     }
 
     public function delete($productId){
-        $this->productLogic->delete($productId);
+        $product = $this->findProduct($productId);
+        if(isset($product)){
+            $this->productImageLogic->deleteByProduct($productId);
+            $this->productSalientFeatureLogic->destroyByProduct($productId);
+            $this->productSpecificationLogic->destroyByProduct($productId);
+            $this->productColorLogic->deleteByProduct($productId);
+            $this->productLogic->destroy($productId);
+        }
     }
 
     public function addImage($productId,$image){

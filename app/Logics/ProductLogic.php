@@ -15,10 +15,12 @@ class ProductLogic extends BaseLogic{
     }
 
     public function getAllLProduct(){
+        $productTypeNameTable = TableNameDB::$TableProductType;
         $listProducts = Db::table(TableNameDB::$TableProduct.' as product')
                             ->join(TableNameDB::$TableProductType.' as type', 'product.product_type_id','=','type.id')
                             ->where('product.is_delete', Constant::$DELETE_FLG_OFF)
                             ->select('product.*', 'type.product_type_name')
+                            ->orderBy("type.id",'asc')
                             ->paginate(20);
         return $listProducts;
     }
@@ -327,6 +329,10 @@ class ProductLogic extends BaseLogic{
             $product->is_delete = Constant::$DELETE_FLG_ON;
             $product->save();
         }
+    }
+
+    public function destroy($productId){
+        Product::destroy($productId);
     }
 
     //Logic Guest

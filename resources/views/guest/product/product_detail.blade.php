@@ -26,6 +26,8 @@
 
                             @include('guest.product.partials.__product_image')
 
+                            @include('guest.product.partials.__product_blog')
+
                             @include('guest.product.partials.__product_highlight_function')
 
                             @include('guest.product.partials.__product_specification')

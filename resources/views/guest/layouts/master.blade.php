@@ -51,9 +51,12 @@
     <meta name="theme-color" content="#e51515">
     <!-- CSS ================================================== -->
     {{--<link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css" media="all">--}}
+    <link href='{{ asset('/css/guest/plugin/call.css?v=1543') }}' rel='stylesheet' type='text/css' media='all'/>
     <link rel="stylesheet prefetch" href="{{asset('css/guest/toyota/css.css')}}">
     <link href="{{asset('css/guest/plugin/timber.scss.css')}}" rel="stylesheet" type="text/css" media="all">
     <link href="{{asset('css/guest/plugin/suplo-style.scss.css')}}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{asset('css/guest/plugin/flag-icon.min.css')}}" rel="stylesheet">
+    <link href="{{asset('css/guest/plugin/font-awesome.min.css')}}" rel="stylesheet">
 
     <link rel="stylesheet prefetch" href="{{asset('css/guest/plugin/owl.carousel.min.css')}}">
     <link rel="stylesheet prefetch" href="{{asset('css/guest/plugin/owl.theme.default.min.css')}}">
@@ -175,6 +178,10 @@
     <script defer="" src="{{asset('js/guest/plugin/ajax-cart.js')}}"></script>
     @yield('body.js')
 
+    @include('guest.layouts.partials.__call_phone_plugin');
+
     @yield('body.modal')
+
 </body>
+@include('guest.layouts.partials.__chat_box_facebook_plugin')
 </html>

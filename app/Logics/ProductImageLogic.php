@@ -26,4 +26,8 @@ class ProductImageLogic extends BaseLogic{
     public function delete($imageId){
         ProductImage::destroy($imageId);
     }
+
+    public function deleteByProduct($productId){
+        ProductImage::whereProductId($productId)->delete();
+    }
 }

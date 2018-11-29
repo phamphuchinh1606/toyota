@@ -113,6 +113,6 @@ class BlogService extends BaseService{
     }
 
     public function delete($blogId){
-        $this->blogLogic->delete($blogId);
+        $this->blogLogic->destroy($blogId);
     }
 }

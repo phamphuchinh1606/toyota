@@ -37,6 +37,11 @@ class BlogController extends Controller
         return redirect()->route('admin.blog.index');
     }
 
+    public function delete($id){
+        $this->blogService->delete($id);
+        return redirect()->route('admin.blog.index');
+    }
+
     private function apiGetBlogInfoDetail($url){
         $blogDetail = new \StdClass();
         $responseBlogInfo = Curl::to($url)->get();
@@ -119,6 +124,10 @@ class BlogController extends Controller
                                         $blogDescription = trim($this->innerHTML($tagDiv));
                                         break;
                                     }
+                                }
+                                $blog = $this->blogService->getByBlogTitle($title);
+                                if(isset($blog)){
+                                    continue;
                                 }
                                 $blog = new \StdClass();
                                 $blog->title = $title;

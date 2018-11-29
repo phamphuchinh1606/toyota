@@ -96,9 +96,11 @@
                                                             <a class="btn btn-info" href="{{route('admin.blog.update',['id' => $blog->id])}}">
                                                                 <i class="fa fa-edit"></i>
                                                             </a>
-                                                            {{--<a class="btn btn-danger" href="#">--}}
-                                                                {{--<i class="fa fa-trash-o"></i>--}}
-                                                            {{--</a>--}}
+                                                            <a data-toggle="modal" class="btn btn-danger anchorClick"
+                                                               data-url="{{route('admin.blog.delete',['id' => $blog->id]) }}"
+                                                               data-name="{{$blog->blog_title}}" href="#deleteModal">
+                                                                <i class="fa fa-trash-o"></i>
+                                                            </a>
                                                         </td>
                                                     </tr>
                                                 @endforeach
