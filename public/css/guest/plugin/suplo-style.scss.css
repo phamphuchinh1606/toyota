@@ -479,9 +479,9 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* ------------ breakpoints ------------ */
 @media (max-width: 480px) {
-    body {
-        padding-bottom: 67px;
-    }
+    /*body {*/
+        /*padding-bottom: 67px;*/
+    /*}*/
 
     .body-other #PageContainer {
         margin-bottom: 20px !important;
@@ -4171,8 +4171,8 @@ background-color: $colorPrimary;
 	color: #fff;
 	*/
     position: fixed;
-    right: 50px;
-    line-height: 50px;
+    right: 10px;
+    line-height: 200px;
     bottom: -150px;
     overflow: hidden;
     z-index: 999;

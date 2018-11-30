@@ -14,6 +14,8 @@ class AppInfoComposer
      */
     protected $settingService;
 
+    protected static $appInfo;
+
     /**
      * Create a new profile composer.
      *
@@ -34,7 +36,9 @@ class AppInfoComposer
      */
     public function compose(View $view)
     {
-        $appInfo = $this->settingService->getAppInfo();
-        $view->with('appInfo', $appInfo);
+        if(!isset(self::$appInfo)){
+            self::$appInfo = $this->settingService->getAppInfo();
+        }
+        $view->with('appInfo', self::$appInfo);
     }
 }

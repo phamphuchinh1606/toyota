@@ -107,7 +107,7 @@
 }
 
 .suntory-alo-phone.suntory-alo-green .suntory-alo-ph-img-circle {
-    background-color: #e11428
+    background-color: #ffffff;
 }
 
 @keyframes suntory-alo-circle-anim {
@@ -488,7 +488,7 @@
 }
 
 .suntory-send-mail.suntory-send-green .suntory-send-ph-img-circle {
-    background-color: #1976D2
+    background-color: #ffffff;
 }
 
 @keyframes suntory-send-circle-anim {

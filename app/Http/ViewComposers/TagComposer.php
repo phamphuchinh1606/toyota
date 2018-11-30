@@ -15,6 +15,10 @@ class TagComposer
      */
     protected $settingService;
 
+    private static $tagListOne;
+
+    private static $tagListTwo;
+
     /**
      * Create a new profile composer.
      *
@@ -35,9 +39,13 @@ class TagComposer
      */
     public function compose(View $view)
     {
-        $tagListOne = $this->settingService->getTagByTagType(Constant::$TAG_KEY_ONE);
-        $tagListTwo = $this->settingService->getTagByTagType(Constant::$TAG_KEY_TWO);
-        $view->with('tagListOne', $tagListOne)
-            ->with('tagListTwo',$tagListTwo);
+        if(!isset(self::$tagListOne)){
+            self::$tagListOne = $this->settingService->getTagByTagType(Constant::$TAG_KEY_ONE);
+        }
+        if(!isset(self::$tagListTwo)){
+            self::$tagListTwo = $this->settingService->getTagByTagType(Constant::$TAG_KEY_TWO);
+        }
+        $view->with('tagListOne', self::$tagListOne)
+            ->with('tagListTwo',self::$tagListTwo);
     }
 }

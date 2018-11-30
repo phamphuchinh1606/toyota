@@ -19,6 +19,12 @@ class ProductComposer
 
     protected $vendorService;
 
+    private static $productTypes;
+
+    private static $productTrees;
+
+    private static $vendors;
+
     /**
      * Create a new profile composer.
      *
@@ -41,11 +47,17 @@ class ProductComposer
      */
     public function compose(View $view)
     {
-        $productTypes = $this->productTypeService->getAllByTree();
-        $productTrees = $this->productService->getAllByTree();
-        $vendors = $this->vendorService->getAll();
-        $view->with('productTypes', $productTypes)
-                ->with('productTrees',$productTrees)
-                ->with('vendors',$vendors);
+        if(!isset(self::$productTypes)){
+            self::$productTypes = $this->productTypeService->getAllByTree();
+        }
+        if(!isset(self::$productTrees)){
+            self::$productTrees = $this->productService->getAllByTree();
+        }
+        if(!isset(self::$vendors)){
+            self::$vendors = $this->vendorService->getAll();
+        }
+        $view->with('productTypes', self::$productTypes)
+                ->with('productTrees',self::$productTrees)
+                ->with('vendors', self::$vendors);
     }
 }
