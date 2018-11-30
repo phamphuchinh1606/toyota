@@ -99,3 +99,10 @@ Breadcrumbs::for('admin.order.show', function ($trail) {
     $trail->parent('admin.order');
     $trail->push('Chi tiết đơn hàng');
 });
+
+//Estimate
+Breadcrumbs::register('admin.estimate', function ($trail) {
+    $trail->parent('admin.home');
+    $trail->push('Thiết Lặp Chi Phí');
+
+});

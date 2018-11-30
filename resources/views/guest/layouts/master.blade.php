@@ -50,12 +50,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta name="theme-color" content="#e51515">
     <!-- CSS ================================================== -->
-    {{--<link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css" media="all">--}}
     <link href='{{ asset('/css/guest/plugin/call.css?v=1543') }}' rel='stylesheet' type='text/css' media='all'/>
     <link rel="stylesheet prefetch" href="{{asset('css/guest/toyota/css.css')}}">
     <link href="{{asset('css/guest/plugin/timber.scss.css')}}" rel="stylesheet" type="text/css" media="all">
     <link href="{{asset('css/guest/plugin/suplo-style.scss.css')}}" rel="stylesheet" type="text/css" media="all">
-    {{--<link href="{{asset('css/guest/plugin/flag-icon.min.css')}}" rel="stylesheet">--}}
 
     <link rel="stylesheet prefetch" href="{{asset('css/guest/plugin/owl.carousel.min.css')}}">
     <link rel="stylesheet prefetch" href="{{asset('css/guest/plugin/owl.theme.default.min.css')}}">

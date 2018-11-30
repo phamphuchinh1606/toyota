@@ -1,5 +1,9 @@
 @extends('admin.layouts.master')
 
+@section('body.breadcrumb')
+    {{ Breadcrumbs::render('admin.estimate') }}
+@endsection
+
 @section('body.content')
     <div class="container-fluid">
         <div id="ui-view">

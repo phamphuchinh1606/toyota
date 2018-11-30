@@ -19,6 +19,10 @@ class ProductDetailController extends Controller
             'product' => $product,
             'productSameTypes' => $productSameTypes
         ]);
+//        return view('guest.product.test',[
+//            'product' => $product,
+//            'productSameTypes' => $productSameTypes
+//        ]);
     }
 
     public function quickViewProduct($slug = null,$id){

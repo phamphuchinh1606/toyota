@@ -86,6 +86,9 @@
                                         </table>
                                     </div>
                                 </div>
+                                <div class="pull-right">
+                                    {{ $productColors->links() }}
+                                </div>
                             </div>
                         </div>
                     </div>

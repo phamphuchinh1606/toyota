@@ -12,7 +12,7 @@ class ContactLogic extends BaseLogic{
     }
 
     public function getContactNew($limitPage = 20){
-        return Contact::orderBy('created_at', 'desc')->where('is_read',Constant::$STATUS_READ_ON)->paginate($limitPage);
+        return Contact::orderBy('created_at', 'desc')->where('is_read',Constant::$STATUS_READ_OFF)->paginate($limitPage);
     }
 
     public function countContactNotRead(){

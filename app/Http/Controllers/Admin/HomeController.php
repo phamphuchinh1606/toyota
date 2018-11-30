@@ -8,6 +8,7 @@ class HomeController extends Controller
 {
     public function index(){
         $contactsNew = $this->contactService->getContactNew();
+//        dd($contactsNew);
         return view('admin.home',[
             'contactsNew' => $contactsNew
         ]);
