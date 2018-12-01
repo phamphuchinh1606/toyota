@@ -36,6 +36,9 @@ class CreateProductsTable extends Migration
             $table->bigInteger('qty_sale_order')->default(0)->nullable(true);
             $table->string('slug',255)->nullable(true);
             $table->integer('blog_id')->nullable(true);
+            $table->dateTime('start_date_show_promotion')->nullable(true);
+            $table->dateTime('end_date_show_promotion')->nullable(true);
+            $table->longText('content_promotion')->nullable(true);
             $table->integer('is_public')->default(0);
             $table->integer('is_delete')->default(0);
             $table->timestamps();

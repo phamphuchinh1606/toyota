@@ -16,7 +16,7 @@ var toolbarOptions = [
 ];
 $('.editor_quill').each(function(){
      let editorId = $(this).attr('id');
-     if(editorId == "editor"){
+     if(editorId == "editor" || editorId == "editor-promotion"){
          $thisHtml = $(this);
          $inputHidden = $(this).parent().find('input.editor');
          let editor = new Quill('#'+editorId,

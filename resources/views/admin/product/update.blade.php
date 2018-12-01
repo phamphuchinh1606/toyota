@@ -95,44 +95,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{--<div class="col-md-4">--}}
-                                                        {{--<div class="input-group">--}}
-                                                            {{--<div class="input-group-prepend">--}}
-                                                                {{--<span class="input-group-text">Giá Gốc</span>--}}
-                                                            {{--</div>--}}
-                                                            {{--<input class="form-control product-price text-right number" id="product_cost_price" type="text" name="product_cost_price"--}}
-                                                                   {{--value="{{ $product->product_cost_price }}">--}}
-                                                            {{--<div class="input-group-append">--}}
-                                                                {{--<span class="input-group-text">VNĐ</span>--}}
-                                                            {{--</div>--}}
-                                                        {{--</div>--}}
-                                                    {{--</div>--}}
-                                                    {{--<div class="col-md-4">--}}
-                                                        {{--<div class="input-group">--}}
-                                                            {{--<div class="input-group-prepend">--}}
-                                                                {{--<span class="input-group-text">Tiền Giảm</span>--}}
-                                                            {{--</div>--}}
-                                                            {{--<input class="form-control text-right number" id="product_compare_price" type="text" name="product_compare_price" disabled--}}
-                                                                   {{--value="{{ $product->product_compare_price }}">--}}
-                                                            {{--<input name="product_compare_price" class="number" type="hidden" value="{{ $product->product_compare_price }}" />--}}
-                                                            {{--<div class="input-group-append">--}}
-                                                                {{--<span class="input-group-text">VNĐ</span>--}}
-                                                            {{--</div>--}}
-                                                        {{--</div>--}}
-                                                    {{--</div>--}}
                                                 </div>
-                                                {{--<div class="row pt-3">--}}
-                                                    {{--<div class="col-md-4"></div>--}}
-                                                    {{--<div class="col-md-4"></div>--}}
-                                                    {{--<div class="col-md-4">--}}
-                                                        {{--<div class="input-group">--}}
-                                                            {{--<div class="input-group-prepend">--}}
-                                                                {{--<span class="input-group-text">Phần Trăm</span>--}}
-                                                            {{--</div>--}}
-                                                            {{--@include('admin.product.__select_sale_percent',['selectName' => 'product_sale_percent','defaultValue' => $product->product_sale_percent])--}}
-                                                        {{--</div>--}}
-                                                    {{--</div>--}}
-                                                {{--</div>--}}
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -192,6 +155,19 @@
                                                         <input type="hidden" value="{{$product->product_content}}" class="editor" name="product_content"/>
                                                         <div id="editor" class="ql-container ql-snow editor_quill product_content">
                                                             {!! $product->product_content !!}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label" for="text-input">Thông tin khuyến mãi</label>
+                                            <div class="col-md-10">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <input type="hidden" value="{{$product->content_promotion}}" class="editor" name="content_promotion"/>
+                                                        <div id="editor-promotion" class="ql-container ql-snow editor_quill content_promotion">
+                                                            {!! $product->content_promotion !!}
                                                         </div>
                                                     </div>
                                                 </div>

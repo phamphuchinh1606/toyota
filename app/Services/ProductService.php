@@ -101,6 +101,7 @@ class ProductService extends BaseService{
         $params['isPublic'] = AppCommon::getIsPublic($request->is_public);
         $params['productDescription'] = $request->product_description;
         $params['productContent'] = $request->product_content;
+        $params['contentPromotion'] = $request->content_promotion;
         $params['productNumberOfSeat'] = $request->product_number_of_seat;
         $params['productDesign'] = $request->product_design;
         $params['productFuel'] = $request->product_fuel;
@@ -141,6 +142,7 @@ class ProductService extends BaseService{
         $params['isPublic'] = AppCommon::getIsPublic($request->is_public);
         $params['productDescription'] = $request->product_description;
         $params['productContent'] = $request->product_content;
+        $params['contentPromotion'] = $request->content_promotion;
         $params['productNumberOfSeat'] = $request->product_number_of_seat;
         $params['productDesign'] = $request->product_design;
         $params['productFuel'] = $request->product_fuel;

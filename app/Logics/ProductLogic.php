@@ -269,6 +269,9 @@ class ProductLogic extends BaseLogic{
             if(isset($params['productImage'])){
                 $product->product_image = $params['productImage'];
             }
+            if(isset($params['contentPromotion']) && trim($params['contentPromotion']) != ''){
+                $product->content_promotion = $params['contentPromotion'];
+            }
             $product->save();
             return $product;
         }
@@ -307,6 +310,9 @@ class ProductLogic extends BaseLogic{
                 $product->product_other_information = $params['productOtherInformation'];
                 if(isset($params['blogId'])){
                     $product->blog_id = $params['blogId'];
+                }
+                if(isset($params['contentPromotion']) && trim($params['contentPromotion']) != ''){
+                    $product->content_promotion = $params['contentPromotion'];
                 }
                 $product->save();
             }

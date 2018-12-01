@@ -89,6 +89,9 @@ Popup confirm
 #editor.product_content{
     height: 500px;
 }
+#editor-promotion.content_promotion{
+    height: 300px;
+}
 
 /*style for upload image*/
 .upload__area-image{
