@@ -5,7 +5,6 @@
     <link rel="stylesheet prefetch" href="{{asset('css/guest/toyota/main-content.css')}}">
     <link rel="stylesheet prefetch" href="{{asset('css/guest/toyota/css.css')}}">
     <link rel="stylesheet prefetch" href="{{asset('css/guest/toyota/main.css')}}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
 @endsection
 
@@ -14,7 +13,6 @@
 @section('body.js')
     <script src="{{asset('js/guest/product_detail.js')}}" type='text/javascript'></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
-    {{--<script src="https://fancyapps.com/fancybox/3/examples.js?v=1543590464"></script>--}}
 
 @endsection
 
@@ -30,7 +28,7 @@
 
                             @include('guest.product.partials.__product_image')
 
-                            @include('guest.product.partials.__product_blog')
+                            @include('guest.product.partials.__product_promotion')
 
                             @include('guest.product.partials.__product_highlight_function')
 

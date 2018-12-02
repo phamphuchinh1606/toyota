@@ -474,12 +474,6 @@ li.fancybox-thumbs-loading {
     display: none
 }
 
-body, html {
-    font-size: 13px;
-    font-family: Tahoma, arial, sans-serif;
-    line-height: 1.15
-}
-
 body.mb, body.tb, html.mb, html.tb {
     min-width: inherit
 }

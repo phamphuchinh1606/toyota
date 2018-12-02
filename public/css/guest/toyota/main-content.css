@@ -3644,11 +3644,6 @@ html:not(.mb).popup_accessories .txt_accessories .txt1 {
     margin-left: 0
 }
 
-body, html {
-    min-width: inherit;
-    font-size: 13px
-}
-
 .container {
     width: 95%;
     max-width: 1170px

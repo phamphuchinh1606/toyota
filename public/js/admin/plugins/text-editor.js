@@ -17,13 +17,13 @@ var toolbarOptions = [
 $('.editor_quill').each(function(){
      let editorId = $(this).attr('id');
      if(editorId == "editor" || editorId == "editor-promotion"){
-         $thisHtml = $(this);
-         $inputHidden = $(this).parent().find('input.editor');
          let editor = new Quill('#'+editorId,
              {modules: {toolbar: toolbarOptions},
-                 placeholder: 'Compose an epic...',
+                 placeholder: 'Nhập Thông Tin',
                  theme: 'snow'});
          editor.on('editor-change', function(eventName, ...args) {
+             $thisHtml = $('#'+editorId);
+             $inputHidden = $('#'+editorId).parent().find('input.editor');
              let images = $thisHtml.find('img');
              if(images.length > 0){
 
@@ -51,6 +51,7 @@ $('.editor_quill').each(function(){
 
                  }
              }
+
              $inputHidden.val(editor.root.innerHTML);
          });
      }

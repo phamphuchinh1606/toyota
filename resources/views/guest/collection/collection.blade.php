@@ -24,15 +24,12 @@
                                                     <label for="SortBy">Sắp xếp</label>
                                                     <select name="SortBy" id="SortBy">
                                                         <option value="manual">Tùy chọn</option>
-                                                        <option value="best-selling">Sản phẩm bán chạy</option>
-                                                        <option value="title-ascending">Theo bảng chữ cái từ A-Z
-                                                        </option>
-                                                        <option value="title-descending">Theo bảng chữ cái từ Z-A
-                                                        </option>
-                                                        <option value="price-ascending">Giá từ thấp tới cao</option>
-                                                        <option value="price-descending">Giá từ cao tới thấp</option>
-                                                        <option value="created-descending">Mới nhất</option>
-                                                        <option value="created-ascending">Cũ nhất</option>
+                                                        <option value="created-descending" >Mới nhất</option>
+                                                        <option value="created-ascending" >Cũ nhất</option>
+                                                        <option value="price-ascending" >Giá: Tăng dần</option>
+                                                        <option value="price-descending" >Giá: Giảm dần</option>
+                                                        <option value="title-ascending" >Tên: A-Z</option>
+                                                        <option value="title-descending" >Tên: Z-A</option>
                                                     </select>
                                                 </div>
 
