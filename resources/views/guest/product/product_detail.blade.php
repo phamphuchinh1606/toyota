@@ -1,5 +1,12 @@
 @extends('guest.layouts.master')
 
+@section('head.description', $product->product_description)
+
+@section('head.og.title',$product->product_name)
+@section('head.og.description',$product->product_description)
+@section('head.og.image',\App\Common\ImageCommon::showImage($product->product_image))
+@section('head.og.url',route('product_detail',['id' => $product->id, 'slug' => $product->slug]))
+
 @section('head.css')
     <link rel="stylesheet prefetch" href="{{asset('css/guest/plugin/product.css')}}">
     <link rel="stylesheet prefetch" href="{{asset('css/guest/toyota/main-content.css')}}">

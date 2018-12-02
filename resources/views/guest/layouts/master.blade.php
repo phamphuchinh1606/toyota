@@ -6,47 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta property="og:locale" content="vi_VN">
     <style type="text/css"></style>
-    <link rel="alternate" hreflang="x-default" href="https://suplo-car-accesories.myharavan.com">
-    <link rel="alternate" hreflang="vi" href="https://suplo-car-accesories.myharavan.com">
+    <link rel="alternate" hreflang="x-default" href="{{route('home')}}">
+    <link rel="alternate" hreflang="vi" href="{{route('home')}}">
     <meta name="revisit" content="1 days">
     <meta name="robots" content="index,follow">
     <link href="{{asset('css/guest/plugin/style.css')}}" rel="stylesheet" type="text/css" media="all">
-    <link rel="shortcut icon" href="//theme.hstatic.net/1000305059/1000394224/14/favicon.png?v=3615" type="image/png">
+    <link rel="shortcut icon" href="{{asset($appInfo->app_src_icon)}}" type="image/png"/>
 
     <!-- Title and description ================================================== -->
     <meta name="_token" content="{{ csrf_token() }}">
     <title>
         @yield('head.title',$appInfo->app_name)
     </title>
-
-    <meta name="description" content="Hãy đến với cửa hàng phụ kiện ô tô SUPLO CAR để tìm kiếm những sản phẩm phụ kiện,đồ chơi, nội thất cho chiếc xe ô tô xinh xắn của bạn. Suplo. Theme Suplo. Haravan.">
-
     <!-- Helpers ================================================== -->
     <!-- /snippets/social-meta-tags.liquid -->
 
-
+    <meta property="og:locale" content="vi_VN">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Suplo Car | Cửa hàng phụ kiện,đồ chơi, nội thất xe hơi chính hãng">
-    <meta property="og:description" content="Hãy đến với cửa hàng phụ kiện ô tô SUPLO CAR để tìm kiếm những sản phẩm phụ kiện,đồ chơi, nội thất cho chiếc xe ô tô xinh xắn của bạn. Suplo. Theme Suplo. Haravan.">
-    <meta property="og:image" content="http://theme.hstatic.net/1000305059/1000394224/14/share_fb_home.png?v=3615">
-    <meta property="og:image:secure_url" content="https://theme.hstatic.net/1000305059/1000394224/14/share_fb_home.png?v=3615">
-
-    <meta property="og:url" content="https://suplo-car-accesories.myharavan.com/">
-    <meta property="og:site_name" content="Suplo Car">
-
-
-
+    <meta property="og:title" content="@yield('head.og.title',$appInfo->app_name)">
+    <meta property="og:description" content="@yield('head.og.description',$appInfo->app_content)">
+    <meta property="og:url" content="@yield('head.og.url',URL::to('/'))">
+    <meta property="og:site_name" content="{{$appInfo->app_name}}">
+    <meta property="article:publisher" content="{{$appInfo->app_link_facebook_fanpage}}">
+    <meta property="og:image" content="@yield('head.og.image',asset('images/guest/icon_facebook.png'))">
+    <meta property="og:image:width" content="403">
+    <meta property="og:image:height" content="540">
+    <meta property="og:image:secure_url" content="@yield('head.og.image',asset('images/guest/icon_facebook.png'))">
+    <meta property="og:site_name" content="{{$appInfo->app_name}}">
     <meta name="twitter:site" content="@https://">
-
-
     <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="@yield('head.twitter.title',$appInfo->app_name)">
+    <meta name="twitter:description" content="@yield('head.twitter.description',$appInfo->app_content)">
 
 
-    <meta name="twitter:title" content="Suplo Car | Cửa hàng phụ kiện,đồ chơi, nội thất xe hơi chính hãng">
-    <meta name="twitter:description" content="Hãy đến với cửa hàng phụ kiện ô tô SUPLO CAR để tìm kiếm những sản phẩm phụ kiện,đồ chơi, nội thất cho chiếc xe ô tô xinh xắn của bạn. Suplo. Theme Suplo. Haravan.">
-
-
-    <link rel="canonical" href="https://suplo-car-accesories.myharavan.com/">
+    <link rel="canonical" href="{{route('home')}}">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta name="theme-color" content="#e51515">
     <!-- CSS ================================================== -->
@@ -87,9 +80,6 @@
     <!--[if lt IE 9]>
     <script src="{{asset('js/guest/plugin/html5shiv.min.js')}}" type='text/javascript'></script>
     <script src="{{asset('js/guest/plugin/respond.min.js')}}" type='text/javascript'></script>
-    <link href="//theme.hstatic.net/1000305059/1000394224/14/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
-    <link href="//suplo-car-accesories.myharavan.com/search?q=4ce7df218c85347218f8038cb52b6a43" id="respond-redirect" rel="respond-redirect" />
-    <script src="//suplo-car-accesories.myharavan.com/search?q=4ce7df218c85347218f8038cb52b6a43" type="text/javascript"></script>
     <![endif]-->
 
 
@@ -108,7 +98,7 @@
 
 
     <!--- Animation ---->
-    <link rel="stylesheet" href="https://cdn.rawgit.com/daneden/animate.css/v3.1.0/animate.min.css">
+    <link rel="stylesheet" href="{{asset('css/guest/plugin/animate.min.css')}}">
     <script src="{{asset('js/guest/plugin/wow.min.js')}}"></script>
 
 
@@ -146,7 +136,7 @@
     </script>
     @yield('head.css')
 </head>
-<body id="suplo-car-cua-hang-phu-kien-do-choi-noi-that-xe-hoi-chinh-hang" class="@yield('body.class_body',"template-index")">
+<body class="@yield('body.class_body',"template-index")">
 
     {{--@include('guest.layouts.partials.__menu_show_product')--}}
     {{--Header--}}
