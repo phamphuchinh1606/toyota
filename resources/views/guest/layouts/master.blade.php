@@ -38,6 +38,12 @@
     <meta name="twitter:title" content="@yield('head.twitter.title',$appInfo->app_name)">
     <meta name="twitter:description" content="@yield('head.twitter.description',$appInfo->app_content)">
 
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=0' name='viewport'/>
+    <meta name="description" content="@yield('head.description',$appInfo->app_content)">
+    <meta name="keywords" content="{{$appInfo->app_content}}">
+    <link rel="canonical" href="{{URL::to('/')}}"/>
+    <link rel="pingback" href="{{URL::to('/')}}">
+
 
     <link rel="canonical" href="{{route('home')}}">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
