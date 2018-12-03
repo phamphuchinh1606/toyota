@@ -6,7 +6,7 @@
                 <section id="related-products">
                     <div class="home-section-head clearfix">
                         <h2>
-                            <span>Tin Khuyến Mãi</span>
+                            <span>Khuyến Mãi</span>
                         </h2>
                     </div>
                     <div class="box_tabs">

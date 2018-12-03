@@ -31,6 +31,7 @@ class CreateSettingAppInfosTable extends Migration
             $table->string('app_make_product_video_one',1000)->nullable(true);
             $table->string('app_make_product_video_two',1000)->nullable(true);
             $table->string('app_content',1000)->nullable(true);
+            $table->longText('about_content')->nullable(true);
             $table->timestamps();
         });
     }

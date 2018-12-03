@@ -20,7 +20,7 @@ class CreateProductImagesTable extends Migration
             $table->string('image_src',255)->nullable(true);
             $table->string('image_name',255)->nullable(true);
             $table->string('image_title',255)->nullable(true);
-            $table->text('image_content')->nullable(true);
+            $table->longText('image_content')->nullable(true);
             $table->timestamps();
         });
     }

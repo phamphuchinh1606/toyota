@@ -34,12 +34,6 @@
                                 <span>Tin Tức</span>
                             </a>
                         </li>
-                        <li class="@if(\Request::is('contact')) active @endif">
-                            <a href="{{route('contact')}}" class="text-center">
-                                <span>Liên hệ</span>
-                            </a>
-                        </li>
-
                         <li class="@if(\Request::is('cost-estimate')) active @endif">
                             <a href="{{route('cost_estimate')}}" class="text-center">
                                 <span>Dự toán chi phí</span>
@@ -47,11 +41,20 @@
                             </a>
                         </li>
                         <li class=" ">
-                            <a href="#" class="text-center">
+                            <a href="{{route('cost_estimate')}}" class="text-center">
                                 <span>Đăng lý lái thử</span>
                             </a>
-
                         </li>
+                        <li class="@if(\Request::is('contact')) active @endif">
+                            <a href="{{route('contact')}}" class="text-center">
+                                <span>Liên hệ</span>
+                            </a>
+                        </li>
+                            <li class="@if(\Request::is('about')) active @endif">
+                                <a href="{{route('about')}}" class="text-center">
+                                    <span>Giới thiệu</span>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>

@@ -162,6 +162,117 @@ class ToyotaService extends BaseService{
         return $productInfo;
     }
 
+    private function getProductListImageBig($finder, $productInfo){
+        //Get List Image
+        $nodeImages = $finder->query("//div[@id='popup_pc_gallery']");
+        $productImages = [];
+        if(count($nodeImages) > 0){
+            $nodeImage = $nodeImages[0];
+            $nodeDivs = $nodeImage->getElementsByTagName('div');
+            foreach ($nodeDivs as $nodeDiv){
+                $className = $nodeDiv->getAttribute('class');
+                if($className == 'inner_item'){
+                    $nodeSrcImage = $nodeDiv->getElementsByTagName('img');
+                    $image = new \StdClass();
+                    if(count($nodeSrcImage) > 0){
+                        $image->image = $this->urlHostToyota.$nodeSrcImage[0]->getAttribute('src');
+                    }
+                    $noteTitles = $nodeDiv->getElementsByTagName('p');
+                    foreach ($noteTitles as $noteTitle){
+                        $className = $noteTitle->getAttribute('class');
+                        if($className == "txt_p_1"){
+                            $image->title = $noteTitle->nodeValue;
+                        }
+                    }
+                    $noteContents = $nodeDiv->getElementsByTagName('div');
+                    foreach ($noteContents as $noteContent){
+                        $className = $noteContent->getAttribute('class');
+                        if($className == "txt_p_2"){
+                            $image->content = trim($noteContent->nodeValue);
+                        }
+                    }
+                    if(isset($image->image)){
+                        $productImages[] = $image;
+                    }
+                }
+            }
+        }
+        $productInfo->product_images = $productImages;
+
+        //Get List Image Furniture
+        $nodeImages = $finder->query("//div[@id='popup_pc_ex']");
+        $productFurnitureImages = [];
+        if(count($nodeImages) > 0){
+            $nodeImage = $nodeImages[0];
+            $nodeDivs = $nodeImage->getElementsByTagName('div');
+            foreach ($nodeDivs as $nodeDiv){
+                $className = $nodeDiv->getAttribute('class');
+                if($className == 'inner_item'){
+                    $nodeSrcImage = $nodeDiv->getElementsByTagName('img');
+                    $image = new \StdClass();
+                    if(count($nodeSrcImage) > 0){
+                        $image->image = $this->urlHostToyota.$nodeSrcImage[0]->getAttribute('src');
+                    }
+                    $noteTitles = $nodeDiv->getElementsByTagName('p');
+                    foreach ($noteTitles as $noteTitle){
+                        $className = $noteTitle->getAttribute('class');
+                        if($className == "txt_p_1"){
+                            $image->title = $noteTitle->nodeValue;
+                        }
+                    }
+                    $noteContents = $nodeDiv->getElementsByTagName('div');
+                    foreach ($noteContents as $noteContent){
+                        $className = $noteContent->getAttribute('class');
+                        if($className == "txt_p_2"){
+                            $image->content = trim($noteContent->nodeValue);
+                        }
+                    }
+                    if(isset($image->image)){
+                        $productFurnitureImages[] = $image;
+                    }
+                }
+            }
+        }
+        $productInfo->product_furniture_images = $productFurnitureImages;
+
+        //Get List Image Exterior
+        $nodeImages = $finder->query("//div[@id='popup_pc_inter']");
+        $productExteriorImages = [];
+        if(count($nodeImages) > 0){
+            $nodeImage = $nodeImages[0];
+            $nodeDivs = $nodeImage->getElementsByTagName('div');
+            foreach ($nodeDivs as $nodeDiv){
+                $className = $nodeDiv->getAttribute('class');
+                if($className == 'inner_item'){
+                    $nodeSrcImage = $nodeDiv->getElementsByTagName('img');
+                    $image = new \StdClass();
+                    if(count($nodeSrcImage) > 0){
+                        $image->image = $this->urlHostToyota.$nodeSrcImage[0]->getAttribute('src');
+                    }
+                    $noteTitles = $nodeDiv->getElementsByTagName('p');
+                    foreach ($noteTitles as $noteTitle){
+                        $className = $noteTitle->getAttribute('class');
+                        if($className == "txt_p_1"){
+                            $image->title = $noteTitle->nodeValue;
+                        }
+                    }
+                    $noteContents = $nodeDiv->getElementsByTagName('div');
+                    foreach ($noteContents as $noteContent){
+                        $className = $noteContent->getAttribute('class');
+                        if($className == "txt_p_2"){
+                            $image->content = trim($noteContent->nodeValue);
+                        }
+                    }
+                    if(isset($image->image)){
+                        $productExteriorImages[] = $image;
+                    }
+                }
+            }
+        }
+        $productInfo->product_exterior_images = $productExteriorImages;
+        return $productInfo;
+    }
+
     private function getProductSalientFeature($finder, $productInfo){
         $nodeTabVHs = $finder->query("//div[@id='popup_pc_operate']");
         $productFeatures = [];
@@ -299,7 +410,7 @@ class ToyotaService extends BaseService{
         //Get info color Product
         $productInfo = $this->getProductColorInfo($finder,$productInfo);
         //Get product image
-        $productInfo = $this->getProductListImage($finder, $productInfo);
+        $productInfo = $this->getProductListImageBig($finder, $productInfo);
         //Get SalientFeature
         $productInfo = $this->getProductSalientFeature($finder, $productInfo);
         //Get Specification

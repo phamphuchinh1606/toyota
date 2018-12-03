@@ -302,17 +302,26 @@ class ProductService extends BaseService{
                 //Create Product Image
                 if(isset($product->product_images)){
                     foreach ($product->product_images as $image){
-                        $this->productImageLogic->create($productId, $image, Constant::$PRODUCT_IMAGE_TYPE_IMAGE);
+                        $imageSrc = isset($image->image) ? $image->image : '';
+                        $imageTitle = isset($image->title) ? $image->title : '';
+                        $imageContent = isset($image->content) ? $image->content : '';
+                        $this->productImageLogic->create($productId, $imageSrc, Constant::$PRODUCT_IMAGE_TYPE_IMAGE,$imageTitle,$imageContent);
                     }
                 }
                 if(isset($product->product_furniture_images)){
                     foreach ($product->product_furniture_images as $image){
-                        $this->productImageLogic->create($productId, $image, Constant::$PRODUCT_IMAGE_TYPE_FURNITURE);
+                        $imageSrc = isset($image->image) ? $image->image : '';
+                        $imageTitle = isset($image->title) ? $image->title : '';
+                        $imageContent = isset($image->content) ? $image->content : '';
+                        $this->productImageLogic->create($productId, $imageSrc, Constant::$PRODUCT_IMAGE_TYPE_FURNITURE,$imageTitle, $imageContent);
                     }
                 }
                 if(isset($product->product_exterior_images)){
                     foreach ($product->product_exterior_images as $image){
-                        $this->productImageLogic->create($productId, $image, Constant::$PRODUCT_IMAGE_TYPE_EXTERIOR);
+                        $imageSrc = isset($image->image) ? $image->image : '';
+                        $imageTitle = isset($image->title) ? $image->title : '';
+                        $imageContent = isset($image->content) ? $image->content : '';
+                        $this->productImageLogic->create($productId, $imageSrc, Constant::$PRODUCT_IMAGE_TYPE_EXTERIOR,$imageTitle,$imageContent);
                     }
                 }
 
