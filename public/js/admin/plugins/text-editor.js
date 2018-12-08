@@ -78,9 +78,9 @@ $('.editor_quill').each(function(){
                      }
                      let styleCopy = styleImages[src];
                      if(styleCopy != null && styleCopy!= undefined){
+                         images[i].className = 'image-w40';
                          images[i].style = styleCopy;
                      }
-
                  }
              }
 
