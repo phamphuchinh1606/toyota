@@ -14,9 +14,12 @@
         <li class="mobile-nav__item mobile-nav__item--active">
             <a href="{{route('home')}}" class="mobile-nav__link">Trang chủ</a>
         </li>
+        <li class="mobile-nav__item">
+            <a href="{{route('about')}}" class="mobile-nav__link">Giới thiệu</a>
+        </li>
         <li class="mobile-nav__item" aria-haspopup="true">
             <div class="mobile-nav__has-sublist">
-                <a href="/collections/all" class="mobile-nav__link">Sản phẩm</a>
+                <a href="{{route('collection_all')}}" class="mobile-nav__link">Sản phẩm</a>
                 <div class="mobile-nav__toggle">
                     <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
                         <span class="icon icon-plus" aria-hidden="true"></span>

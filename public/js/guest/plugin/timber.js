@@ -193,6 +193,9 @@ timber.drawersInit = function () {
 
 	 timber.mobileNavToggle = function () {
 		 timber.cache.$mobileSubNavToggle.on('click', function() {
+		     $(this).closest('ul').find('li .mobile-nav--expanded').each(function(){
+                 $(this).toggleClass('mobile-nav--expanded');
+             });
 			 $(this).parent().toggleClass('mobile-nav--expanded');
 		 });
 	 };

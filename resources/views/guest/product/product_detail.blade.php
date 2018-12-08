@@ -26,7 +26,8 @@
         var imgOpts = $.extend(true, {}, $.fancybox.defaults, {
             caption : function( instance, item ) {
                 return $(this).next('figcaption').html();
-            }
+            },
+            loop : true
         });
 
         // Shortcut to apply options to image gallery

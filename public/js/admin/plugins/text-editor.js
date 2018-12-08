@@ -14,19 +14,47 @@ var toolbarOptions = [
     ['clean'],
     ['link', 'image', 'video']
 ];
+
+var formats = [
+    'background',
+    'bold',
+    'color',
+    'font',
+    'code',
+    'italic',
+    'link',
+    'size',
+    'strike',
+    'script',
+    'underline',
+    'blockquote',
+    'header',
+    'indent',
+    'list',
+    'align',
+    'direction',
+    'code-block',
+    'formula',
+    'image',
+    'video'
+];
+let styleImages = [];
 $('.editor_quill').each(function(){
      let editorId = $(this).attr('id');
      if(editorId == "editor" || editorId == "editor-promotion"){
          let editor = new Quill('#'+editorId,
-             {modules: {toolbar: toolbarOptions},
+             {
+                 modules: {toolbar: toolbarOptions},
                  placeholder: 'Nhập Thông Tin',
-                 theme: 'snow'});
+                 theme: 'snow',
+                 formats: formats
+             });
          editor.on('editor-change', function(eventName, ...args) {
              $thisHtml = $('#'+editorId);
              $inputHidden = $('#'+editorId).parent().find('input.editor');
              let images = $thisHtml.find('img');
+             let editorCurrent = $(this);
              if(images.length > 0){
-
                  for (var i=0; i< images.length; i++) {
                      let src =  images[i].getAttribute('src');
                      if(src.startsWith('data:image')){
@@ -48,12 +76,28 @@ $('.editor_quill').each(function(){
                              }
                          });
                      }
+                     let styleCopy = styleImages[src];
+                     if(styleCopy != null && styleCopy!= undefined){
+                         images[i].style = styleCopy;
+                     }
 
                  }
              }
 
              $inputHidden.val(editor.root.innerHTML);
          });
+         editor.clipboard.addMatcher('*', (node, delta) => {
+             let images = node.getElementsByTagName('img');
+             if(images.length > 0){
+                 styleImages = [];
+                 for (let i=0; i< images.length; i++) {
+                     let src = images[i].getAttribute('src');
+                     let style = images[i].getAttribute('style');
+                     styleImages[src] = style;
+                 }
+             }
+             return delta;
+         })
      }
 });
 

@@ -33,7 +33,11 @@
         }
         .fancybox-caption{
             padding: 5px;
-            padding-top: 60px;
+            /*padding-top: 60px;*/
+            bottom: 120px;
+        }
+        .fancybox-content{
+            margin-top: -160px;
         }
     }
 </style>
@@ -50,7 +54,7 @@
                     <div class="inner">
                         <div class="products">
                             <ul class="owl-carousel slide-product-image owl-loaded owl-drag" id="ulProductImage">
-                                @foreach($product->images as $image)
+                                @foreach($product->furniture_images as $image)
                                     <div class="item">
                                         <figure>
                                             <a data-fancybox="images" class="d-block mb-4" data-fancybox="images" href="{{ImageCommon::showImage($image->image_src)}}">
@@ -65,13 +69,13 @@
                                         </figure>
                                     </div>
                                 @endforeach
-                                @foreach($product->furniture_images as $image)
+                                @foreach($product->images as $image)
                                     <div class="item">
                                         <figure>
                                             <a data-fancybox="images" class="d-block mb-4" data-fancybox="images" href="{{ImageCommon::showImage($image->image_src)}}">
                                                 <img class="img-fluid"
-                                                    alt="{{$appInfo->app_name}}"
-                                                    src="{{ImageCommon::showImage($image->image_src)}}">
+                                                     alt="{{$appInfo->app_name}}"
+                                                     src="{{ImageCommon::showImage($image->image_src)}}">
                                             </a>
                                             <figcaption>
                                                 <h6>{{$image->image_title}}</h6>

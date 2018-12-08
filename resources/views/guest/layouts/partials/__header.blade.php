@@ -1,3 +1,19 @@
+<style>
+    #header .header-desktop .header-navbar-wrapper .header-navbar > ul > li.megamenu > ul{
+        right: -120px;
+    }
+    #header .megamenu .megamenu-menu .tabsmenu{
+        overflow: auto;
+        overflow-x: hidden;
+        max-height: 87vh;
+    }
+    @media (max-width: 800px) {
+        #header .header-desktop .header-navbar-wrapper .header-navbar > ul > li.megamenu > ul{
+            right: -250px;
+        }
+    }
+</style>
+
 
 <header id="header">
     <div class="header-desktop">
@@ -20,6 +36,11 @@
                         <li class="@if($isPageHome) active @endif">
                             <a href="{{route('home')}}" class="text-center">
                                 <span>Trang Chủ</span>
+                            </a>
+                        </li>
+                        <li class="@if(\Request::is('about')) active @endif">
+                            <a href="{{route('about')}}" class="text-center">
+                                <span>Giới thiệu</span>
                             </a>
                         </li>
                         <li class="megamenu @if(\Request::is('collection-all')) active @endif">
@@ -50,11 +71,6 @@
                                 <span>Liên hệ</span>
                             </a>
                         </li>
-                            <li class="@if(\Request::is('about')) active @endif">
-                                <a href="{{route('about')}}" class="text-center">
-                                    <span>Giới thiệu</span>
-                                </a>
-                            </li>
                     </ul>
                 </div>
             </div>
