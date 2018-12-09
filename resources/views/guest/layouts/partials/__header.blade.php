@@ -30,7 +30,7 @@
                     <ul class="no-bullets">
                         <?php
                             $isPageHome = true;
-                            if(\Request::is('collection-all') || \Request::is('blog') || \Request::is('contact') || \Request::is('cost-estimate'))
+                            if(\Request::is('collection-all') || \Request::is('blog') || \Request::is('contact') || \Request::is('cost-estimate') || \Request::is('about'))
                                 $isPageHome = false;
                         ?>
                         <li class="@if($isPageHome) active @endif">
