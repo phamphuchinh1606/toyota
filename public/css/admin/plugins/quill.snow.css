@@ -1042,6 +1042,15 @@
 .ql-container.ql-snow {
     border: 1px solid #ccc
 }
-.ql-snow .image-w40{
-    width: 40px;
+.ql-snow img.width25{
+    width: 25px;
+    height: 34px;
+}
+.ql-snow img.width35{
+    width: 35px;
+    height: 35px;
+}
+.ql-snow img.width38{
+    width: 38px;
+    height: 38px;
 }

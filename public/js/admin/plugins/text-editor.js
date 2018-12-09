@@ -44,9 +44,14 @@ $('.editor_quill').each(function(){
      if(editorId == "editor" || editorId == "editor-promotion"){
          let editor = new Quill('#'+editorId,
              {
-                 modules: {toolbar: toolbarOptions},
                  placeholder: 'Nhập Thông Tin',
                  theme: 'snow',
+                 modules: {
+                     toolbar: toolbarOptions,
+                     imageResize: {
+                         displaySize: true
+                     },
+                 },
                  formats: formats
              });
          editor.on('editor-change', function(eventName, ...args) {
@@ -78,12 +83,10 @@ $('.editor_quill').each(function(){
                      }
                      let styleCopy = styleImages[src];
                      if(styleCopy != null && styleCopy!= undefined){
-                         images[i].className = 'image-w40';
                          images[i].style = styleCopy;
                      }
                  }
              }
-
              $inputHidden.val(editor.root.innerHTML);
          });
          editor.clipboard.addMatcher('*', (node, delta) => {
@@ -100,4 +103,5 @@ $('.editor_quill').each(function(){
          })
      }
 });
+
 

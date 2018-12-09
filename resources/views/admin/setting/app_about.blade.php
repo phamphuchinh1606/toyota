@@ -10,7 +10,9 @@
 
 @section('body.js')
     <script src="{{asset('js/admin/plugins/quill.min.js')}}"></script>
+    <script src="{{asset('js/admin/plugins/image-resize.min.js')}}"></script>
     <script src="{{asset('js/admin/plugins/text-editor.js')}}"></script>
+
 @endsection
 
 @section('body.content')
@@ -22,15 +24,13 @@
                           id="form">
                         @csrf
                         <input type="hidden" value="{{$appInfo->id}}" name="app_id"/>
-                        <div class="card list-image">
+                        <div class="card">
                             <div class="card-header">
                                 <i class="fa fa-align-justify"></i>Thông tin giới thiệu trang
                             </div>
                             <div class="card-body">
                                 <input type="hidden" value="{{$appInfo->about_content}}" class="editor" name="about_content"/>
-                                <div id="editor" class="ql-container ql-snow editor_quill product_content" style="min-height: 700px">
-                                    {!! $appInfo->about_content !!}
-                                </div>
+                                <div id="editor" class="editor_quill product-content" style="min-height: 700px">{!! $appInfo->about_content !!}</div>
                             </div>
                             <div class="card-footer">
                                 <button class="btn btn-sm btn-primary pull-right" type="submit">

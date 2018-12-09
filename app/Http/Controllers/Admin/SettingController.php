@@ -81,6 +81,7 @@ class SettingController extends Controller
     public function appAboutUpdate(){
         $appInfo = $this->settingService->getAppInfo();
         return $this->viewAdmin('setting.app_about',['appInfo' => $appInfo]);
+//        return $this->viewAdmin('setting.test');
     }
 
     public function updateAboutAppInfo(Request $request){
