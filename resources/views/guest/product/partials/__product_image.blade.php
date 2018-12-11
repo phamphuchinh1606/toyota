@@ -9,7 +9,7 @@
         color: #fff !important;
     }
     .fancybox-content{
-        padding: 0;
+        top: 100px;
     }
     .fancybox-caption h6{
         font-weight: bold;
@@ -19,7 +19,12 @@
         display: none;
     }
     .fancybox-caption{
-        padding-top: 20px;
+        padding: 5px;
+        bottom: 35px;
+    }
+    .open_popup_pc .inner .txt1{
+        max-height: 35px;
+        text-transform: inherit;
     }
     @media (max-width: 767.98px) {
         .isPhone .box_tabs .tabs.title-product-image{

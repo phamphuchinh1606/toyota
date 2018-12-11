@@ -11,7 +11,7 @@
     <meta name="revisit" content="1 days">
     <meta name="robots" content="index,follow">
     <link href="{{asset('css/guest/plugin/style.css')}}" rel="stylesheet" type="text/css" media="all">
-    <link rel="shortcut icon" href="{{asset($appInfo->app_src_icon)}}" type="image/png"/>
+    <link rel="shortcut icon" href="{{asset('images/guest/favicon.png')}}" type="image/png"/>
 
     <!-- Title and description ================================================== -->
     <meta name="_token" content="{{ csrf_token() }}">

@@ -62,7 +62,7 @@
                             </a>
                         </li>
                         <li class=" ">
-                            <a href="{{route('cost_estimate')}}" class="text-center">
+                            <a href="{{route('contact')}}" class="text-center">
                                 <span>Đăng lý lái thử</span>
                             </a>
                         </li>
