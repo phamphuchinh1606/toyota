@@ -32,7 +32,7 @@
 
         // Shortcut to apply options to image gallery
         function applyImgOpts() {
-            $('[data-fancybox="images"]').fancybox(imgOpts);
+            $('[data-fancybox="images"],[data-fancybox="images1"],[data-fancybox="images2"]').fancybox(imgOpts);
         }
 
         $("#imgOpts select").change(function () {

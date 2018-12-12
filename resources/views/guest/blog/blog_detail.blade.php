@@ -110,18 +110,6 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="grid">
-                                    <div class="grid__item large--one-whole medium--one-half small--one-whole">
-                                        <div class="blog-sidebar">
-                                            <a href="/collections/all" class="bs-banner"><img src="//theme.hstatic.net/1000305059/1000394224/14/blog_banner_1.png?v=3615" alt="Suplo Car | Cửa hàng phụ kiện,đồ chơi, nội thất xe hơi chính hãng"></a>
-                                        </div>
-                                    </div>
-                                    <div class="grid__item large--one-whole medium--one-half small--one-whole">
-                                        <div class="blog-sidebar">
-                                            <a href="/collections/all" class="bs-banner"><img src="//theme.hstatic.net/1000305059/1000394224/14/blog_banner_2.png?v=3615" alt="Suplo Car | Cửa hàng phụ kiện,đồ chơi, nội thất xe hơi chính hãng"></a>
-                                        </div>
-                                    </div>
-                                </div>
                                 {{--Plugin Facebook--}}
                                 @include('both.common.__plugin_fan_facebook')
 

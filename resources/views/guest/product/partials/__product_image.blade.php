@@ -104,7 +104,7 @@
                                     @foreach($product->furniture_images as $image)
                                         <div class="item">
                                             <figure>
-                                                <a data-fancybox="images" class="d-block mb-4" data-fancybox="images" href="{{ImageCommon::showImage($image->image_src)}}">
+                                                <a data-fancybox="images1" class="d-block mb-4" data-fancybox="images1" href="{{ImageCommon::showImage($image->image_src)}}">
                                                     <img class="img-fluid"
                                                          alt="{{$appInfo->app_name}}"
                                                          src="{{ImageCommon::showImage($image->image_src)}}">
@@ -127,7 +127,7 @@
                                     @foreach($product->exterlor_images as $image)
                                         <div class="item">
                                             <figure>
-                                                <a data-fancybox="images" class="d-block mb-4" data-fancybox="images" href="{{ImageCommon::showImage($image->image_src)}}">
+                                                <a data-fancybox="images2" class="d-block mb-4" data-fancybox="images2" href="{{ImageCommon::showImage($image->image_src)}}">
                                                     <img class="img-fluid"
                                                          alt="{{$appInfo->app_name}}"
                                                          src="{{ImageCommon::showImage($image->image_src)}}">
