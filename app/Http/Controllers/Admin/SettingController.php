@@ -20,6 +20,11 @@ class SettingController extends Controller
         return redirect()->route('admin.setting.banner');
     }
 
+    public function bannerUpdate(Request $request){
+        $this->settingService->updateBanner($request);
+        return redirect()->route('admin.setting.banner');
+    }
+
     public function bannerDestroy($id){
         $this->settingService->deleteBanner($id);
         return redirect()->route('admin.setting.banner');

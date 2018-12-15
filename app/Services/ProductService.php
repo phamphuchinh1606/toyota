@@ -229,6 +229,20 @@ class ProductService extends BaseService{
         return null;
     }
 
+    private function saveImageToyota($urlImage, $productId){
+        $contents = file_get_contents($urlImage);
+        if(isset($contents)){
+            $name = substr($urlImage, strrpos($urlImage, '/') + 1);
+            if(str_contains($name,'?')){
+                $name = substr($name,0 ,strrpos($name, '?'));
+            }
+            $pathImage = Constant::$PATH_FOLDER_UPLOAD_PRODUCT."/$productId/$name";
+            Storage::put($pathImage, $contents);
+            return $pathImage;
+        }
+        return $urlImage;
+    }
+
     public function createListProductApi($listProductInfo){
         $productTypes = $this->productTypeLogic->getAll();
         foreach ($listProductInfo as $product){
@@ -256,6 +270,11 @@ class ProductService extends BaseService{
             $productInsert = $this->productLogic->createProduct($params);
             if($product != null){
                 $productId = $productInsert->id;
+
+                //Save image main
+                $productInsert->product_image = $this->saveImageToyota($product->product_image,$productId);
+                $this->productLogic->save($productInsert);
+
                 //Create Product Color
                 foreach ($product->product_colors as $index => $productColor){
                     $paramImage = [];
@@ -263,7 +282,7 @@ class ProductService extends BaseService{
                     $paramImage['productId'] = $productInsert->id;
                     $paramImage['colorSort'] = $index;
                     $paramImage['colorCode'] = $productColor->color_code;
-                    $paramImage['imageName'] = $productColor->color_image;
+                    $paramImage['imageName'] = $this->saveImageToyota($productColor->color_image,$productId);
                     $this->productColorLogic->create($paramImage);
                 }
 
@@ -273,7 +292,7 @@ class ProductService extends BaseService{
                     $paramsFeature['featureContent'] = $feature->feature_content;
                     $paramsFeature['productId'] = $productInsert->id;
                     $paramsFeature['featureType'] = $feature->feature_type;
-                    $paramsFeature['featureImage'] = $feature->feature_image;
+                    $paramsFeature['featureImage'] = $this->saveImageToyota($feature->feature_image,$productId);
                     $this->productSalientFeatureLogic->create($paramsFeature);
                 }
 
@@ -303,6 +322,7 @@ class ProductService extends BaseService{
                 if(isset($product->product_images)){
                     foreach ($product->product_images as $image){
                         $imageSrc = isset($image->image) ? $image->image : '';
+                        $imageSrc = $this->saveImageToyota($imageSrc,$productId);
                         $imageTitle = isset($image->title) ? $image->title : '';
                         $imageContent = isset($image->content) ? $image->content : '';
                         $this->productImageLogic->create($productId, $imageSrc, Constant::$PRODUCT_IMAGE_TYPE_IMAGE,$imageTitle,$imageContent);
@@ -311,6 +331,7 @@ class ProductService extends BaseService{
                 if(isset($product->product_furniture_images)){
                     foreach ($product->product_furniture_images as $image){
                         $imageSrc = isset($image->image) ? $image->image : '';
+                        $imageSrc = $this->saveImageToyota($imageSrc,$productId);
                         $imageTitle = isset($image->title) ? $image->title : '';
                         $imageContent = isset($image->content) ? $image->content : '';
                         $this->productImageLogic->create($productId, $imageSrc, Constant::$PRODUCT_IMAGE_TYPE_FURNITURE,$imageTitle, $imageContent);
@@ -319,6 +340,7 @@ class ProductService extends BaseService{
                 if(isset($product->product_exterior_images)){
                     foreach ($product->product_exterior_images as $image){
                         $imageSrc = isset($image->image) ? $image->image : '';
+                        $imageSrc = $this->saveImageToyota($imageSrc,$productId);
                         $imageTitle = isset($image->title) ? $image->title : '';
                         $imageContent = isset($image->content) ? $image->content : '';
                         $this->productImageLogic->create($productId, $imageSrc, Constant::$PRODUCT_IMAGE_TYPE_EXTERIOR,$imageTitle,$imageContent);

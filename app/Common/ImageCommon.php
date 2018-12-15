@@ -27,7 +27,7 @@ class ImageCommon{
         if(str_contains($image,Constant::$URL_TOYOTA)){
             return $image;
         }
-        Constant::$PATH_URL_UPLOAD_IMAGE = env('PATH_URL_UPLOAD_IMAGE','storage/');
+//        Constant::$PATH_URL_UPLOAD_IMAGE = env('PATH_URL_UPLOAD_IMAGE','storage/');
         return asset(Constant::$PATH_URL_UPLOAD_IMAGE.$image);
     }
 }

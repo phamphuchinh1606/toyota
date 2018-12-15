@@ -20,6 +20,7 @@ use App\Logics\SettingLogic;
 use App\Logics\SettingSpecificationLogic;
 use App\Logics\VendorLogic;
 use Curl;
+use Storage;
 use App\Common\CurlCommon;
 
 class ToyotaService extends BaseService{

@@ -10,6 +10,11 @@ use App\Models\SettingAppInfo;
 use App\Models\TableNameDB;
 
 class SettingLogic extends BaseLogic{
+
+    public function find($bannerId){
+        return SettingBanner::find($bannerId);
+    }
+
     public function getBannerAll(){
         return SettingBanner::orderBy('sort_num','asc')->get();
     }
@@ -23,6 +28,20 @@ class SettingLogic extends BaseLogic{
         }
         $banner->save();
         return $banner;
+    }
+
+    public function updateBanner($bannerId, $srcImage, $linkUrl, $sortNum){
+        $banner = $this->find($bannerId);
+        if(isset($banner)){
+            if(isset($srcImage)){
+                $banner->src_image = $srcImage;
+            }
+            $banner->link_url = $linkUrl;
+            if(isset($sortNum)){
+                $banner->sort_num = $sortNum;
+            }
+            $banner->save();
+        }
     }
 
     public function deleteBanner($bannerId){

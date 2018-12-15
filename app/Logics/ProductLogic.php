@@ -321,6 +321,12 @@ class ProductLogic extends BaseLogic{
         return null;
     }
 
+    public function save(Product $product){
+        if(isset($product)){
+            $product->save();
+        }
+    }
+
     public function updateImage(Product $product, $imageName){
         if(isset($product)){
             $product->product_image = $imageName;

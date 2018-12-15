@@ -11,7 +11,7 @@
 
 @section('body.js')
     <script src="{{asset('js/admin/plugins/quill.min.js')}}"></script>
-    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.min.js"></script>--}}
+    <script src="{{asset('js/admin/plugins/image-resize.min.js')}}"></script>
     <script src="{{asset('js/admin/plugins/text-editor.js')}}"></script>
     <script src="{{asset('js/admin/plugins/dropzone.js')}}"></script>
     <script src="{{asset('js/admin/dropzone-config.js')}}"></script>

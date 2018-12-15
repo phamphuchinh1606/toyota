@@ -26,6 +26,21 @@ class SettingService extends BaseService{
         return null;
     }
 
+    public function updateBanner(Request $request){
+        $fileImage = $request->file('src_image');
+        $bannerId = $request->banner_id;
+        if(isset($bannerId)){
+            $srcImage = null;
+            if(isset($fileImage)){
+                $srcImage = AppCommon::moveImage($fileImage, Constant::$PATH_FOLDER_UPLOAD_IMAGE_BANNER);
+            }
+            $linkUrl = $request->link_url;
+            $sortNum = $request->sort_num;
+            return $this->settingLogic->updateBanner($bannerId,$srcImage,$linkUrl,$sortNum);
+        }
+        return null;
+    }
+
     public function deleteBanner($bannerId){
         $this->settingLogic->deleteBanner($bannerId);
     }

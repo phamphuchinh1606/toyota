@@ -11,6 +11,7 @@
 
 @section('body.js')
     <script src="{{asset('js/admin/plugins/quill.min.js')}}"></script>
+    <script src="{{asset('js/admin/plugins/image-resize.min.js')}}"></script>
     <script src="{{asset('js/admin/plugins/text-editor.js')}}"></script>
     <script src="{{asset('js/admin/plugins/jquery.maskedinput.js')}}"></script>
     <script src="{{asset('js/admin/plugins/moment.min.js') }}" type='text/javascript'></script>

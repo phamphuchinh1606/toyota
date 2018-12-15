@@ -4,6 +4,7 @@ namespace App\Services;
 use App\Common\AppCommon;
 use App\Common\Constant;
 use Illuminate\Http\Request;
+use Storage;
 
 class BlogService extends BaseService{
 
@@ -60,6 +61,20 @@ class BlogService extends BaseService{
         return $blog;
     }
 
+    private function saveImageToyota($urlImage, $blogId){
+        $contents = file_get_contents($urlImage);
+        if(isset($contents)){
+            $name = substr($urlImage, strrpos($urlImage, '/') + 1);
+            if(str_contains($name,'?')){
+                $name = substr($name,0 ,strrpos($name, '?'));
+            }
+            $pathImage = Constant::$PATH_FOLDER_UPLOAD_IMAGE_BLOG."/$blogId/$name";
+            Storage::put($pathImage, $contents);
+            return $pathImage;
+        }
+        return $urlImage;
+    }
+
     public function createFromApi($blogDetail){
         $params['blogTitle'] = $blogDetail->title;
         $params['blogType'] = $blogDetail->blog_type;
@@ -70,7 +85,8 @@ class BlogService extends BaseService{
         $params['blogContent'] = $blogDetail->blog_content;
         $blog = $this->blogLogic->create($params);
         if(isset($blog)){
-            $blog->blog_image = $blogDetail->image;
+            $imageSrc = $this->saveImageToyota($blogDetail->image,$blog->id);
+            $blog->blog_image = $imageSrc;
             $blog->save();
         }
         return $blog;
