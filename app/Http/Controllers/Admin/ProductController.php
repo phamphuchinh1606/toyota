@@ -57,7 +57,7 @@ class ProductController extends Controller
     }
 
     public function loadAllProduct(){
-        ini_set('max_execution_time', 300);
+        ini_set('max_execution_time', 600);
         $urlProductAll = "http://www.toyota.com.vn/xe-moi";
         $urlHostToyota = "http://www.toyota.com.vn";
         $finder = CurlCommon::curl_get_page_to_dom_xpath($urlProductAll);

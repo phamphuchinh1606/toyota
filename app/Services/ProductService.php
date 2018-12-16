@@ -230,6 +230,9 @@ class ProductService extends BaseService{
     }
 
     private function saveImageToyota($urlImage, $productId){
+        if(str_contains($urlImage,' ')){
+            $urlImage = str_replace(' ','%20',$urlImage);
+        }
         $contents = file_get_contents($urlImage);
         if(isset($contents)){
             $name = substr($urlImage, strrpos($urlImage, '/') + 1);
