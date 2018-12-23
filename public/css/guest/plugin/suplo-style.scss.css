@@ -594,6 +594,7 @@ input[type=number]::-webkit-outer-spin-button {
     overflow-y: auto;
     overflow-x: hidden;
     height: 100%;
+    background: #383940;
 }
 
 #NavDrawer ul.mobile-nav > li.mobile-nav__search {
@@ -631,6 +632,7 @@ input[type=number]::-webkit-outer-spin-button {
 #NavDrawer ul.mobile-nav > li.mobile-nav__item {
     padding: 0px;
     display: block;
+    width: 100%;
     padding: 10px 15px;
     background: rgba(34, 35, 43, 0);
     border-left: 3px solid transparent;

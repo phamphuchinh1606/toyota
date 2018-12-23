@@ -444,6 +444,7 @@ timber.drawersInit = function () {
 				 // Notify the drawer has opened
 				 timber.cache.$body.trigger('afterDrawerOpen.timber', this);
 				 $('html').attr('style','');
+				 $('html #PageContainer').addClass('no-scroll');
 			 };
 
 			 Drawer.prototype.close = function () {
@@ -472,6 +473,7 @@ timber.drawersInit = function () {
 
 				 // Notify the drawer is closed now
 				 timber.cache.$body.trigger('afterDrawerClose.timber', this);
+                 $('html #PageContainer').removeClass('no-scroll');
 
 			 };
 

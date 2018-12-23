@@ -428,3 +428,8 @@ svg:not(:root).svg-inline--fa {
     position: static;
     width: auto
 }
+
+.no-scroll {
+    overflow: hidden;
+    position:fixed;
+}
