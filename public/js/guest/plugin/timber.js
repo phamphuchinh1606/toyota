@@ -185,16 +185,18 @@ timber.accessibleNav = function () {
 timber.drawersInit = function () {
 	timber.LeftDrawer = new timber.Drawers('NavDrawer', 'right');
 	
-	timber.RightDrawer = new timber.Drawers('CartDrawer', 'left', {
-		'onDrawerOpen': ajaxCart.load
-	});
+	// timber.RightDrawer = new timber.Drawers('CartDrawer', 'left', {
+	// 	'onDrawerOpen': ajaxCart.load
+	// });
 	 
 	 };
 
 	 timber.mobileNavToggle = function () {
 		 timber.cache.$mobileSubNavToggle.on('click', function() {
 		     $(this).closest('ul').find('li .mobile-nav--expanded').each(function(){
-                 $(this).toggleClass('mobile-nav--expanded');
+		         if(!$(this).hasClass('product-menu-item')){
+                     $(this).toggleClass('mobile-nav--expanded');
+                 }
              });
 			 $(this).parent().toggleClass('mobile-nav--expanded');
 		 });
@@ -391,7 +393,6 @@ timber.drawersInit = function () {
 				 } else {
 					 externalCall = true;
 				 }
-
 				 // Without this, the drawer opens, the click event bubbles up to $nodes.page
 				 // which closes the drawer.
 				 if (evt && evt.stopPropagation) {
@@ -442,6 +443,7 @@ timber.drawersInit = function () {
 
 				 // Notify the drawer has opened
 				 timber.cache.$body.trigger('afterDrawerOpen.timber', this);
+				 $('html').attr('style','');
 			 };
 
 			 Drawer.prototype.close = function () {

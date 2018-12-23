@@ -2439,8 +2439,8 @@ remaining accessible to screen readers (h5bp.com)
   will-change: transform;
   display: none;
   position: fixed;
-  overflow-y: auto;
-  overflow-x: hidden;
+  /*overflow-y: auto;*/
+  /*overflow-x: hidden;*/
   -webkit-overflow-scrolling: touch;
   top: 0;
   bottom: 0;

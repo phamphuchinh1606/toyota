@@ -109,7 +109,7 @@
 
 <ul class="no-bullets megamenu-menu clearfix">
     <div class="row tabsmenu animated fadeInUpShort go">
-        <div class="col l3 m3 s3">
+        <div class="col l3 m3 s3 left-menu">
             <ul class="tabs" style="width: 100%;">
                 @foreach($productTrees as $index => $tree)
                     <li class="tab" onclick="window.location = 'yaris-g-cvt';">

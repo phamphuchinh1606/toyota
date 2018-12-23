@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="supports-js supports-no-touch supports-csstransforms supports-csstransforms3d supports-fontface fontawesome-i2svg-active fontawesome-i2svg-complete" lang="vi" style="">
+<html lang="vi">
 <head>
     <!-- Basic page needs ================================================== -->
     <meta charset="utf-8">

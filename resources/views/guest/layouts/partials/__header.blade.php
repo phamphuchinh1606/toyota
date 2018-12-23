@@ -3,6 +3,11 @@
         right: -120px;
     }
     #header .megamenu .megamenu-menu .tabsmenu{
+        /*overflow: auto;*/
+        /*overflow-x: hidden;*/
+        max-height: 87vh;
+    }
+    #header .megamenu .megamenu-menu .tabsmenu .left-menu{
         overflow: auto;
         overflow-x: hidden;
         max-height: 87vh;

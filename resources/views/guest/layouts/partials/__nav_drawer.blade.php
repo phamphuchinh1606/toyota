@@ -42,7 +42,7 @@
                             ?>
                             <a href="{{$urlCollection}}" class="mobile-nav__link">{{$tree->product_type_name}}</a>
 
-                            <div class="mobile-nav__toggle">
+                            <div class="mobile-nav__toggle product-menu-item">
                                 <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
                                     <span class="icon icon-plus" aria-hidden="true"></span>
                                     <span class="fallback-text">See More</span>
