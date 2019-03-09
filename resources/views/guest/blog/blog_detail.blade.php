@@ -7,6 +7,10 @@
 @section('head.og.image',\App\Common\ImageCommon::showImage($blog->blog_image))
 @section('head.og.url',route('blog.detail',['id' => $blog->id, 'slug' => $blog->slug]))
 
+@section('head.title')
+    {{$blog->blog_title}} -
+@endsection
+
 @section('body.content')
     <main class="main-content" role="main" style="margin-top: 10px;">
         <section id="blog-wrapper">

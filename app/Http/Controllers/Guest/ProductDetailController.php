@@ -12,7 +12,7 @@ class ProductDetailController extends Controller
         $product = $this->productService->getInfoProduct($id);
         $productSameTypes = new StdClass();
         if(isset($product)){
-            $productSameTypes = $this->productService->getListProductSameType($product->id,$product->product_type_id);
+            $productSameTypes = $this->productService->getListProductSameType($product->id,$product->product_type_id, $product->product_design);
             $product->specifications = $this->productSpecificationService->getProductSpecificationInfo($product->id);
         }
         return view('guest.product.product_detail',[

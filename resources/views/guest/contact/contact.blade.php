@@ -1,5 +1,9 @@
 @extends('guest.layouts.master')
 
+@section('head.title')
+    Liên Hệ -
+@endsection
+
 @section('body.content')
     <main class="main-content" role="main">
         <div id="page-wrapper">

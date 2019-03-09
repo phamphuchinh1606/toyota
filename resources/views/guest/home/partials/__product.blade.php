@@ -11,11 +11,11 @@
                     Cùng tham quan các sản phẩm nỏi bật mới nhất của chúng tôi
                 </div>
                 <div class="tab clearfix text-center">
-                    <button class="pro-tablinks active" onclick="openProTabs(event, 'collectionAll')" id="defaultOpenProTabs">
-                        Tất cả sản phẩm
-                    </button>
+                    {{--<button class="pro-tablinks active" onclick="openProTabs(event, 'collectionAll')">--}}
+                        {{--Tất cả sản phẩm--}}
+                    {{--</button>--}}
                     @foreach($productVendors->product_vendors as $key => $productVendor)
-                        <button class="pro-tablinks rophi" onclick="openProTabs(event, 'collection_{{$key}}')">
+                        <button class="pro-tablinks rophi" onclick="openProTabs(event, 'collection_{{$key}}')" @if($key == 'Sedan') id="defaultOpenProTabs" @endif>
                             {{$key}}
                         </button>
                     @endforeach
@@ -59,58 +59,11 @@
                     <div class="grid-uniform md-mg-left-15">
 
                         <div class="grid__item large--one-quarter medium--one-third small--one-half md-pd-left15">
-
-
-
-
-
-
-
-
-
-
                             <div class="product-item">
                                 <div class="product-img">
                                     <a href="/products/suplo-gas-gasoline-petrol-fuel-filter-oe-23300-31100-186100-4730-replacement-parts-for-toyota-prado-4700-2700-3400-land-cruiser-3">
-
-
-
-
-
                                         <img id="1090714311" class="lazyload" src="//product.hstatic.net/1000305059/product/suplo-006a-02_023bb50277a7493d8d7a7b3bd226f9ee_large.jpg" data-src="//product.hstatic.net/1000305059/product/suplo-006a-02_023bb50277a7493d8d7a7b3bd226f9ee_large.jpg" alt="SUPLO Gas Gasoline Petrol Fuel Filter OE 23300-31100, 186100-4730 Replacement Parts for Toyota Prado 4700/2700/3400 Land Cruiser">
-
-
-
-
-
-
                                         <img id="1090714312" class="lazyload" src="//product.hstatic.net/1000305059/product/suplo-005a-02_d08e539ec50b44adaef7e55024a0b666_large.jpg" data-src="//product.hstatic.net/1000305059/product/suplo-005a-02_d08e539ec50b44adaef7e55024a0b666_large.jpg" alt="SUPLO Gas Gasoline Petrol Fuel Filter OE 23300-31100, 186100-4730 Replacement Parts for Toyota Prado 4700/2700/3400 Land Cruiser">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                     </a>
                                     <div class="product-actions medium--hide small--hide">
                                         <div>

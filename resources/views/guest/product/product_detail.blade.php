@@ -7,6 +7,11 @@
 @section('head.og.image',\App\Common\ImageCommon::showImage($product->product_image))
 @section('head.og.url',route('product_detail',['id' => $product->id, 'slug' => $product->slug]))
 
+
+@section('head.title')
+    {{$product->product_name}} -
+@endsection
+
 @section('head.css')
     <link rel="stylesheet prefetch" href="{{asset('css/guest/plugin/product.css')}}">
     <link rel="stylesheet prefetch" href="{{asset('css/guest/toyota/main-content.css')}}">

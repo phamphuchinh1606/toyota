@@ -10,7 +10,7 @@ class BlogController extends Controller
     public function index(Request $request){
         $blogType = $request->type;
         if(!isset($blogType)){
-            $blogType = Constant::$BLOG_TYPE_GENERAL_ID;
+            $blogType = Constant::$BLOG_TYPE_PROMOTION_ID;
         }
         $blogs = $this->blogService->getAll(['isPublic' => Constant::$PUBLIC_FLG_ON, 'blogType' => $blogType, 'limit' => 8]);
         return view('guest.blog.blog',[

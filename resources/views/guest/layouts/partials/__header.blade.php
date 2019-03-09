@@ -24,11 +24,9 @@
     <div class="header-desktop">
         <div class="inner">
             <div class="header-logo">
-                <h1>
-                    <a href="/">
-                        {{$appInfo->app_name}}<img src="{{asset($appInfo->app_src_icon)}}" alt="{{$appInfo->app_name}}">
-                    </a>
-                </h1>
+                <a href="/">
+                    <img src="{{asset($appInfo->app_src_icon)}}" alt="{{$appInfo->app_name}}">
+                </a>
             </div>
             <div class="header-navbar-wrapper">
                 <div class="header-navbar text-right">

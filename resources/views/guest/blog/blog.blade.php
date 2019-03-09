@@ -1,5 +1,10 @@
 @extends('guest.layouts.master')
 
+@section('head.title')
+    Tin Tức -
+@endsection
+
+
 @section('head.css')
     <link href="{{asset('css/guest/blog.css')}}" rel="stylesheet" type="text/css" media="all">
 @endsection
@@ -19,11 +24,11 @@
                                 <div class="blog-single-item">
                                     <div class="section-title clearfix box_tabs no-blur">
                                         <ul class="tabs" id="tabNewsHome" style="width: 100%;">
-                                            <li class="tab" data-id="2">
-                                                <a href="{{route('blog',['type' => \App\Common\Constant::$BLOG_TYPE_GENERAL_ID])}}" class="@if( !\Request::get('type') || \Request::get('type') == '1') active @endif">Tin tức chung</a>
-                                            </li>
                                             <li class="tab" data-id="1">
-                                                <a href="{{route('blog',['type' => \App\Common\Constant::$BLOG_TYPE_PROMOTION_ID])}}" class="@if(\Request::get('type') == '2') active @endif">Khuyến mãi</a>
+                                                <a href="{{route('blog',['type' => \App\Common\Constant::$BLOG_TYPE_PROMOTION_ID])}}" class="@if(!\Request::get('type') || \Request::get('type') == '2') active @endif">Khuyến mãi</a>
+                                            </li>
+                                            <li class="tab" data-id="2">
+                                                <a href="{{route('blog',['type' => \App\Common\Constant::$BLOG_TYPE_GENERAL_ID])}}" class="@if( \Request::get('type') == '1') active @endif">Tin tức chung</a>
                                             </li>
                                             <li class="tab" data-id="3">
                                                 <a href="{{route('blog',['type' => \App\Common\Constant::$BLOG_TYPE_EVENT_ID])}}" class="@if(\Request::get('type') == '3') active @endif">Sự kiện</a>
@@ -55,11 +60,11 @@
                                     <h3>Danh mục tin tức</h3>
                                     <div class="panel">
                                         <ul class="blog-types no-bullets">
-                                            <li class="@if( !\Request::get('type') || \Request::get('type') == '1') active @endif">
-                                                <a href="{{route('blog',['type' => \App\Common\Constant::$BLOG_TYPE_GENERAL_ID])}}">Tin tức chung</a>
-                                            </li>
                                             <li class="@if(\Request::get('type') == '2') active @endif">
                                                 <a href="{{route('blog',['type' => \App\Common\Constant::$BLOG_TYPE_PROMOTION_ID])}}">Khuyến mãi</a>
+                                            </li>
+                                            <li class="@if( !\Request::get('type') || \Request::get('type') == '1') active @endif">
+                                                <a href="{{route('blog',['type' => \App\Common\Constant::$BLOG_TYPE_GENERAL_ID])}}">Tin tức chung</a>
                                             </li>
                                             <li class="@if(\Request::get('type') == '3') active @endif">
                                                 <a href="{{route('blog',['type' => \App\Common\Constant::$BLOG_TYPE_EVENT_ID])}}">Sự kiện</a>

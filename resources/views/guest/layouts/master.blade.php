@@ -16,10 +16,30 @@
     <!-- Title and description ================================================== -->
     <meta name="_token" content="{{ csrf_token() }}">
     <title>
-        @yield('head.title',$appInfo->app_name)
+        @yield('head.title'){{$appInfo->app_name}}
     </title>
     <!-- Helpers ================================================== -->
     <!-- /snippets/social-meta-tags.liquid -->
+
+    <!-- FACEBOOK OPEN GRAPH -->
+    <meta property="fb:app_id" content="1233456678" />
+    <meta property="og:site_name" content="{{$appInfo->app_name}}" />
+    <meta property="og:rich_attachment" content="true" />
+    <meta property="article:publisher" content="https://www.facebook.com/saigontoyota" />
+    <meta property="og:type" content="website" />
+    @if(count($bannerComposer) > 0)
+        <meta property="og:image" content="{{asset(\App\Common\Constant::$PATH_URL_UPLOAD_IMAGE.$bannerComposer[0]->src_image)}}" />
+    @else
+        <meta property="og:image" content="{{asset('images/guest/icon_facebook.png')}}" />
+    @endif
+    <meta property="og:image:width" content="720" />
+    <meta property="og:image:height" content="480" />
+    <meta property="article:published_time" content="" />
+    <meta property="article:modified_time" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="@yield('head.og.title',$appInfo->app_name)" />
+    <meta property="og:description" content="@yield('head.og.description',$appInfo->app_content)" />
+    <meta name="apple-itunes-app" content="app-id=818187465">
 
     <meta property="og:locale" content="vi_VN">
     <meta property="og:type" content="website">

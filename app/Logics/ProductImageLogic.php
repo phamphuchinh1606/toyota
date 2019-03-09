@@ -6,6 +6,10 @@ use App\Models\ProductImage;
 
 class ProductImageLogic extends BaseLogic{
 
+    public function find($id){
+        return ProductImage::find($id);
+    }
+
     public function getListImageByProductId($productId){
         return ProductImage::where('product_id',$productId)->get();
     }
@@ -14,7 +18,7 @@ class ProductImageLogic extends BaseLogic{
         return ProductImage::where('product_id',$productId)->where('image_type',$imageType)->get();
     }
 
-    public function create($productId, $srcImage, $imageType, $imageTitle, $imageContent){
+    public function create($productId, $srcImage, $imageType, $imageTitle = null, $imageContent = null){
         $productImage = new ProductImage();
         $productImage->product_id = $productId;
         $productImage->image_src = $srcImage;
@@ -23,6 +27,12 @@ class ProductImageLogic extends BaseLogic{
         $productImage->image_content = $imageContent;
         $productImage->save();
         return $productImage;
+    }
+
+    public function save(ProductImage $product){
+        if(isset($product)){
+            $product->save();
+        }
     }
 
     public function delete($imageId){

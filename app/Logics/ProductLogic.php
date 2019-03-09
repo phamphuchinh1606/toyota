@@ -228,8 +228,18 @@ class ProductLogic extends BaseLogic{
         return $product;
     }
 
-    public function getListProductSameType($productId,$productTypeId, $limit = 8){
-        return Product::where('id','<>',$productId)->where('product_type_id',$productTypeId)->limit($limit)->get();
+    public function getListProductSameType($productId,$productTypeId, $productDesign = null, $limit = 8){
+        $query = Product::where('id','<>',$productId);
+
+        if(isset($productDesign)){
+            $query->where(function ($querySub) use ($productTypeId, $productDesign) {
+                $querySub->where('product_type_id',$productTypeId)
+                    ->orWhere('product_design',$productDesign);
+            });
+        }else{
+            $query->where('product_type_id',$productTypeId);
+        }
+        return $query->limit($limit)->get();
     }
 
     public function getListProductHot($limit = 5){

@@ -36,6 +36,10 @@ class ComposerServiceProvider extends ServiceProvider
 
         View::composer(['admin.layouts.partials.*'],
             'App\Http\ViewComposers\ContactComposer');
+
+        //Build data banner
+        View::composer(['guest.layouts.master'],
+            'App\Http\ViewComposers\BannerComposer');
     }
 
     /**

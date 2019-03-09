@@ -1,5 +1,9 @@
 @extends('guest.layouts.master')
 
+@section('head.title')
+    Sản Phẩm -
+@endsection
+
 @section('body.content')
     <main class="main-content" role="main">
 

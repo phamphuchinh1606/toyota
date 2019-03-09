@@ -27,6 +27,18 @@ class ProductImageController extends Controller
         return redirect()->route('admin.product_image.create',['productId' => $productId]);
     }
 
+    public function update(Request $request){
+        $productId = $request->product_id;
+        if(!isset($productId)){
+            return redirect()->route('admin.product.index');
+        }
+        $productImageId = $request->product_image_id;
+        if(isset($productImageId)){
+            $this->productImageService->update($request);
+        }
+        return redirect()->route('admin.product_image.create',['productId' => $productId]);
+    }
+
     public function delete($id,$productId){
         $this->productImageService->delete($id);
         return redirect()->route('admin.product_image.create',['productId' => $productId]);

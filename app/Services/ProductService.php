@@ -182,8 +182,8 @@ class ProductService extends BaseService{
         return $product;
     }
 
-    public function getListProductSameType($productId,$productTypeId){
-        return $this->productLogic->getListProductSameType($productId,$productTypeId);
+    public function getListProductSameType($productId,$productTypeId, $productDesign = null){
+        return $this->productLogic->getListProductSameType($productId, $productTypeId, $productDesign);
     }
 
     public function getListProductHot($limit = 5){

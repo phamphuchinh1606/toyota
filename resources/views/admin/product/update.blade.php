@@ -68,17 +68,17 @@
                                                 @include('admin.common.__select_product_type',['selectName' => 'product_type','defaultValue' => $product->product_type_id])
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-2 col-form-label" for="text-input">Tin khuyến mãi</label>
-                                            <div class="col-md-10">
-                                                <select name="blog_id" class="form-control">
-                                                    <option value="">Chọn tin khuyến mãi</option>
-                                                    @foreach($blogPromotion as $blog)
-                                                        <option value="{{$blog->id}}" @if($product->blog_id == $blog->id) selected @endif>{{$blog->blog_title}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
+                                        {{--<div class="form-group row">--}}
+                                            {{--<label class="col-md-2 col-form-label" for="text-input">Tin khuyến mãi</label>--}}
+                                            {{--<div class="col-md-10">--}}
+                                                {{--<select name="blog_id" class="form-control">--}}
+                                                    {{--<option value="">Chọn tin khuyến mãi</option>--}}
+                                                    {{--@foreach($blogPromotion as $blog)--}}
+                                                        {{--<option value="{{$blog->id}}" @if($product->blog_id == $blog->id) selected @endif>{{$blog->blog_title}}</option>--}}
+                                                    {{--@endforeach--}}
+                                                {{--</select>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label" for="text-input">Giá sản phẩm</label>
                                             <div class="col-md-10">

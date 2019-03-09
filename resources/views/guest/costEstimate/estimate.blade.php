@@ -1,5 +1,9 @@
 @extends('guest.layouts.master')
 
+@section('head.title')
+    Dự Toán Chi Phí -
+@endsection
+
 @section('body.js')
     <script>
         $(document).ready(function(){

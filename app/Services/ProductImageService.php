@@ -26,8 +26,17 @@ class ProductImageService extends BaseService{
             $fileImage = $request->file('src_image');
             if(isset($fileImage)){
                 $srcImage = AppCommon::moveImageProduct($fileImage, $product->id);
-                $this->productImageLogic->create($product->id, $srcImage, $request->image_type);
+                $this->productImageLogic->create($product->id, $srcImage, $request->image_type, null , $request->image_content);
             }
+        }
+    }
+
+    public function update(Request $request){
+        $productImage = $this->productImageLogic->find($request->product_image_id);
+        if(isset($productImage)){
+            $productImage->image_content = $request->image_content;
+            $productImage->image_type = $request->image_type;
+            $this->productImageLogic->save($productImage);
         }
     }
 
