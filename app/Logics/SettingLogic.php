@@ -70,6 +70,10 @@ class SettingLogic extends BaseLogic{
         return SettingTag::all();
     }
 
+    public function getTag($tagId){
+        return SettingTag::find($tagId);
+    }
+
     public function getTagByTagType($tagTypeId){
         return SettingTag::join(TableNameDB::$TableProductType.' as productType','productType.id','=','setting_tags.product_type_id')
             ->where('tag_type',$tagTypeId)->orderBy('sort_number','asc')
@@ -90,6 +94,14 @@ class SettingLogic extends BaseLogic{
     public function deleteTag($tagId){
         SettingTag::destroy($tagId);
     }
+
+    public function saveTag($tag){
+        if(isset($tag)){
+            $tag->save();
+        }
+        return $tag;
+    }
+
     //End Tags Key
 
     //Start App Info

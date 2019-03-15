@@ -27,7 +27,7 @@ class ComposerServiceProvider extends ServiceProvider
             'App\Http\ViewComposers\TagComposer');
 
         //Build data blog
-        View::composer(['guest.blog.__blog_new','guest.home.partials.__blog_new','guest.home.partials.__promotion_product'],
+        View::composer(['guest.blog.__blog_new','guest.home.partials.__blog_new','guest.home.partials.__promotion_product', 'guest.layouts.master'],
             'App\Http\ViewComposers\BlogComposer');
 
         //Build data app info
@@ -38,8 +38,8 @@ class ComposerServiceProvider extends ServiceProvider
             'App\Http\ViewComposers\ContactComposer');
 
         //Build data banner
-        View::composer(['guest.layouts.master'],
-            'App\Http\ViewComposers\BannerComposer');
+//        View::composer(['guest.layouts.master'],
+//            'App\Http\ViewComposers\BannerComposer');
     }
 
     /**

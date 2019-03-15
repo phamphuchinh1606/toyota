@@ -78,12 +78,23 @@ class SettingService extends BaseService{
         $productTypeId = $request->product_type_id;
         $linkUrl = $request->link_url;
         $sortNumber = $request->sort_number;
-        if(isset($sortNumber)){
+        if(!isset($sortNumber)){
             $sortNumber = 1;
         }
         $tabTypeId = $request->tab_type;
         $this->settingLogic->createTag($tabTypeId,$productTypeId,$tagName,$sortNumber,$linkUrl);
         return null;
+    }
+
+    public function updateTag($tagId, Request $request){
+        $tag = $this->settingLogic->getTag($tagId);
+        if(isset($tag)){
+            $tag->tag_name = $request->tag_name;
+            $tag->product_type_id = $request->product_type_id;
+            $tag->link_url = $request->link_url;
+            $tag->sort_number = $request->sort_number;
+            $this->settingLogic->saveTag($tag);
+        }
     }
 
     public function deleteTag($tagId){

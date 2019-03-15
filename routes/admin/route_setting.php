@@ -26,6 +26,7 @@ Route::delete('setting/top-banner/delete/{id}','SettingController@topBannerDestr
 //Setting Tags
 Route::get('/setting/tag','SettingController@tagList')->name('setting.tag');
 Route::post('/setting/tag/create','SettingController@tagCreate')->name('setting.tag.create');
+Route::post('/setting/tag/update/{id}','SettingController@tagUpdate')->name('setting.tag.update');
 Route::delete('setting/tag/delete/{id}','SettingController@tagDestroy')->name('setting.tag.delete');
 
 //Setting App Info

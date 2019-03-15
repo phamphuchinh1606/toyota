@@ -65,6 +65,11 @@ class SettingController extends Controller
         return redirect()->route('admin.setting.tag');
     }
 
+    public function tagUpdate($id, Request $request){
+        $this->settingService->updateTag($id,$request);
+        return redirect()->route('admin.setting.tag');
+    }
+
     public function tagDestroy($id){
         $this->settingService->deleteTag($id);
         return redirect()->route('admin.setting.tag');

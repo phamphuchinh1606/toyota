@@ -27,8 +27,8 @@
     <meta property="og:rich_attachment" content="true" />
     <meta property="article:publisher" content="https://www.facebook.com/saigontoyota" />
     <meta property="og:type" content="website" />
-    @if(count($bannerComposer) > 0)
-        <meta property="og:image" content="{{asset(\App\Common\Constant::$PATH_URL_UPLOAD_IMAGE.$bannerComposer[0]->src_image)}}" />
+    @if(count($blogPromotionNews) > 0)
+        <meta property="og:image" content="{{asset(\App\Common\Constant::$PATH_URL_UPLOAD_IMAGE.$blogPromotionNews[0]->blog_image)}}" />
     @else
         <meta property="og:image" content="{{asset('images/guest/icon_facebook.png')}}" />
     @endif

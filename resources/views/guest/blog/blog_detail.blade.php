@@ -124,6 +124,8 @@
                     </div>
                 </div>
             </div>
+            <script type=”text/javascript” src=”http://apis.google.com/js/plusone.js”> {lang: ‘vi’} </script>
+            <g:plusone></g:plusone>
         </section>
 
     </main>
