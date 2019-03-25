@@ -1,2 +1,5 @@
 User-agent: *
-Disallow:
+Disallow: /resources/views/admin
+Disallow: /js/
+Disallow: /css/
+Sitemap: https://toyotaphulam.com/sitemap.xml

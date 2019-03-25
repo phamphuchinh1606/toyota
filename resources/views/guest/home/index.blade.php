@@ -1,5 +1,9 @@
 @extends('guest.layouts.master')
 
+@section('head.og.image')@if(count($banners) > 0){{asset(\App\Common\Constant::$PATH_URL_UPLOAD_IMAGE.$banners[0]->src_image)}}@endif @endsection
+
+@section('head.title',$appInfo->app_name)
+
 @section('body.js')
     <script src="{{asset('js/guest/home.js')}}" type='text/javascript'></script>
 @endsection

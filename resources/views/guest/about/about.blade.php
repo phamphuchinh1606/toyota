@@ -1,7 +1,7 @@
 @extends('guest.layouts.master')
 
 @section('head.title')
-    Giới Thiệu -
+    Giới Thiệu - {{$appInfo->app_name}}
 @endsection
 
 @section('body.content')

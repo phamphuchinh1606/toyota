@@ -1,7 +1,10 @@
+<?php use App\Common\{Constant, ImageCommon}; ?>
 @extends('guest.layouts.master')
 
+@section('head.og.image')@if(count($blogs) > 0){{ImageCommon::showImage($blogs[0]->blog_image)}}@endif @endsection
+
 @section('head.title')
-    Tin Tức -
+    Tin Tức - {{$appInfo->app_name}}
 @endsection
 
 

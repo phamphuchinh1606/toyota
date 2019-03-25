@@ -16,7 +16,7 @@
     <!-- Title and description ================================================== -->
     <meta name="_token" content="{{ csrf_token() }}">
     <title>
-        @yield('head.title'){{$appInfo->app_name}}
+        @yield('head.title')
     </title>
     <!-- Helpers ================================================== -->
     <!-- /snippets/social-meta-tags.liquid -->
@@ -27,10 +27,10 @@
     <meta property="og:rich_attachment" content="true" />
     <meta property="article:publisher" content="https://www.facebook.com/saigontoyota" />
     <meta property="og:type" content="website" />
-    @if(count($blogPromotionNews) > 0)
-        <meta property="og:image" content="{{asset(\App\Common\Constant::$PATH_URL_UPLOAD_IMAGE.$blogPromotionNews[0]->blog_image)}}" />
+    @if(isset($bannerComposer) && count($bannerComposer) > 0)
+        <meta property="og:image" content="@yield('head.og.image', asset(\App\Common\Constant::$PATH_URL_UPLOAD_IMAGE.$bannerComposer[0]->src_image) )">
     @else
-        <meta property="og:image" content="{{asset('images/guest/icon_facebook.png')}}" />
+        <meta property="og:image" content="@yield('head.og.image',asset('images/guest/icon_facebook.png'))">
     @endif
     <meta property="og:image:width" content="720" />
     <meta property="og:image:height" content="480" />
@@ -48,10 +48,6 @@
     <meta property="og:url" content="@yield('head.og.url',URL::to('/'))">
     <meta property="og:site_name" content="{{$appInfo->app_name}}">
     <meta property="article:publisher" content="{{$appInfo->app_link_facebook_fanpage}}">
-    <meta property="og:image" content="@yield('head.og.image',asset('images/guest/icon_facebook.png'))">
-    <meta property="og:image:width" content="403">
-    <meta property="og:image:height" content="540">
-    <meta property="og:image:secure_url" content="@yield('head.og.image',asset('images/guest/icon_facebook.png'))">
     <meta property="og:site_name" content="{{$appInfo->app_name}}">
     <meta name="twitter:site" content="@https://">
     <meta name="twitter:card" content="summary">

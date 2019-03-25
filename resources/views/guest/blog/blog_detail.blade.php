@@ -8,7 +8,7 @@
 @section('head.og.url',route('blog.detail',['id' => $blog->id, 'slug' => $blog->slug]))
 
 @section('head.title')
-    {{$blog->blog_title}} -
+    {{$blog->blog_title}}
 @endsection
 
 @section('body.content')

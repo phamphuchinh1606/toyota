@@ -1,7 +1,7 @@
 @extends('guest.layouts.master')
 
 @section('head.title')
-    Dự Toán Chi Phí -
+    Dự Toán Chi Phí - {{$appInfo->app_name}}
 @endsection
 
 @section('body.js')

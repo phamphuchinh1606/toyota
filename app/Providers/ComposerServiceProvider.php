@@ -38,8 +38,8 @@ class ComposerServiceProvider extends ServiceProvider
             'App\Http\ViewComposers\ContactComposer');
 
         //Build data banner
-//        View::composer(['guest.layouts.master'],
-//            'App\Http\ViewComposers\BannerComposer');
+        View::composer(['guest.layouts.master'],
+            'App\Http\ViewComposers\BannerComposer');
     }
 
     /**

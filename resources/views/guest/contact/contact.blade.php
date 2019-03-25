@@ -1,7 +1,7 @@
 @extends('guest.layouts.master')
 
 @section('head.title')
-    Liên Hệ -
+    Liên Hệ - {{$appInfo->app_name}}
 @endsection
 
 @section('body.content')

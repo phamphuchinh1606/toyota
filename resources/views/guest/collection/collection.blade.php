@@ -1,7 +1,9 @@
 @extends('guest.layouts.master')
 
+@section('head.og.image')@if(count($products) > 0){{\App\Common\ImageCommon::showImage($products[0]->product_image)}}@endif @endsection
+
 @section('head.title')
-    Sản Phẩm -
+    Sản Phẩm - {{$appInfo->app_name}}
 @endsection
 
 @section('body.content')

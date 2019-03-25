@@ -46,12 +46,12 @@
                             Banner Slider
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.setting.topBanner')}}">
-                            <i class="nav-icon icon-map"></i>
-                            Top Banner
-                        </a>
-                    </li>
+                    {{--<li class="nav-item">--}}
+                        {{--<a class="nav-link" href="{{route('admin.setting.topBanner')}}">--}}
+                            {{--<i class="nav-icon icon-map"></i>--}}
+                            {{--Top Banner--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('admin.setting.tag')}}">
                             <i class="nav-icon icon-tag"></i>

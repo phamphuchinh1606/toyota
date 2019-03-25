@@ -9,7 +9,7 @@
 
 
 @section('head.title')
-    {{$product->product_name}} -
+    {{$product->product_name}}
 @endsection
 
 @section('head.css')
