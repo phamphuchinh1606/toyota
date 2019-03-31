@@ -56,7 +56,7 @@
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=0' name='viewport'/>
     <meta name="description" content="@yield('head.description',$appInfo->app_content)">
-    <meta name="keywords" content="{{$appInfo->app_content}}">
+    <meta name="keywords" content="@yield('head.keywords',$appInfo->app_content)">
     <link rel="canonical" href="{{URL::to('/')}}"/>
     <link rel="pingback" href="{{URL::to('/')}}">
 

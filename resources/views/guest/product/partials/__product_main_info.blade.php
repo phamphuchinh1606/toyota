@@ -1,9 +1,10 @@
 <?php use App\Common\AppCommon; use App\Common\ImageCommon; ?>
 <div class="row">
     <div class="col s12 m5 l5">
-        <h1 class="name_dt animated fadeInDownShort go">
+        <h1 class="hide">{{$product->title}}</h1>
+        <h2 class="name_dt animated fadeInDownShort go">
             <span id="spTitleCar">{{$product->product_name}}</span>
-        </h1>
+        </h2>
         <input type="hidden" id="hdCatId" value="821">
         <input type="hidden" id="hdCarId" value="1758">
         <p class="txt_dt animated fadeInLeftShort go">{{$product->product_title}}</p>

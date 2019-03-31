@@ -63,6 +63,18 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
+                                            <label class="col-md-2 col-form-label" for="text-input">Title</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" id="text-input" type="text" name="title" placeholder="Title" value="{{ $product->title }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label" for="text-input">Meta Keyword</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" id="text-input" type="text" name="meta_keyword" placeholder="Meta Keyword" value="{{ $product->meta_keyword }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
                                             <label class="col-md-2 col-form-label" for="text-input">Loại Sản Phẩm</label>
                                             <div class="col-md-10">
                                                 @include('admin.common.__select_product_type',['selectName' => 'product_type','defaultValue' => $product->product_type_id])

@@ -49,6 +49,12 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
+                                            <label class="col-md-2 col-form-label" for="text-input">Meta Keyword</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" id="text-input" type="text" name="meta_keyword" placeholder="Meta Keyword">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
                                             <label class="col-md-2 col-form-label" for="text-input">Slug</label>
                                             <div class="col-md-10">
                                                 <input class="form-control" id="text-input" type="text" name="blog_slug" placeholder="Slug" disabled>

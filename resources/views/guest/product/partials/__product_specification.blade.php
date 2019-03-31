@@ -1,6 +1,6 @@
 <div id="sec_dt_07" class="scrollspy">
     <div class="inner_scrollspy">
-        <div itemscope="" itemtype="http://schema.org/Product">
+        <div>
             <section id="related-products">
                 <div class="home-section-head clearfix">
                     <h2>

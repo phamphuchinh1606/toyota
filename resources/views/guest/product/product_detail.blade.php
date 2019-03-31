@@ -1,9 +1,16 @@
 @extends('guest.layouts.master')
 
-@section('head.description', $product->product_description)
 
-@section('head.og.title',$product->product_name)
-@section('head.og.description',$product->product_description)
+
+@section('head.og.title',$product->title)
+@if($product->product_description != '')
+    @section('head.description', $product->product_description)
+    @section('head.og.description',$product->product_description)
+@endif
+@if($product->meta_keyword != '')
+    @section('head.keywords',$product->meta_keyword)
+@endif
+
 @section('head.og.image',\App\Common\ImageCommon::showImage($product->product_image))
 @section('head.og.url',route('product_detail',['id' => $product->id, 'slug' => $product->slug]))
 
@@ -108,7 +115,7 @@
                         </div>
                     </div>
                     @if(count($productSameTypes) > 0)
-                        <div itemscope="" itemtype="http://schema.org/Product">
+                        <div>
                             @include('guest.product.partials.__product_type_same')
                         </div>
                     @endif

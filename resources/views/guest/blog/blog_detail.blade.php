@@ -6,6 +6,9 @@
 @section('head.og.description',$blog->blog_description)
 @section('head.og.image',\App\Common\ImageCommon::showImage($blog->blog_image))
 @section('head.og.url',route('blog.detail',['id' => $blog->id, 'slug' => $blog->slug]))
+@if($blog->meta_keyword != '')
+    @section('head.keywords',$blog->meta_keyword)
+@endif
 
 @section('head.title')
     {{$blog->blog_title}}

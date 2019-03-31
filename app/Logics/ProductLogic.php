@@ -271,6 +271,8 @@ class ProductLogic extends BaseLogic{
                 $product->slug = Slug::createSlug(Product::class,'slug',$params['productName']);
             }
             $product->product_title = $params['productTitle'];
+            $product->title = $params['title'];
+            $product->meta_keyword = $params['metaKeyword'];
             $product->product_number_of_seat = $params['productNumberOfSeat'];
             $product->product_design = $params['productDesign'];
             $product->product_fuel = $params['productFuel'];
@@ -313,6 +315,8 @@ class ProductLogic extends BaseLogic{
                     $product->slug = Slug::createSlug(Product::class,'slug',$params['productName']);
                 }
                 $product->product_title = $params['productTitle'];
+                $product->title = $params['title'];
+                $product->meta_keyword = $params['metaKeyword'];
                 $product->product_number_of_seat = $params['productNumberOfSeat'];
                 $product->product_design = $params['productDesign'];
                 $product->product_fuel = $params['productFuel'];

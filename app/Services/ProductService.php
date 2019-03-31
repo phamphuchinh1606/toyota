@@ -93,6 +93,8 @@ class ProductService extends BaseService{
         $params = [];
         $params['productName'] = $request->product_name;
         $params['productTitle'] = $request->product_title;
+        $params['title'] = $request->title;
+        $params['metaKeyword'] = $request->meta_keyword;
         $params['productTypeId'] = $request->product_type;
         $params['productPrice'] = $request->product_price == null ? 0 : $request->product_price;
         $params['productCostPrice'] = $request->product_cost_price == null ? 0 : $request->product_cost_price;
@@ -134,6 +136,8 @@ class ProductService extends BaseService{
         $params = [];
         $params['productName'] = $request->product_name;
         $params['productTitle'] = $request->product_title;
+        $params['title'] = $request->title;
+        $params['metaKeyword'] = $request->meta_keyword;
         $params['productTypeId'] = $request->product_type;
         $params['productPrice'] = $request->product_price == null ? 0 : $request->product_price;
         $params['productCostPrice'] = $request->product_cost_price == null ? 0 : $request->product_cost_price;

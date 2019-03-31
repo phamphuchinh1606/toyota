@@ -43,6 +43,7 @@ class BlogService extends BaseService{
 
     public function create(Request $request){
         $params['blogTitle'] = $request->blog_title;
+        $params['metaKeyword'] = $request->meta_keyword;
         $params['blogType'] = $request->blog_type;
         $params['slug'] = $request->slug;
         $params['postDate'] = AppCommon::createFromFormat($request->post_date);
@@ -97,6 +98,7 @@ class BlogService extends BaseService{
 
     public function update($blogId, Request $request){
         $params['blogTitle'] = $request->blog_title;
+        $params['metaKeyword'] = $request->meta_keyword;
         $params['blogType'] = $request->blog_type;
         $params['slug'] = $request->slug;
         $params['postDate'] = AppCommon::createFromFormat($request->post_date);

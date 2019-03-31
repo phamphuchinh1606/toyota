@@ -6,7 +6,7 @@
 </style>
 <div id="sec_dt_06" class="scrollspy hide-mb" style="">
     <div class="inner_scrollspy">
-        <div itemscope="" itemtype="http://schema.org/Product">
+        <div>
             <section id="related-products">
                 <div class="home-section-head clearfix">
                     <h2>

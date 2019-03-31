@@ -18,6 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('product_name',255);
             $table->string('product_code',100)->nullable(true);
             $table->string('product_title',255)->nullable(true);
+            $table->string('title',1000)->nullable(true);
+            $table->string('meta_keyword',1000)->nullable(true);
             $table->integer('vendor_id')->nullable(true);
             $table->string('product_number_of_seat')->nullable(true);
             $table->string('product_design')->nullable(true);
