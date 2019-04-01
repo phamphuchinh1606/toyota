@@ -16,7 +16,11 @@
 
 
 @section('head.title')
-    {{$product->product_name}}
+    @if(isset($product->title))
+        {{$product->title}}
+    @else
+        {{$product->product_name}}
+    @endif
 @endsection
 
 @section('head.css')
