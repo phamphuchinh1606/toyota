@@ -171,8 +171,11 @@ class ProductService extends BaseService{
         return $this->productLogic->getProduct($productId);
     }
 
-    public function getInfoProduct($productId){
+    public function getInfoProduct($productId, $slug = null){
         $product = $this->productLogic->getProductInfo($productId);
+        if(isset($slug)){
+            $product = $this->productLogic->getProductInfoBySlug($slug);
+        }
         if(isset($product->id)){
             $product->images = $this->productImageLogic->getListImageTypeByProductId($productId, Constant::$PRODUCT_IMAGE_TYPE_IMAGE);
             $product->furniture_images = $this->productImageLogic->getListImageTypeByProductId($productId, Constant::$PRODUCT_IMAGE_TYPE_FURNITURE);
@@ -234,10 +237,16 @@ class ProductService extends BaseService{
     }
 
     private function saveImageToyota($urlImage, $productId){
-        if(str_contains($urlImage,' ')){
-            $urlImage = str_replace(' ','%20',$urlImage);
+        $urlImageTemp = $urlImage;
+        $name = substr($urlImageTemp, strrpos($urlImageTemp, '/') + 1);
+        if(str_contains($name,'?')){
+            $name = substr($name,0 ,strrpos($name, '?'));
         }
-        $contents = file_get_contents($urlImage);
+        if(str_contains($urlImage,' ')){
+            $urlImageTemp = str_replace(' ','%20',$urlImageTemp);
+        }
+        $urlImageTemp = str_replace($name,urlencode($name),$urlImageTemp);
+        $contents = file_get_contents($urlImageTemp);
         if(isset($contents)){
             $name = substr($urlImage, strrpos($urlImage, '/') + 1);
             if(str_contains($name,'?')){

@@ -176,7 +176,10 @@ class ToyotaService extends BaseService{
                     $nodeSrcImage = $nodeDiv->getElementsByTagName('img');
                     $image = new \StdClass();
                     if(count($nodeSrcImage) > 0){
-                        $image->image = $this->urlHostToyota.$nodeSrcImage[0]->getAttribute('src');
+                        $nodeTemp = $nodeSrcImage[0];
+                        if(isset($nodeTemp)){
+                            $image->image = $this->urlHostToyota.$nodeSrcImage[0]->getAttribute('src');
+                        }
                     }
                     $noteTitles = $nodeDiv->getElementsByTagName('p');
                     foreach ($noteTitles as $noteTitle){

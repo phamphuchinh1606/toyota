@@ -45,6 +45,7 @@ class ProductLogic extends BaseLogic{
         $listProducts = Db::table(TableNameDB::$TableProduct.' as product')
             ->join(TableNameDB::$TableProductType.' as type', 'product.product_type_id','=','type.id')
             ->where('product.is_delete', Constant::$DELETE_FLG_OFF)
+            ->where('product.is_public', Constant::$PUBLIC_FLG_ON)
             ->select($select)
             ->orderBy('product.product_type_id')
             ->get();
@@ -54,7 +55,8 @@ class ProductLogic extends BaseLogic{
     public function getAllProductBySearchInfo($searchInfo = null, $sortBy = null){
         $query = Db::table(TableNameDB::$TableProduct.' as product')
             ->join(TableNameDB::$TableProductType.' as type', 'product.product_type_id','=','type.id')
-            ->where('product.is_delete', Constant::$DELETE_FLG_OFF);
+            ->where('product.is_delete', Constant::$DELETE_FLG_OFF)
+            ->where('product.is_public', Constant::$PUBLIC_FLG_ON);
         $delimiter = '-';
 
         if(isset($searchInfo)){
@@ -228,8 +230,18 @@ class ProductLogic extends BaseLogic{
         return $product;
     }
 
+    public function getProductInfoBySlug($slug){
+        $product = Db::table(TableNameDB::$TableProduct.' as product')
+            ->leftjoin(TableNameDB::$TableProductType.' as type', 'product.product_type_id','=','type.id')
+            ->leftjoin(TableNameDB::$TableVendor.' as vendor', 'product.vendor_id' ,'=' ,'vendor.id')
+            ->where('product.slug', $slug)
+            ->select('product.*', 'type.product_type_name', 'vendor.vendor_name')
+            ->first();
+        return $product;
+    }
+
     public function getListProductSameType($productId,$productTypeId, $productDesign = null, $limit = 8){
-        $query = Product::where('id','<>',$productId);
+        $query = Product::where('id','<>',$productId)->where('is_public', Constant::$PUBLIC_FLG_ON);
 
         if(isset($productDesign)){
             $query->where(function ($querySub) use ($productTypeId, $productDesign) {
@@ -271,8 +283,16 @@ class ProductLogic extends BaseLogic{
                 $product->slug = Slug::createSlug(Product::class,'slug',$params['productName']);
             }
             $product->product_title = $params['productTitle'];
-            $product->title = $params['title'];
-            $product->meta_keyword = $params['metaKeyword'];
+            if(isset($params['title'])){
+                $product->title = $params['title'];
+            }else{
+                $product->title = $params['productTitle'];
+            }
+            if(isset($params['metaKeyword'])){
+                $product->meta_keyword = $params['metaKeyword'];
+            }else{
+                $product->meta_keyword = $params['productDescription'];
+            }
             $product->product_number_of_seat = $params['productNumberOfSeat'];
             $product->product_design = $params['productDesign'];
             $product->product_fuel = $params['productFuel'];
