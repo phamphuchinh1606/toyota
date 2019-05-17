@@ -43,7 +43,7 @@
                         </li>
                         <li class="@if(\Request::is('about')) active @endif">
                             <a href="{{route('about')}}" class="text-center">
-                                <span>Giới thiệu</span>
+                                <span>Thủ Tục Trả Góp</span>
                             </a>
                         </li>
                         <li class="megamenu @if(\Request::is('collection-all')) active @endif">

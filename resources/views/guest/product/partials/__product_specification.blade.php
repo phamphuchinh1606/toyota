@@ -4,7 +4,7 @@
             <section id="related-products">
                 <div class="home-section-head clearfix">
                     <h2>
-                        <span>Thông số kỹ thuật</span>
+                        <span>Thông số kỹ thuật XE OTO TOYOTA</span>
                     </h2>
                 </div>
                 <div class="box_tabs thong_so_ky_thuat animated fadeInUpShort go delay-150">

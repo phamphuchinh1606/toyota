@@ -9,7 +9,7 @@
     <link rel="alternate" hreflang="x-default" href="{{route('home')}}">
     <link rel="alternate" hreflang="vi" href="{{route('home')}}">
     <meta name="revisit" content="1 days">
-    <meta name="robots" content="index,follow">
+    <meta name="robots" content="index,nofollow">
     <link href="{{asset('css/guest/plugin/style.css')}}" rel="stylesheet" type="text/css" media="all">
     <link rel="shortcut icon" href="{{asset('images/guest/favicon.png')}}" type="image/png"/>
 
@@ -57,11 +57,9 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=0' name='viewport'/>
     <meta name="description" content="@yield('head.description',$appInfo->app_content)">
     <meta name="keywords" content="@yield('head.keywords',$appInfo->app_content)">
-    <link rel="canonical" href="{{URL::to('/')}}"/>
+    <link rel="canonical" href="@yield('head.canonical',URL::current())"/>
     <link rel="pingback" href="{{URL::to('/')}}">
 
-
-    <link rel="canonical" href="{{route('home')}}">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta name="theme-color" content="#e51515">
     <!-- CSS ================================================== -->

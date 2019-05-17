@@ -56,6 +56,12 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
+                                            <label class="col-md-2 col-form-label" for="text-input">Slug</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" id="text-input" type="text" name="slug" placeholder="Slug" value="{{ $product->slug }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
                                             <label class="col-md-2 col-form-label" for="text-input">Tiều đề sản phẩm</label>
                                             <div class="col-md-10">
                                                 <input class="form-control" id="text-input" type="text" name="product_title" placeholder="Tiêu đề sản phẩm" required
@@ -162,14 +168,27 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label" for="text-input">Nội dung sản phẩm</label>
                                             <div class="col-md-10">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <input type="hidden" value="{{$product->product_content}}" class="editor" name="product_content"/>
-                                                        <div id="editor" class="ql-container ql-snow editor_quill product_content">
-                                                            {!! $product->product_content !!}
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <textarea class="form-control" id="summary-ckeditor" name="product_content" style="height: 400px">{{$product->product_content}}</textarea>
+                                                <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+                                                <script>
+                                                    CKEDITOR.replace( 'summary-ckeditor', {
+                                                        filebrowserBrowseUrl: '{{ asset('ckfinder/ckfinder.html') }}',
+                                                        filebrowserImageBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Images') }}',
+                                                        filebrowserFlashBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Flash') }}',
+                                                        {{--filebrowserUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',--}}
+                                                                {{--filebrowserImageUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',--}}
+                                                        filebrowserFlashUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
+                                                    } );
+                                                    CKEDITOR.on('instanceLoaded', function(e) {e.editor.resize('100%', 700)} );
+                                                </script>
+{{--                                                <div class="row">--}}
+{{--                                                    <div class="col-md-12">--}}
+{{--                                                        <input type="hidden" value="{{$product->product_content}}" class="editor" name="product_content"/>--}}
+{{--                                                        <div id="editor" class="ql-container ql-snow editor_quill product_content">--}}
+{{--                                                            {!! $product->product_content !!}--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -177,10 +196,22 @@
                                             <div class="col-md-10">
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <input type="hidden" value="{{$product->content_promotion}}" class="editor" name="content_promotion"/>
-                                                        <div id="editor-promotion" class="ql-container ql-snow editor_quill content_promotion">
-                                                            {!! $product->content_promotion !!}
-                                                        </div>
+                                                        <textarea class="form-control" id="summary-ckeditor2" name="content_promotion" style="height: 400px">{{$product->content_promotion}}</textarea>
+                                                        <script>
+                                                            CKEDITOR.replace( 'summary-ckeditor2', {
+                                                                filebrowserBrowseUrl: '{{ asset('ckfinder/ckfinder.html') }}',
+                                                                filebrowserImageBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Images') }}',
+                                                                filebrowserFlashBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Flash') }}',
+                                                                {{--filebrowserUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',--}}
+                                                                        {{--filebrowserImageUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',--}}
+                                                                filebrowserFlashUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
+                                                            } );
+                                                        </script>
+
+{{--                                                        <input type="hidden" value="{{$product->content_promotion}}" class="editor" name="content_promotion"/>--}}
+{{--                                                        <div id="editor-promotion" class="ql-container ql-snow editor_quill content_promotion">--}}
+{{--                                                            {!! $product->content_promotion !!}--}}
+{{--                                                        </div>--}}
                                                     </div>
                                                 </div>
                                             </div>

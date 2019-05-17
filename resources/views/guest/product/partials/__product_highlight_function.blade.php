@@ -10,7 +10,7 @@
             <section id="related-products">
                 <div class="home-section-head clearfix">
                     <h2>
-                        <span>Tính năng nổi bật</span>
+                        <span>Tính năng nổi bật XE OTO TOYOTA</span>
                     </h2>
 
                 </div>

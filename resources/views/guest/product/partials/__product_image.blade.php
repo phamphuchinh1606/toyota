@@ -52,7 +52,7 @@
             <section id="related-products">
                 <div class="home-section-head clearfix">
                     <h2>
-                        <span>Thư viện ảnh</span>
+                        <span>THƯ VIỆN ẢNH XE OTO TOYOTA</span>
                     </h2>
                 </div>
                 <div class="box_tabs">

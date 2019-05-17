@@ -133,36 +133,36 @@ class RouteServiceProvider extends ServiceProvider
     }
 
     private function routeGuest(){
-
-        Route::middleware('web')
+        $middleareGuest = ['web','domain.check'];
+        Route::middleware($middleareGuest)
             ->namespace($this->namespaceGuest)
             ->group(base_path('routes/guest/route_home.php'));
 
-        Route::middleware('web')
+        Route::middleware($middleareGuest)
             ->namespace($this->namespaceGuest)
             ->group(base_path('routes/guest/route_product.php'));
 
-        Route::middleware('web')
+        Route::middleware($middleareGuest)
             ->namespace($this->namespaceGuest)
             ->group(base_path('routes/guest/route_collection.php'));
 
-        Route::middleware('web')
+        Route::middleware($middleareGuest)
             ->namespace($this->namespaceGuest)
             ->group(base_path('routes/guest/route_blog.php'));
 
-        Route::middleware('web')
+        Route::middleware($middleareGuest)
             ->namespace($this->namespaceGuest)
             ->group(base_path('routes/guest/route_cart.php'));
 
-        Route::middleware('web')
+        Route::middleware($middleareGuest)
             ->namespace($this->namespaceGuest)
             ->group(base_path('routes/guest/route_contact.php'));
 
-        Route::middleware('web')
+        Route::middleware($middleareGuest)
             ->namespace($this->namespaceGuest)
             ->group(base_path('routes/guest/route_about.php'));
 
-        Route::middleware('web')
+        Route::middleware($middleareGuest)
             ->namespace($this->namespaceGuest)
             ->group(base_path('routes/guest/route_cost_estimate.php'));
     }

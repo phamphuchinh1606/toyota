@@ -15,7 +15,7 @@
             <a href="{{route('home')}}" class="mobile-nav__link">Trang chủ</a>
         </li>
         <li class="mobile-nav__item">
-            <a href="{{route('about')}}" class="mobile-nav__link">Giới thiệu</a>
+            <a href="{{route('about')}}" class="mobile-nav__link">Thủ Tục Trả Góp</a>
         </li>
         <li class="mobile-nav__item" aria-haspopup="true">
             <div class="mobile-nav__has-sublist">

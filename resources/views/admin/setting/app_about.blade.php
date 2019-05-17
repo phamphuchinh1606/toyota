@@ -29,8 +29,22 @@
                                 <i class="fa fa-align-justify"></i>Thông tin giới thiệu trang
                             </div>
                             <div class="card-body">
-                                <input type="hidden" value="{{$appInfo->about_content}}" class="editor" name="about_content"/>
-                                <div id="editor" class="editor_quill product-content" style="min-height: 700px">{!! $appInfo->about_content !!}</div>
+                                <textarea class="form-control" id="summary-ckeditor" name="about_content" style="height: 400px">{{$appInfo->about_content}}</textarea>
+                                <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+                                <script>
+                                    CKEDITOR.replace( 'summary-ckeditor', {
+                                        filebrowserBrowseUrl: '{{ asset('ckfinder/ckfinder.html') }}',
+                                        filebrowserImageBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Images') }}',
+                                        filebrowserFlashBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Flash') }}',
+                                        {{--filebrowserUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',--}}
+                                                {{--filebrowserImageUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',--}}
+                                        filebrowserFlashUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
+                                    } );
+                                    CKEDITOR.on('instanceLoaded', function(e) {e.editor.resize('100%', 700)} );
+                                </script>
+
+{{--                                <input type="hidden" value="{{$appInfo->about_content}}" class="editor" name="about_content"/>--}}
+{{--                                <div id="editor" class="editor_quill product-content" style="min-height: 700px">{!! $appInfo->about_content !!}</div>--}}
                             </div>
                             <div class="card-footer">
                                 <button class="btn btn-sm btn-primary pull-right" type="submit">

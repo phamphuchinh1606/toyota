@@ -65,4 +65,8 @@
             </div>
         </div>
     </div>
+
+    <div class="col s12">
+        {!! $product->product_content !!}
+    </div>
 </div>

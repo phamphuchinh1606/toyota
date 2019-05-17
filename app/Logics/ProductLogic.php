@@ -234,13 +234,15 @@ class ProductLogic extends BaseLogic{
         $product = Db::table(TableNameDB::$TableProduct.' as product')
             ->leftjoin(TableNameDB::$TableProductType.' as type', 'product.product_type_id','=','type.id')
             ->leftjoin(TableNameDB::$TableVendor.' as vendor', 'product.vendor_id' ,'=' ,'vendor.id')
+            ->where('product.is_delete',Constant::$DELETE_FLG_OFF)
             ->where('product.slug', $slug)
+            ->where('product.is_public',Constant::$PUBLIC_FLG_ON)
             ->select('product.*', 'type.product_type_name', 'vendor.vendor_name')
             ->first();
         return $product;
     }
 
-    public function getListProductSameType($productId,$productTypeId, $productDesign = null, $limit = 8){
+    public function getListProductSameType($productId,$productTypeId, $productDesign = null, $limit = 20){
         $query = Product::where('id','<>',$productId)->where('is_public', Constant::$PUBLIC_FLG_ON);
 
         if(isset($productDesign)){
@@ -279,7 +281,10 @@ class ProductLogic extends BaseLogic{
             $product->product_qty = 0;
             $product->product_description = $params['productDescription'];
             $product->product_content = $params['productContent'];
-            if(isset($params['productName'])){
+            if(isset($params['slug'])){
+                $product->slug = $params['slug'];
+            }
+            if(isset($params['productName']) && !isset($params['slug'])){
                 $product->slug = Slug::createSlug(Product::class,'slug',$params['productName']);
             }
             $product->product_title = $params['productTitle'];
@@ -331,7 +336,10 @@ class ProductLogic extends BaseLogic{
                 if(isset($params['productImage'])){
                     $product->product_image = $params['productImage'];
                 }
-                if(isset($params['productName'])){
+                if(isset($params['slug'])){
+                    $product->slug = $params['slug'];
+                }
+                if(isset($params['productName']) && !isset($params['slug'])){
                     $product->slug = Slug::createSlug(Product::class,'slug',$params['productName']);
                 }
                 $product->product_title = $params['productTitle'];

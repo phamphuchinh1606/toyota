@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": "^7.1.3",
+        "ckfinder/ckfinder-laravel-package": "^3.4",
         "cviebrock/eloquent-sluggable": "^4.6",
         "darryldecode/cart": "^4.0",
         "davejamesmiller/laravel-breadcrumbs": "^5.1",
@@ -13,7 +14,8 @@
         "galahad/laravel-addressing": "^0.5.1",
         "ixudra/curl": "^6.16",
         "laravel/framework": "5.7.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "unisharp/laravel-ckeditor": "^4.7"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

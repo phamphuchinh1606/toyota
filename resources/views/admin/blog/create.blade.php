@@ -57,7 +57,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label" for="text-input">Slug</label>
                                             <div class="col-md-10">
-                                                <input class="form-control" id="text-input" type="text" name="blog_slug" placeholder="Slug" disabled>
+                                                <input class="form-control" id="text-input" type="text" name="blog_slug" placeholder="Slug">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -84,14 +84,30 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label" for="text-input">Nội dung tin tức</label>
                                             <div class="col-md-10">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <input type="hidden" value="phamphuchinh" class="editor" name="blog_content"/>
-                                                        <div id="editor" class="ql-container ql-snow editor_quill product_content">
+                                                <textarea class="form-control" id="summary-ckeditor" name="blog_content" style="height: 400px"></textarea>
+                                                <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+                                                <script>
+                                                    CKEDITOR.replace( 'summary-ckeditor', {
+                                                        filebrowserBrowseUrl: '{{ asset('ckfinder/ckfinder.html') }}',
+                                                        filebrowserImageBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Images') }}',
+                                                        filebrowserFlashBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Flash') }}',
+                                                        {{--filebrowserUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',--}}
+                                                                {{--filebrowserImageUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',--}}
+                                                        filebrowserFlashUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
+                                                    } );
+                                                    CKEDITOR.on('instanceLoaded', function(e) {e.editor.resize('100%', 700)} );
+                                                </script>
 
-                                                        </div>
-                                                    </div>
-                                                </div>
+
+
+{{--                                                <div class="row">--}}
+{{--                                                    <div class="col-md-12">--}}
+{{--                                                        <input type="hidden" value="phamphuchinh" class="editor" name="blog_content"/>--}}
+{{--                                                        <div id="editor" class="ql-container ql-snow editor_quill product_content">--}}
+
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
                                             </div>
                                         </div>
                                         <div class="d-none">

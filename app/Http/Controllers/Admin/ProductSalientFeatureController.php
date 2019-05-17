@@ -32,4 +32,13 @@ class ProductSalientFeatureController extends Controller
         $this->productSalientFeatureService->delete($id);
         return redirect()->route('admin.product_feature.create',['productId' => $productId]);
     }
+
+    public function update( Request $request){
+        $featureId = $request->feature_id;
+        $productId = $request->product_id;
+        if(isset($featureId)){
+            $this->productSalientFeatureService->update($featureId,$request);
+        }
+        return redirect()->route('admin.product_feature.create',['productId' => $productId]);
+    }
 }

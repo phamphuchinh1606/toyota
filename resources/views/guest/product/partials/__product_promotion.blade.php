@@ -6,7 +6,7 @@
                 <section id="related-products">
                     <div class="home-section-head clearfix">
                         <h2>
-                            <span>Khuyến Mãi</span>
+                            <span>KHUYẾN MÃI XE OTO TOYOTA</span>
                         </h2>
                     </div>
                     <div class="box_tabs">

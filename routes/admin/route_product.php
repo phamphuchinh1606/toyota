@@ -55,4 +55,5 @@ Route::post('/product-specification/update/{id}','ProductSpecificationController
 Route::get('/product-feature/create','ProductSalientFeatureController@showCreate')->name('product_feature.create');
 Route::post('/product-feature/create','ProductSalientFeatureController@store')->name('product_feature.create');
 Route::delete('/product-feature/delete/{id}','ProductSalientFeatureController@delete')->name('product_feature.delete');
+Route::post('/product-feature/update','ProductSalientFeatureController@update')->name('product_feature.update');
 

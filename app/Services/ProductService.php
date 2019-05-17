@@ -92,6 +92,7 @@ class ProductService extends BaseService{
     public function createProduct(Request $request){
         $params = [];
         $params['productName'] = $request->product_name;
+        $params['slug'] = $request->slug;
         $params['productTitle'] = $request->product_title;
         $params['title'] = $request->title;
         $params['metaKeyword'] = $request->meta_keyword;
@@ -135,6 +136,7 @@ class ProductService extends BaseService{
     public function updateProduct($productId, Request $request){
         $params = [];
         $params['productName'] = $request->product_name;
+        $params['slug'] = $request->slug;
         $params['productTitle'] = $request->product_title;
         $params['title'] = $request->title;
         $params['metaKeyword'] = $request->meta_keyword;
@@ -172,9 +174,11 @@ class ProductService extends BaseService{
     }
 
     public function getInfoProduct($productId, $slug = null){
-        $product = $this->productLogic->getProductInfo($productId);
-        if(isset($slug)){
-            $product = $this->productLogic->getProductInfoBySlug($slug);
+        $product = $this->productLogic->getProductInfoBySlug($slug);
+        if(!isset($product)){
+            $product = $this->productLogic->getProductInfo($productId);
+        }else{
+            $productId = $product->id;
         }
         if(isset($product->id)){
             $product->images = $this->productImageLogic->getListImageTypeByProductId($productId, Constant::$PRODUCT_IMAGE_TYPE_IMAGE);

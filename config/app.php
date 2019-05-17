@@ -151,6 +151,7 @@ return [
         Ixudra\Curl\CurlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
 
         /*
          * Package Service Providers...

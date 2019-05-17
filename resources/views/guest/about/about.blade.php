@@ -12,9 +12,6 @@
                     <div class="grid">
                         <div class="grid__item large--one-whole">
                             <div class="page-contact-wrapper">
-                                <div class="page-head">
-                                    <h2>Giới Thiệu</h2>
-                                </div>
                                 <div class="page-body">
                                     <div class="page-body-inner">
                                         {!! $appInfo->about_content !!}

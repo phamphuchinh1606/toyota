@@ -3,7 +3,7 @@
     <div class="card-header">
         <i class="fa fa-align-justify"></i> {{$featureTitleGroup}}
         <div class="card-header-actions">
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseAddImage{{$featureType}}" aria-expanded="true" aria-controls="collapseExample" data-placement="top" title="" data-original-title="Them Hinh">
+            <button class="btn btn-primary show-add-update-image{{$featureType}}" type="button" data-toggle="collapse" data-target="#collapseAddImage{{$featureType}}" aria-expanded="true" aria-controls="collapseExample" data-placement="top" title="" data-original-title="Them Hinh">
                 <i class="fa fa-tag fa-lg"></i>
             </button>
         </div>
@@ -12,9 +12,10 @@
         <div class="carousel slide" data-ride="carousel">
             <div class="form-group row">
                 <div class="col-md-12 collapse" id="collapseAddImage{{$featureType}}">
-                    <form action="{{route('admin.product_feature.create')}}" method="post"  enctype="multipart/form-data" id="form">
+                    <form action="{{route('admin.product_feature.create')}}" method="post"  enctype="multipart/form-data" id="form_{{$featureType}}">
                         @csrf
                         <input type="hidden" name="feature_type" value="{{$featureType}}" />
+                        <input type="hidden" id="feature_id" name="feature_id" value=""/>
                         <div class="card">
                             <div class="card-header">{{$featureTitleInput}}
                             </div>
@@ -66,8 +67,12 @@
                                 </div>
                             </form>
                             <div class="card-footer">
-                                <div class="form-group form-actions">
-                                    <button class="btn btn-primary pull-right" type="submit">Thêm</button>
+                                <div class="form-group form-actions" id="btn_add_image{{$featureType}}">
+                                    <button id="btn-add" class="btn btn-primary pull-right" type="submit">Thêm</button>
+                                </div>
+                                <div class="text-right p-sm-1" id="btn_update_image{{$featureType}}" style="display: none">
+                                    <button type="button" id="btn-cancel" class="btn btn-danger">Hủy</button>
+                                    <button type="submit" id="btn-update" class="btn btn-primary">Cập Nhật</button>
                                 </div>
                             </div>
                         </div>
@@ -98,6 +103,16 @@
                                    data-name="{{$feature->feature_title}}" href="#deleteModal">
                                     <i class="fa fa-trash-o"></i>
                                 </a>
+                                <a href="#" data-toggle="modal" class="btn btn-info update-feature"  data-name="Hình ảnh">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <input type="hidden" name="product_id" value="{{$feature->product_id}}"/>
+                                <input type="hidden" name="feature_title" value="{{$feature->feature_title}}"/>
+                                <input type="hidden" name="feature_content" value="{{$feature->feature_content}}"/>
+                                <input type="hidden" name="feature_image" value="{{\App\Common\ImageCommon::showImage($feature->feature_image)}}"/>
+                                <input type="hidden" name="feature_type" value="{{$feature->feature_type}}"/>
+                                <input type="hidden" name="feature_id" value="{{$feature->id}}"/>
+                                <input type="hidden" name="action_update" value="{{route('admin.product_feature.update')}}"/>
                             </td>
                         </tr>
                     @endforeach

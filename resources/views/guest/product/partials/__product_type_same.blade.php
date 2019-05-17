@@ -1,7 +1,7 @@
 <section id="related-products">
     <div class="home-section-head clearfix">
         <h2>
-            <span>Sản phẩm tương tự</span>
+            <span>Sản phẩm tương tự XE OTO TOYOTA</span>
         </h2>
     </div>
     <div class="home-section-body">
