@@ -12,4 +12,4 @@
 */
 
 
-Route::get('/about','AboutController@index')->name('about');
+Route::get('/thu-tuc-tra-gop','AboutController@index')->name('about');
