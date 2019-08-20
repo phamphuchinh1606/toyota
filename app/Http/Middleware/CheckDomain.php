@@ -15,14 +15,20 @@ class CheckDomain
      */
     public function handle($request, Closure $next)
     {
-        $host = $request->headers->get('host');
-        $hostToyota = 'toyotaphulam.com';
-        $hostOto = 'otoquyen.com';
-        if($host == $hostToyota){
-            $url = $request->url();
-            $url = str_replace($hostToyota,$hostOto,$url);
+//        $host = $request->headers->get('host');
+//        $hostToyota = 'toyotaphulam.com';
+//        $hostOto = 'otoquyen.com';
+//        if($host == $hostToyota){
+//            $url = $request->url();
+//            $url = str_replace($hostToyota,$hostOto,$url);
+//            return redirect()->to($url);
+//        }
+        $url = $request->url();
+        if(str_contains($url,"http://")){
+            $url = str_replace("http://","https://",$url);
             return redirect()->to($url);
         }
+
         return $next($request);
     }
 }
