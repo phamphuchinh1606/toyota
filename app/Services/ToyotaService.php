@@ -25,7 +25,7 @@ use App\Common\CurlCommon;
 
 class ToyotaService extends BaseService{
 
-    protected $urlHostToyota =  "http://www.toyota.com.vn";
+    protected $urlHostToyota =  "https://www.toyota.com.vn";
 
     protected $settingSpecificationService;
 

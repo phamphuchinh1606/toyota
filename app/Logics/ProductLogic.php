@@ -220,6 +220,10 @@ class ProductLogic extends BaseLogic{
         return Product::where('product_name',$productName)->first();
     }
 
+    public function getProductByProductCode($productCode){
+        return Product::where('product_code',$productCode)->first();
+    }
+
     public function getProductInfo($productId){
         $product = Db::table(TableNameDB::$TableProduct.' as product')
             ->leftjoin(TableNameDB::$TableProductType.' as type', 'product.product_type_id','=','type.id')
@@ -267,6 +271,9 @@ class ProductLogic extends BaseLogic{
     public function createProduct($params = []){
         if(count($params) > 0){
             $product = new Product();
+            if(isset($params['productCode'])){
+                $product->product_code = $params['productCode'];
+            }
             $product->product_name = $params['productName'];
             $product->product_type_id = $params['productTypeId'];
             $product->product_price = $params['productPrice'];
@@ -319,6 +326,9 @@ class ProductLogic extends BaseLogic{
         if(count($params) > 0){
             $product = Product::find($productId);
             if(isset($product)){
+                if(isset($params['productCode'])){
+                    $product->product_code = $params['productCode'];
+                }
                 $product->product_name = $params['productName'];
                 $product->product_type_id = $params['productTypeId'];
                 $product->product_price = $params['productPrice'];

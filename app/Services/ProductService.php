@@ -250,8 +250,8 @@ class ProductService extends BaseService{
             $urlImageTemp = str_replace(' ','%20',$urlImageTemp);
         }
         $urlImageTemp = str_replace($name,urlencode($name),$urlImageTemp);
-        $contents = file_get_contents($urlImageTemp);
-        if(isset($contents)){
+        $contents = @file_get_contents($urlImageTemp);
+        if(isset($contents) && $contents !== false){
             $name = substr($urlImage, strrpos($urlImage, '/') + 1);
             if(str_contains($name,'?')){
                 $name = substr($name,0 ,strrpos($name, '?'));
