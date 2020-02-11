@@ -4,6 +4,12 @@
     Liên Hệ - {{$appInfo->app_name}}
 @endsection
 
+@section('body.js')
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="{{asset('js/guest/validator.js')}}"></script>
+    <script src="{{asset('js/guest/contact.js')}}"></script>
+@endsection
+
 @section('body.content')
     <main class="main-content" role="main">
         <div id="page-wrapper">
@@ -60,7 +66,7 @@
                                                     <div class="alert alert-success"> {{ \Session::get('message') }}</div>
                                                 @endif
                                                 <div class="form-vertical clearfix">
-                                                    <form accept-charset="UTF-8" action="{{route('contact.send_contact')}}" class="contact-form" method="post">
+                                                    <form accept-charset="UTF-8" action="{{route('contact.send_contact')}}" class="contact-form" id="contact-form" method="post">
                                                         <input name="form_type" type="hidden" value="contact">
                                                         <input name="utf8" type="hidden" value="✓">
                                                         @csrf
@@ -76,6 +82,12 @@
 
                                                         <label for="ContactFormMessage" class="hidden-label">Nội dung</label>
                                                         <textarea rows="10" required="" name="guest_content" class="form-control" placeholder="Viết bình luận" id="contactFormMessage"></textarea>
+
+                                                        <div class="form-group">
+                                                            <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                                                            <input class="form-control hide" data-recaptcha="true" required data-error="Please complete the Captcha">
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
 
                                                         <input type="submit" class="btn right btnContactSubmit" value="Gửi">
 

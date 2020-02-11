@@ -60,6 +60,12 @@
                             <span class="total_amount">398.451.000</span>
                             <span style="font-weight: bold;"> vnđ</span></td>
                     </tr>
+                    <tr>
+                        <td colspan="2">
+                            <span style="color: red; font-weight: 900;">Ghi chú : </span><br/>
+                            Giá xe + tên sản phẩm lăn bánh tạm tính chưa trừ giảm giá, khuyến mãi, ưu đãi của thời điểm hiện tại. Vui lòng liên hệ hotline để nhận giá ưu đãi tốt nhất
+                        </td>
+                    </tr>
                     </tbody></table>
             </div>
         </form>
