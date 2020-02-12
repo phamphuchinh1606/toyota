@@ -63,7 +63,7 @@
                     <tr>
                         <td colspan="2">
                             <span style="color: red; font-weight: 900;">Ghi chú : </span><br/>
-                            Giá xe + tên sản phẩm lăn bánh tạm tính chưa trừ giảm giá, khuyến mãi, ưu đãi của thời điểm hiện tại. Vui lòng liên hệ hotline để nhận giá ưu đãi tốt nhất
+                            Giá xe <span style="color: red;" class="modal_product_name"></span> lăn bánh tạm tính chưa trừ giảm giá, khuyến mãi, ưu đãi của thời điểm hiện tại. Vui lòng liên hệ hotline để nhận giá ưu đãi tốt nhất
                         </td>
                     </tr>
                     </tbody></table>
