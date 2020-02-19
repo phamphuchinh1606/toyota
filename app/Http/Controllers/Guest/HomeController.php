@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+
     public function index(){
         $banners = $this->settingService->getBannerAll();
         $topBanners = $this->settingService->getTopBannerAll();
@@ -17,5 +18,10 @@ class HomeController extends Controller
             'topBanners' => $topBanners,
             'productVendors' => $productVendors
         ]);
+    }
+
+    public function requestInfoPrice(Request $request){
+        $this->customerRequestService->create($request);
+        return redirect()->route('home');
     }
 }
