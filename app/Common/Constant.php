@@ -66,4 +66,10 @@ class Constant{
 
     public static $URL_TOYOTA = "http://www.toyota.com.vn";
 
+    //Payment Method
+    public static $PAYMENT_METHOD_INSTALLMENT_CODE = "1";
+    public static $PAYMENT_METHOD_INSTALLMENT_NAME = "Mua trả góp";
+    public static $PAYMENT_METHOD_FULL_CODE = "2";
+    public static $PAYMENT_METHOD_FULL_NAME = "Trả toàn bộ";
+
 }

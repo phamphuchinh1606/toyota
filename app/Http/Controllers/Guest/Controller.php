@@ -9,7 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-use App\Services\{
+use App\Services\{CustomerRequestService,
     ProductTypeService,
     ProductService,
     VendorService,
@@ -17,8 +17,7 @@ use App\Services\{
     BlogService,
     AddressService,
     ProductSpecificationService,
-    CostEstimateService
-};
+    CostEstimateService};
 
 class Controller extends BaseController
 {
@@ -44,11 +43,13 @@ class Controller extends BaseController
 
     protected $costEstimateService;
 
+    protected $customerRequestService;
+
     public function __construct(ProductTypeService $productTypeService, ProductService $productService,
                                 VendorService $vendorService, SettingService $settingService,
                                 BlogService $blogService, ContactService $contactService, OrderService $orderService,
                                 AddressService $addressService, ProductSpecificationService $productSpecificationService,
-                                CostEstimateService $costEstimateService)
+                                CostEstimateService $costEstimateService, CustomerRequestService $customerRequestService)
     {
         $this->productTypeService = $productTypeService;
         $this->productService = $productService;
@@ -60,5 +61,6 @@ class Controller extends BaseController
         $this->orderService = $orderService;
         $this->addressService = $addressService;
         $this->costEstimateService = $costEstimateService;
+        $this->customerRequestService = $customerRequestService;
     }
 }

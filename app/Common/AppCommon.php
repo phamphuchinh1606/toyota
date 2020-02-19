@@ -195,4 +195,10 @@ class AppCommon{
 
         return number_format($value);
     }
+
+    public static function getPaymentMethodName($methodId){
+        if($methodId == Constant::$PAYMENT_METHOD_INSTALLMENT_CODE)
+            return Constant::$PAYMENT_METHOD_INSTALLMENT_NAME;
+        return Constant::$PAYMENT_METHOD_FULL_NAME;
+    }
 }

@@ -1,17 +1,16 @@
-Chào quản trị viên .
+Chào quản trị viên .<br/>
 
-Vừa có một khách hàng gửi mail yêu cầu báo giá.
+Vừa có một khách hàng gửi mail yêu cầu báo giá.<br/>
 
-Họ và tên : {{$data->name}}
-Số điện thoại : {{$data->phone}}
-Email : {{$data->email}}
-Địa chỉ : {{$data->address}}
+<b>Họ và tên </b> : {{$data->name}}<br/>
+<b>Số điện thoại </b> : {{$data->phone}}<br/>
+<b>Email : {{$data->email}}<br/>
+<b>Địa chỉ</b> : {{$data->address}}<br/>
 
-Dòng xe : {{$data->product_name}}
-Thời gian : {{$data->time_plan}}
-Ngân sách : {{$data->amount_current}}
-Hình thức : {{$data->payment_name}}
-IP đăng ký : {{$data->request_ip}}
+<b>Dòng xe</b> : {{$data->product_name}}<br/>
+<b>Thời gian</b> : {{$data->time_plan}}<br/>
+<b>Ngân sách</b> : {{$data->amount_current}}<br/>
+<b>Hình thức</b> : {{$data->payment_name}}<br/>
+<b>IP đăng ký</b> : {{$data->request_ip}}<br/>
 
-Để xem chi tiết trong tin , có thể vào trang quản lý admin
-Link : {{$data->link_admin}}
+Để xem chi tiết trong tin , có thể click vào <a href="{{$data->link_admin}}" target="_blank">Link</a> để vào admin.

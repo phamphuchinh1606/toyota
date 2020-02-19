@@ -2,6 +2,8 @@
 
 namespace App\Mail;
 
+use App\Common\AppCommon;
+use App\Common\DateUtils;
 use App\Models\CustomerRequestPrice;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
@@ -36,14 +38,14 @@ class CustomerRequestPriceMail extends Mailable
         $customer->email = $this->customerRequest->email;
         $customer->phone = $this->customerRequest->phone;
         $customer->address = $this->customerRequest->address;
-        $customer->product_name = $this->customerRequest->product_id;
+        $customer->product_name = $this->customerRequest->product_name;
         $customer->time_plan = $this->customerRequest->time_plan;
-        $customer->amount_current = $this->customerRequest->amount_current;
-        $customer->payment_name = $this->customerRequest->payment_id;
-        $customer->request_ip = '12';
-        $customer->link_admin = 'link';
-        $this->from('alliedtechcamp.monipla@gmail.com')
-            ->subject("[".base_path()."] Gửi báo giá")
+        $customer->amount_current = AppCommon::formatMoney($this->customerRequest->amount_current);
+        $customer->payment_name = AppCommon::getPaymentMethodName($this->customerRequest->payment_id);
+        $customer->request_ip = $this->customerRequest->request_ip;
+        $customer->link_admin = $this->customerRequest->link_admin;
+        $this->from('system.otoquyen@gmail.com')
+            ->subject("[otoquyen] Yêu cầu Gửi báo giá")
         ->view('mail.customer_request_price')
         ->with('data',$customer);
     }

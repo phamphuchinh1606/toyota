@@ -16,6 +16,13 @@ class CustomerRequestService extends BaseService{
         if(isset($customerRequest)){
             //Send mail
             try{
+                $customerRequest->request_ip = $request->getClientIp();
+                $customerRequest->link_admin = route('admin.home');
+                $product = $this->productLogic->findProduct($customerRequest->product_id);
+                $customerRequest->product_name = '';
+                if(isset($product)){
+                    $customerRequest->product_name = $product->product_name;
+                }
                 $mailInfo = new CustomerRequestPriceMail($customerRequest);
                 Mail::to($customerRequest->email)->send($mailInfo);
             }catch (\Exception $ex){
