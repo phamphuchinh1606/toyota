@@ -40,7 +40,7 @@
         height: 35px;
     }
     .form-request-price form input[type=date]{
-        height: 46px;
+        margin-top: 17px;
     }
     .form-request-price form button {
         color: #fff;
@@ -125,10 +125,11 @@
 
 <script>
     $(document).ready(function(){
+        var timer = setInterval(showModalCustomerPrice, {{$appInfo->app_timer_show_modal_customer_request}} * 1000);
         $('#form-request-price #close').click(function(){
             $('#form-request-price').hide();
+            clearInterval(timer);
         });
-        setInterval(showModalCustomerPrice, {{$appInfo->app_timer_show_modal_customer_request}} * 1000);
     });
     function showModalCustomerPrice() {
         $('#form-request-price').show();
