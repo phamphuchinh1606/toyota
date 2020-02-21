@@ -43,12 +43,6 @@
                             <span style="font-weight: bold;"> vnđ</span></td>
                     </tr>
                     <tr>
-                        <td>Bảo hiểm 2 chiều</td>
-                        <td class="gt">
-                            <span class="insurance_two_way">5.520.000</span>
-                            <span style="font-weight: bold;"> vnđ</span></td>
-                    </tr>
-                    <tr>
                         <td>Phí biển số</td>
                         <td class="gt">
                             <span class="registrantion_fee">11.000.000</span>

@@ -10,7 +10,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-use App\Services\{
+use App\Services\{CustomerRequestService,
     ProductTypeService,
     ProductService,
     VendorService,
@@ -23,8 +23,7 @@ use App\Services\{
     SettingSpecificationService,
     ToyotaService,
     CostEstimateService,
-    ProductImageService
-};
+    ProductImageService};
 use App\Common\Constant;
 use Storage;
 
@@ -62,13 +61,16 @@ class Controller extends BaseController
 
     protected $productImageService;
 
+    protected $customerRequestService;
+
     public function __construct(ProductTypeService $productTypeService, ProductService $productService,
                                 VendorService $vendorService, SettingService $settingService,
                                 BlogService $blogService, AddressService $addressService,
                                 ContactService $contactService, OrderService $orderService,
                                 ProductColorService $productColorService, SettingSpecificationService $settingSpecificationService,
                                 ProductSpecificationService $productSpecificationService, ProductSalientFeatureService $productSalientFeatureService,
-                                ToyotaService $toyotaService, CostEstimateService $costEstimateService, ProductImageService $productImageService)
+                                ToyotaService $toyotaService, CostEstimateService $costEstimateService, ProductImageService $productImageService,
+                                CustomerRequestService $customerRequestService)
     {
         $this->productTypeService = $productTypeService;
         $this->productService = $productService;
@@ -85,6 +87,7 @@ class Controller extends BaseController
         $this->toyotaService = $toyotaService;
         $this->costEstimateService = $costEstimateService;
         $this->productImageService = $productImageService;
+        $this->customerRequestService = $customerRequestService;
     }
 
     protected function viewAdmin($viewName,$arrayData = []){

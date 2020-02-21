@@ -119,6 +119,8 @@ class SettingService extends BaseService{
             $params['appPhone'] = $request->app_phone;
             $params['appFax'] = $request->app_fax;
             $params['appEmail'] = $request->app_email;
+            $params['appSystemEmail'] = $request->app_system_email;
+            $params['appTimerShowModalCustomerRequest'] = $request->app_timer_show_modal_customer_request;
             $params['appFacebook'] = $request->app_facebook;
             $params['appAddress'] = $request->app_address;
             $params['appAddressGoogleMap'] = $request->app_address_google_map;

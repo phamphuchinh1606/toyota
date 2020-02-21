@@ -8,6 +8,9 @@
     .form-request-price .col-6 {
         width: 50% ;
     }
+    .form-request-price .col-12 {
+        width: 100% ;
+    }
     .form-request-price form label {
         display: block;
         background: #f0f0f0;
@@ -33,6 +36,12 @@
         font-size: 16px;
         font-family: inherit;
     }
+    .form-request-price form select{
+        height: 35px;
+    }
+    .form-request-price form input[type=date]{
+        height: 46px;
+    }
     .form-request-price form button {
         color: #fff;
         background-color: #2596cf;
@@ -51,6 +60,23 @@
         font-size: 18px;
         margin-bottom: 10px;
     }
+    .form-request-price .btnConfirm{
+        width: 48%;
+        float: right;
+    }
+
+    @media (max-width: 767.98px) {
+        .form-request-price .btnConfirm{
+            width: 100%;
+        }
+        .mobile-hide{
+            display: none;
+        }
+        .form-request-price .col-6 {
+            width: 100% ;
+        }
+
+    }
 </style>
 <div class="modal form-request-price" id="form-request-price" style="display: none; background-color: rgba(0, 0, 0, 0.4);">
     <div class="modal-content" style="opacity: 1; transform: translateY(0px);">
@@ -62,7 +88,7 @@
                     YÊU CẦU BÁO GIÁ </br>
                 </h4>
                 <p>
-                    Kính chào Anh/Chị, Để nhận ngay báo giá mới và tốt nhất từ Toyota Hùng Vương, Anh/Chị hãy liên hệ với Phòng Kinh Doanh qua số điện thoại 0918 378 789 hoặc điền form bên dưới
+                    Kính chào Anh/Chị, Để nhận ngay báo giá mới và tốt nhất từ Toyota Hùng Vương, Anh/Chị hãy liên hệ với Phòng Kinh Doanh qua số điện thoại <b>{{$appInfo->app_phone}}</b> hoặc điền form bên dưới
                 </p>
             </div>
             <div class="grid__item">
@@ -79,12 +105,16 @@
                         <!-- Select Product -->
                         @include('both.common.__select_product',['selectName' => 'product_id'])
 
-                        <input class="pc" name="time_plan" type="date" placeholder="Thời gian dự kiến">
-                        <input class="pc" name="amount_current" type="text" placeholder="Ngân sách hiện có">
-                        <select class="pc" name="payment_id">
+                        <input class="pc form-control mobile-hide" name="time_plan" type="date" placeholder="Thời gian dự kiến">
+                        <input class="pc mobile-hide" name="amount_current" type="text" placeholder="Ngân sách hiện có">
+                        <select class="pc mobile-hide" name="payment_id">
                             <option value="1">Mua trả góp</option>
                             <option value="2">Trả toàn bộ</option>
                         </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-12">
                         <button type="submit" class="btnConfirm" name="task" value="request">Gửi yêu cầu</button>
                     </div>
                 </div>
@@ -95,9 +125,12 @@
 
 <script>
     $(document).ready(function(){
-        $('#form-request-price').show();
         $('#form-request-price #close').click(function(){
             $('#form-request-price').hide();
-        })
+        });
+        setInterval(showModalCustomerPrice, {{$appInfo->app_timer_show_modal_customer_request}} * 1000);
     });
+    function showModalCustomerPrice() {
+        $('#form-request-price').show();
+    }
 </script>

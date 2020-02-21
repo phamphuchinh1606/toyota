@@ -3,6 +3,7 @@
 namespace App\Logics;
 
 use App\Common\Constant;
+use App\Models\Contact;
 use App\Models\CustomerRequestPrice;
 use App\Models\ProductType;
 use App\Models\TableNameDB;
@@ -29,5 +30,30 @@ class CustomerRequestPriceLogic extends BaseLogic{
             return $customerRequest;
         }
         return null;
+    }
+
+    public function countCustomerRequestNew(){
+        return CustomerRequestPrice::whereStatus(Constant::$CUSTOMER_REQUEST_STATUS_NEW_CODE)->count();
+    }
+
+    public function getAll(){
+        return CustomerRequestPrice::orderBy('created_at','asc')->paginate();
+    }
+
+    public function findId($requestId){
+        return CustomerRequestPrice::find($requestId);
+    }
+
+    public function delete($requestId){
+        $request = CustomerRequestPrice::find($requestId);;
+        if(isset($request)){
+            $request->delete();
+        }
+    }
+
+    public function updateModel(CustomerRequestPrice $model){
+        if(isset($model)){
+            $model->save();
+        }
     }
 }

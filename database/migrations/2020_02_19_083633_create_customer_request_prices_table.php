@@ -23,6 +23,7 @@ class CreateCustomerRequestPricesTable extends Migration
             $table->date('time_plan')->nullable(true);
             $table->double('amount_current')->nullable(true);
             $table->integer('payment_id')->nullable(true);
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }
