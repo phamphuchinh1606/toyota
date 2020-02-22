@@ -36,4 +36,11 @@ class ContactLogic extends BaseLogic{
     public function findId($id){
         return Contact::find($id);
     }
+
+    public function delete($id){
+        $request = Contact::find($id);;
+        if(isset($request)){
+            $request->delete();
+        }
+    }
 }

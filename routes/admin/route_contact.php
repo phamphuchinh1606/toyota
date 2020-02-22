@@ -13,6 +13,7 @@
 
 Route::get('/contact','ContactController@index')->name('contact.index');
 Route::get('/contact/show/{id}', 'ContactController@show')->name('contact.show');
+Route::delete('/contact/delete/{id}', 'ContactController@delete')->name('contact.delete');
 
 Route::get('/customer-request', 'CustomerRequestPriceController@index')->name('customer_request.index');
 Route::get('/customer-request/show/{id}', 'CustomerRequestPriceController@show')->name('customer_request.show');

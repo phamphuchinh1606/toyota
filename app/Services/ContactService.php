@@ -48,4 +48,8 @@ class ContactService extends BaseService{
         }
     }
 
+    public function delete($id){
+        $this->contactLogic->delete($id);
+    }
+
 }

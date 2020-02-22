@@ -193,6 +193,10 @@
     @yield('body.js')
 
     @include('guest.layouts.partials.__call_phone_plugin')
+	 <script>
+		fbq('track', 'Contact');
+    </script>
+
 
     @include('guest.layouts.partials.__modal_request_contact')
 
