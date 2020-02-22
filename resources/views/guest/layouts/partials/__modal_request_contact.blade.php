@@ -97,7 +97,7 @@
                         <label>Thông tin khách hàng</label>
                         <input name="name" type="text" placeholder="Họ tên" required="">
                         <input name="phone" type="text" placeholder="Số điện thoại" required="">
-                        <input name="email" type="email" placeholder="Email">
+{{--                        <input name="email" type="email" placeholder="Email">--}}
                         <input name="address" type="text" placeholder="Địa chỉ">
                     </div>
                     <div class="col col-6">
@@ -122,13 +122,21 @@
         </form>
     </div>
 </div>
-
+<?php
+$urlCurrent = url()->current();
+$show = true;
+if(strpos($urlCurrent, 'thank-you') > 0) $show = false;
+?>
 <script>
     $(document).ready(function(){
-        var timer = setInterval(showModalCustomerPrice, {{$appInfo->app_timer_show_modal_customer_request}} * 1000);
+        @if($show)
+            var timer = setInterval(showModalCustomerPrice, {{$appInfo->app_timer_show_modal_customer_request}} * 1000);
+        @endif
         $('#form-request-price #close').click(function(){
             $('#form-request-price').hide();
-            clearInterval(timer);
+            @if($show)
+                clearInterval(timer);
+            @endif
         });
     });
     function showModalCustomerPrice() {

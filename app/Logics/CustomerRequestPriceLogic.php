@@ -19,7 +19,7 @@ class CustomerRequestPriceLogic extends BaseLogic{
         if(count($params) > 0){
             $customerRequest = new CustomerRequestPrice();
             $customerRequest->name = $params['name'];
-            $customerRequest->email = $params['email'];
+            $customerRequest->email = isset($params['email']) ? $params['email'] : '';
             $customerRequest->phone = $params['phone'];
             $customerRequest->address = $params['address'];
             $customerRequest->product_id = $params['product_id'];

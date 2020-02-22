@@ -2483,7 +2483,9 @@ remaining accessible to screen readers (h5bp.com)
       right: 0; }
 
 #PageContainer {
-  overflow: hidden; }
+  overflow: hidden;
+  min-height: calc(100vh - 50px - 300px);
+}
 
 .is-moved-by-drawer {
   -webkit-transform: translateZ(0);

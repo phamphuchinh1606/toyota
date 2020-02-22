@@ -22,6 +22,13 @@ class HomeController extends Controller
 
     public function requestInfoPrice(Request $request){
         $this->customerRequestService->create($request);
-        return redirect()->route('home');
+        return redirect()->route('home.thank_you');
+    }
+
+    public function thankYou(){
+        return view(
+            'guest.home.thank_you',
+            ['message' => 'Cám ơn bạn đã gửi thông báo giá.']
+        );
     }
 }

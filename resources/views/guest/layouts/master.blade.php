@@ -197,6 +197,8 @@
 		fbq('track', 'Contact');
     </script>
 
+    @include('guest.layouts.partials.__popup_modal_show_customer_request')
+
 
     @include('guest.layouts.partials.__modal_request_contact')
 
@@ -205,5 +207,5 @@
 
 </body>
 {{--@include('guest.layouts.partials.__chat_box_facebook_plugin')--}}
-@include('guest.layouts.partials.__include_chatbox_facebook')
+{{--@include('guest.layouts.partials.__include_chatbox_facebook')--}}
 </html>

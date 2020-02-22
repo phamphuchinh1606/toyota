@@ -14,3 +14,4 @@
 
 Route::get('/','HomeController@index')->name('home');
 Route::post('/request-info-price','HomeController@requestInfoPrice')->name('home.request_info_pri');
+Route::get('/thank-you','HomeController@thankYou')->name('home.thank_you');
