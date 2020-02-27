@@ -6,6 +6,22 @@
 
 @section('head.css')
     <link href="{{asset('css/admin/plugins/dataTables.bootstrap4.css')}}" rel="stylesheet">
+    <style>
+
+        @media (min-width: 610px) {
+            .hidden-lg{
+                display: none;
+            }
+        }
+        @media (max-width: 600px) {
+            .hidden-xs{
+                display: none;
+            }
+            .main .container-fluid{
+                padding: 0;
+            }
+        }
+    </style>
 @endsection
 
 @section('body.js')
@@ -35,27 +51,27 @@
                                             <thead>
                                                 <tr role="row">
                                                     <th>
-                                                        Số Thứ Tự
+                                                        STT
                                                     </th>
                                                     <th>
                                                         Họ Tên
                                                     </th>
-                                                    <th>
+                                                    <th class="hidden-xs">
                                                         Email
                                                     </th>
                                                     <th>
                                                         Số điện thoại
                                                     </th>
-                                                    <th>
+                                                    <th class="hidden-xs">
                                                         Sản phẩm
                                                     </th>
-                                                    <th>
+                                                    <th class="hidden-xs">
                                                         Ngân sách
                                                     </th>
-                                                    <th>
+                                                    <th class="hidden-xs">
                                                         Ngày dự định
                                                     </th>
-                                                    <th>
+                                                    <th class="hidden-xs">
                                                         Tình Trạng
                                                     </th>
                                                     <th>Actions</th>
@@ -68,24 +84,26 @@
                                                             {{$index + 1}}
                                                         </td>
                                                         <td>
-                                                            {{$item->name}}
+                                                            {{$item->name}}<br/>
+                                                            <span class="hidden-lg">{{$item->product->product_name}}</span>
                                                         </td>
-                                                        <td>
+                                                        <td class="hidden-xs">
                                                             {{$item->email}}
                                                         </td>
                                                         <td>
                                                             {{$item->phone}}
+                                                            <span class="hidden-lg badge {{$item->status_class}}">{{$item->status_name}}</span>
                                                         </td>
-                                                        <td>
+                                                        <td class="hidden-xs">
                                                             {{$item->product->product_name}}
                                                         </td>
-                                                        <td>
+                                                        <td class="hidden-xs">
                                                             {{App\Common\AppCommon::formatMoney($item->amount_current)}}
                                                         </td>
-                                                        <td>
+                                                        <td class="hidden-xs">
                                                             {{ App\Common\DateUtils::dateFormat($item->time_plan,'Y-m-d')}}
                                                         </td>
-                                                        <td class="text-center">
+                                                        <td class="text-center hidden-xs">
                                                             <span class="badge {{$item->status_class}}">{{$item->status_name}}</span>
                                                         </td>
                                                         <td class="text-center">

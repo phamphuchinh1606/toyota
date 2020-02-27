@@ -12,6 +12,9 @@ class CustomerRequestService extends BaseService{
 
     public function create(Request $request){
         $inputs = $request->all();
+        if( empty(trim($inputs['name'])) || empty(trim($inputs['phone']))){
+            return;
+        }
         $customerRequest = $this->customerRequestPriceLogic->create($inputs);
         if(isset($customerRequest)){
             //Send mail

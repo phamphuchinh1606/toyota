@@ -1,6 +1,16 @@
 @extends('admin.layouts.master')
 
 @section('head.css')
+    <style>
+        @media (max-width: 600px) {
+            .hidden-xs{
+                display: none;
+            }
+            .main .container-fluid{
+                padding: 0;
+            }
+        }
+    </style>
 @endsection
 
 @section('body.js')
