@@ -96,7 +96,7 @@
                     <div class="col col-6">
                         <label>Thông tin khách hàng</label>
                         <input name="name" type="text" placeholder="Họ tên" required="">
-                        <input name="phone" type="text" placeholder="Số điện thoại" required="">
+                        <input name="phone" type="tel" placeholder="Số điện thoại" required="" pattern="[0-9]+">
 {{--                        <input name="email" type="email" placeholder="Email">--}}
                         <input name="address" type="text" placeholder="Địa chỉ">
                     </div>

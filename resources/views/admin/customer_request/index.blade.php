@@ -53,6 +53,9 @@
                                                         Ngân sách
                                                     </th>
                                                     <th>
+                                                        Ngày dự định
+                                                    </th>
+                                                    <th>
                                                         Tình Trạng
                                                     </th>
                                                     <th>Actions</th>
@@ -78,6 +81,9 @@
                                                         </td>
                                                         <td>
                                                             {{App\Common\AppCommon::formatMoney($item->amount_current)}}
+                                                        </td>
+                                                        <td>
+                                                            {{ App\Common\DateUtils::dateFormat($item->time_plan,'Y-m-d')}}
                                                         </td>
                                                         <td class="text-center">
                                                             <span class="badge {{$item->status_class}}">{{$item->status_name}}</span>
