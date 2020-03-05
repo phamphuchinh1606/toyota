@@ -24,7 +24,7 @@
                                 <div class="page-body">
                                     <div class="page-body-inner">
                                         <div class="grid md-mg-left-15">
-                                            <div class="grid__item md-pd-left15 large--one-third medium--one-half small--one-whole">
+                                            <div class="grid__item md-pd-left15 large--one-half medium--one-half small--one-whole">
                                                 <div class="contact-wrapper text-center">
                                                     <div class="contact-title">
                                                         <h4>
@@ -56,7 +56,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="grid__item md-pd-left15 large--one-third medium--one-half small--one-whole float-right">
+                                            <!-- <div class="grid__item md-pd-left15 large--one-third medium--one-half small--one-whole float-right">
                                                 <div class="contact-title">
                                                     <h4>
                                                         Form liên hệ:
@@ -93,8 +93,8 @@
 
                                                     </form>
                                                 </div>
-                                            </div>
-                                            <div class="grid__item md-pd-left15 large--one-third medium--one-whole small--one-whole">
+                                            </div> -->
+                                            <div class="grid__item md-pd-left15 large--one-half medium--one-whole small--one-whole">
                                                 <iframe src="{{$appInfo->app_address_google_map}}" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen=""></iframe>
                                             </div>
                                         </div>
