@@ -18,7 +18,7 @@ Table of Contents
 
 #Breakpoint and Grid Variables
 #General Variables
-#Sass Mixins
+#Sass Mixins.large--one-third
 #Normalize
 #Grid Setup
 #Basic Styles
@@ -2806,7 +2806,7 @@ remaining accessible to screen readers (h5bp.com)
 .ajaxcart-item__price-strikethrough {
   float: right; }
 
-/* 
+/*
 Swatches Styles
 */
 .swatch {

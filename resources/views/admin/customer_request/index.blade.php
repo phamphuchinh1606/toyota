@@ -72,6 +72,9 @@
                                                         Ngày dự định
                                                     </th>
                                                     <th class="hidden-xs">
+                                                        Ngày Tạo
+                                                    </th>
+                                                    <th class="hidden-xs">
                                                         Tình Trạng
                                                     </th>
                                                     <th>Actions</th>
@@ -102,6 +105,9 @@
                                                         </td>
                                                         <td class="hidden-xs">
                                                             {{ App\Common\DateUtils::dateFormat($item->time_plan,'Y-m-d')}}
+                                                        </td>
+                                                        <td class="hidden-xs">
+                                                            {{ App\Common\DateUtils::dateFormat($item->created_at,'Y-m-d H:i')}}
                                                         </td>
                                                         <td class="text-center hidden-xs">
                                                             <span class="badge {{$item->status_class}}">{{$item->status_name}}</span>

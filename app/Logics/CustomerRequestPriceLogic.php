@@ -37,7 +37,7 @@ class CustomerRequestPriceLogic extends BaseLogic{
     }
 
     public function getAll(){
-        return CustomerRequestPrice::orderBy('created_at','asc')->paginate();
+        return CustomerRequestPrice::orderBy('created_at','desc')->paginate();
     }
 
     public function findId($requestId){
