@@ -9,9 +9,11 @@ use Storage;
 
 class ProductController extends Controller
 {
-    public function index(){
-        $products = $this->productService->getAllLProduct();
-        return view('admin.product.index')->with('products',$products);
+    public function index(Request $request){
+        $searchInfo = new \stdClass();
+        $searchInfo->product_type = $request->get('product_type_id');
+        $products = $this->productService->getAllLProduct($searchInfo);
+        return view('admin.product.index',['product_type_id' => $searchInfo->product_type])->with('products',$products);
     }
 
     public function showCreate(){
@@ -85,6 +87,10 @@ class ProductController extends Controller
                     foreach ($listLiProduct as $liProduct){
                         $productInfo = new \StdClass();
                         $productInfo->product_id = $liProduct->getAttribute('data-id');
+                        $checkProduct = $this->productService->getProductByProductCode($productInfo->product_id);
+                        if(isset($checkProduct) && $checkProduct->id > 0){
+                            continue;
+                        }
                         $productInfo->product_price = explode('.',str_replace(' VND','',$liProduct->getAttribute('value')))[0];
                         $nodeImages = $liProduct->getElementsByTagName('img');
                         if(count($nodeImages) > 0){
@@ -98,6 +104,7 @@ class ProductController extends Controller
                             $productInfo = $this->toyotaService->getProductInfo($linkProduct,$productInfo);
                             $listProductInfo[] = $productInfo;
                         }
+                        break;
                     }
                 }
             }

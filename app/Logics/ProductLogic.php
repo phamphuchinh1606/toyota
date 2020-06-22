@@ -216,7 +216,10 @@ class ProductLogic extends BaseLogic{
         return Product::find($productId);
     }
 
-    public function getProductByName($productName){
+    public function getProductByName($productName, $productCode = null){
+        if(isset($productCode) && !empty($productCode)){
+            return Product::where('product_code',$productCode)->first();
+        }
         return Product::where('product_name',$productName)->first();
     }
 

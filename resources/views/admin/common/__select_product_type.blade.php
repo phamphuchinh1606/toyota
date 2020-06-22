@@ -1,4 +1,7 @@
 <select class="form-control" id="product_type" name="{{$selectName}}">
+    @if(isset($isAllValue) && $isAllValue)
+        <option value="">Tất cả</option>
+    @endif
     @foreach($productTypes as $productType)
         @if(isset($productType->childs))
             <optgroup label="{{$productType->product_type_name}}" value="{{$productType->id}}">

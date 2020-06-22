@@ -36,6 +36,9 @@
                                     <div class="card-header">
                                         <i class="icon-note"></i> Tạo Mới Sản Phẩm
                                         <div class="card-header-actions">
+                                            <a class="btn btn-sm btn-primary" href="{{route('admin.product_color.index',['product_id' => $product->id])}}">
+                                                Màu sắc
+                                            </a>
                                             <a class="btn btn-sm btn-primary" href="{{route('admin.product_image.create',['productId' => $product->id])}}">
                                                 Hình ảnh
                                             </a>

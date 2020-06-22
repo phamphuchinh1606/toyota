@@ -173,6 +173,10 @@ class ProductService extends BaseService{
         return $this->productLogic->getProduct($productId);
     }
 
+    public function getProductByProductCode($productCode){
+        return $this->productLogic->getProductByName(null , $productCode);
+    }
+
     public function getInfoProduct($productId, $slug = null){
         $product = $this->productLogic->getProductInfoBySlug($slug);
         if(!isset($product)){
@@ -231,7 +235,14 @@ class ProductService extends BaseService{
         return $products;
     }
 
-    private function getProductTypeByProductName($productTypes , $productName){
+    private function getProductTypeByProductName($productTypes , $productName, $productTypeCode = null){
+        foreach ($productTypes as $productType){
+            if(isset($productTypeCode) && !empty($productTypeCode)){
+                if($productTypeCode == $productType->product_type_code){
+                    return $productType->id;
+                }
+            }
+        }
         foreach ($productTypes as $productType){
             if(str_contains($productName,$productType->product_type_name)){
                 return $productType->id;
@@ -267,12 +278,13 @@ class ProductService extends BaseService{
         $productTypes = $this->productTypeLogic->getAll();
         foreach ($listProductInfo as $product){
             //Check product exit
-            $productCheck = $this->productLogic->getProductByName($product->product_name);
+            $productCheck = $this->productLogic->getProductByName($product->product_name, $product->product_id);
             if(isset($productCheck)){
                 continue;
             }
             $params['productName'] = $product->product_name;
             $params['productTitle'] = $product->product_title;
+            $params['productCode'] = $product->product_id;
             $params['productTypeId'] = $this->getProductTypeByProductName($productTypes,$product->product_name);
             $params['productPrice'] = $product->product_price;
             $params['productCostPrice'] = 0;
