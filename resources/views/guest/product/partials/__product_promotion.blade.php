@@ -11,7 +11,7 @@
                     </div>
                     <div class="box_tabs">
                         <div class="inner">
-                            <div class="products">
+                            <div class="products" style="line-height: 2rem">
                                 {!! $product->content_promotion !!}
                             </div>
                         </div>

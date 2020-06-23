@@ -115,8 +115,10 @@
                     <li class="tab" onclick="window.location = 'yaris-g-cvt';">
                         <?php
                             $urlCollection = "#tab_li_$tree->product_type_id";
-                            if(count($tree->products) > 0)
-                                $urlCollection = route('product_detail',['slug' => $tree->products[0]->slug, 'id' => $tree->products[0]->id ]);
+                            //if(count($tree->products) > 0){
+                            //    $urlCollection = route('product_detail',['slug' => $tree->products[0]->slug, 'id' => $tree->products[0]->id ]);
+                            //}
+                            $urlCollection = route('collection_all',['product_type' => $tree->product_type_id]);
                         ?>
                         <a href="{{$urlCollection}}" data-tab="#tab_li_{{$tree->product_type_id}}" class="@if($index==0) first @endif">{{$tree->product_type_name}}</a>
                     </li>
