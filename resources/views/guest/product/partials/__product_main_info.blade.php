@@ -64,8 +64,13 @@
             </div>
         </div>
     </div>
-
-    <div class="col s12">
+    <style>
+        .product-detail-content p{
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    </style>
+    <div class="col s12 product-detail-content">
         {!! $product->product_content !!}
     </div>
 </div>
