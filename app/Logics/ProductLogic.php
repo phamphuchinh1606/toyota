@@ -3,6 +3,7 @@
 namespace App\Logics;
 
 use App\Common\Constant;
+use App\Common\DateUtils;
 use App\Models\Product;
 use DB;
 use App\Models\TableNameDB;
@@ -369,6 +370,7 @@ class ProductLogic extends BaseLogic{
                 if(isset($params['contentPromotion']) && trim($params['contentPromotion']) != ''){
                     $product->content_promotion = $params['contentPromotion'];
                 }
+                $product->updated_at = DateUtils::now();
                 $product->save();
             }
             return $product;
