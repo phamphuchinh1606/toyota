@@ -19,6 +19,7 @@ class DateUtils{
     }
 
     public static function dateFormat($value, $format = "d-m-Y H:i"){
+        if(!isset($value) || $value === null) return '';
         return Carbon::parse($value,self::dateTimeZone())->format($format);
     }
 

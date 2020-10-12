@@ -2,6 +2,7 @@
 
 namespace App\Http\ViewComposers;
 
+use App\Services\CustomerRequestService;
 use Illuminate\View\View;
 use App\Services\ContactService;
 
@@ -14,16 +15,23 @@ class ContactComposer
      */
     protected $contactService;
 
+    protected $customerRequestService;
+
+    private static $countCustomerRequest;
+
+    private static $countContact;
+
     /**
      * Create a new profile composer.
      *
      * @param  UserRepository  $users
      * @return void
      */
-    public function __construct(ContactService $contactService)
+    public function __construct(ContactService $contactService, CustomerRequestService $customerRequestService)
     {
         // Dependencies automatically resolved by service container...
         $this->contactService = $contactService;
+        $this->customerRequestService = $customerRequestService;
     }
 
     /**
@@ -34,7 +42,12 @@ class ContactComposer
      */
     public function compose(View $view)
     {
-        $count = $this->contactService->countContactNotRead();
-        $view->with('countContact', $count);
+        if(!isset(self::$countContact)){
+            self::$countContact = $this->contactService->countContactNotRead();
+        }
+        if(!isset(self::$countCustomerRequest)){
+            self::$countCustomerRequest = $this->customerRequestService->countCustomerRequestNew();
+        }
+        $view->with('countContact', self::$countContact)->with('countCustomerRequest', self::$countCustomerRequest);
     }
 }

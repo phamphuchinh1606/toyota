@@ -79,6 +79,11 @@
                                                         <a class="btn btn-success" href="{{route('admin.contact.show',['id' => $contact->id])}}">
                                                             <i class="fa fa-search-plus"></i>
                                                         </a>
+                                                        <a data-toggle="modal" class="btn btn-danger anchorClick"
+                                                           data-url="{{route('admin.contact.delete',['id' => $contact->id]) }}"
+                                                           data-name="{{$contact->guest_name}}" href="#deleteModal">
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             @endforeach

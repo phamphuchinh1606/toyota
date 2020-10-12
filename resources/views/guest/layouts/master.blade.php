@@ -70,6 +70,7 @@
 
     <link rel="stylesheet prefetch" href="{{asset('css/guest/plugin/owl.carousel.min.css')}}">
     <link rel="stylesheet prefetch" href="{{asset('css/guest/plugin/owl.theme.default.min.css')}}">
+    <link href="{{asset('css/guest/modal.css')}}" rel="stylesheet" type="text/css" media="all">
 
     <!-- Header hook for plugins ================================================== -->
     <script id="facebook-jssdk" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&amp;version=v2.11"></script><script type="text/javascript">
@@ -183,13 +184,28 @@
     <script defer="" src="{{asset('js/guest/plugin/timber.js')}}"></script>
     <script defer="" src="{{asset('js/guest/plugin/handlebars.min.js')}}"></script>
     <script defer="" src="{{asset('js/guest/plugin/ajax-cart.js')}}"></script>
+    <script>
+    $(document).ready(function(){
+
+    });
+
+    </script>
     @yield('body.js')
 
     @include('guest.layouts.partials.__call_phone_plugin')
+	 <script>
+		fbq('track', 'Contact');
+    </script>
+
+    @include('guest.layouts.partials.__popup_modal_show_customer_request')
+
+
+    @include('guest.layouts.partials.__modal_request_contact')
 
     @yield('body.modal')
 
+
 </body>
 {{--@include('guest.layouts.partials.__chat_box_facebook_plugin')--}}
-@include('guest.layouts.partials.__include_chatbox_facebook')
+{{--@include('guest.layouts.partials.__include_chatbox_facebook')--}}
 </html>

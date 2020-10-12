@@ -131,6 +131,8 @@ class SettingLogic extends BaseLogic{
                 $appInfo->app_phone = $params['appPhone'];
                 $appInfo->app_fax = $params['appFax'];
                 $appInfo->app_email = $params['appEmail'];
+                $appInfo->app_system_email = $params['appSystemEmail'];
+                $appInfo->app_timer_show_modal_customer_request = $params['appTimerShowModalCustomerRequest'];
                 $appInfo->app_facebook = $params['appFacebook'];
                 $appInfo->app_address = $params['appAddress'];
                 $appInfo->app_address_google_map = $params['appAddressGoogleMap'];

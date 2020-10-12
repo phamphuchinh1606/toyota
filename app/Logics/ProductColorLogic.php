@@ -7,12 +7,15 @@ use App\Models\ProductColor;
 use App\Models\TableNameDB;
 
 class ProductColorLogic extends BaseLogic{
-    public function getAll($limit = 20){
+    public function getAll($product_id = null, $limit = 20){
         $tableProduct = TableNameDB::$TableProduct;
         $tableProductColor = TableNameDB::$TableProductColor;
-        return ProductColor::join("$tableProduct","$tableProductColor.product_id",'=',"$tableProduct.id")
-            ->orderBy('product_id','asc')
-            ->select("$tableProductColor.*", "$tableProduct.product_name")
+        $query = ProductColor::join("$tableProduct","$tableProductColor.product_id",'=',"$tableProduct.id")
+            ->orderBy('product_id','asc');
+        if(isset($product_id)){
+            $query->where('product_id', $product_id);
+        }
+        return $query->select("$tableProductColor.*", "$tableProduct.product_name")
             ->paginate($limit);
     }
 

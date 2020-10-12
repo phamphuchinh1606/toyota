@@ -5,11 +5,12 @@ namespace App\Services;
 use App\Common\AppCommon;
 use App\Common\Constant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductColorService extends BaseService{
 
-    public function getAll(){
-        $productColors = $this->productColorLogic->getAll();
+    public function getAll($product_id = null){
+        $productColors = $this->productColorLogic->getAll($product_id);
         return $productColors;
     }
 
@@ -21,7 +22,7 @@ class ProductColorService extends BaseService{
         $param['colorName'] = $request->color_name;
         $param['productId'] = $request->product_id;
         $param['colorSort'] = $request->color_sort;
-        $param['colorCode'] = $request->color_code;
+        $param['colorCode'] = (Str::startsWith('#',$request->color_code) ? '':'#') . $request->color_code;
         return $param;
     }
 

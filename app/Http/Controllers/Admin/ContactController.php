@@ -20,4 +20,9 @@ class ContactController extends Controller
             'contact' => $contact
         ]);
     }
+
+    public function delete($id){
+        $this->contactService->delete($id);
+        return redirect()->route('admin.contact.index');
+    }
 }

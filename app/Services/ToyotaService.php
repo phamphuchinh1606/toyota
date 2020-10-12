@@ -74,6 +74,12 @@ class ToyotaService extends BaseService{
                 }
             }
         }
+        //Get Product Type Id
+        $nodeContents = $finder->query("//input[@id='hdCatId']");
+        if(count($nodeContents) > 0) {
+            $nodeContent = $nodeContents[0];
+            $productInfo->toyota_product_type_id = $nodeContent->getAttribute('value');
+        }
         return $productInfo;
     }
 

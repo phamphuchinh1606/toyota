@@ -1978,7 +1978,7 @@ background-color: $colorPrimary;
 }
 
 .home-section-head::before {
-    content: "";
+    /*content: "";*/
     display: block;
     position: absolute;
     z-index: 1;

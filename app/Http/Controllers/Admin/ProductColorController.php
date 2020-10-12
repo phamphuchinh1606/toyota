@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class ProductColorController extends Controller
 {
-    public function index(){
-        $productColors = $this->productColorService->getAll();
+    public function index(Request $request){
+        $productId = $request->get('product_id');;
+        $productColors = $this->productColorService->getAll($productId);
         return $this->viewAdmin('productColor.index',[
             'productColors' => $productColors
         ]);

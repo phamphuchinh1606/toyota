@@ -16,6 +16,15 @@ class Constant{
     public static $STATUS_READ_OFF = 0;
     public static $STATUS_READ_OFF_NAME = "Chưa đọc";
 
+    //Status customer request
+    public static $CUSTOMER_REQUEST_STATUS_NEW_CODE = 1;
+    public static $CUSTOMER_REQUEST_STATUS_PROCESS_CODE = 2;
+    public static $CUSTOMER_REQUEST_STATUS_DONE_CODE = 3;
+
+    public static $CUSTOMER_REQUEST_STATUS_NEW_NAME = 'Yêu cầu mới';
+    public static $CUSTOMER_REQUEST_STATUS_PROCESS_NAME = 'Đang sử lý';
+    public static $CUSTOMER_REQUEST_STATUS_DONE_NAME = 'Hoàn thành';
+
     public static $TAG_KEY_ONE = 1;
     public static $TAG_KEY_TWO = 2;
 
@@ -65,5 +74,11 @@ class Constant{
     public static $PRODUCT_IMAGE_TYPE_EXTERIOR = '2';
 
     public static $URL_TOYOTA = "http://www.toyota.com.vn";
+
+    //Payment Method
+    public static $PAYMENT_METHOD_INSTALLMENT_CODE = "1";
+    public static $PAYMENT_METHOD_INSTALLMENT_NAME = "Mua trả góp";
+    public static $PAYMENT_METHOD_FULL_CODE = "2";
+    public static $PAYMENT_METHOD_FULL_NAME = "Trả toàn bộ";
 
 }

@@ -4,6 +4,12 @@
     Liên Hệ - {{$appInfo->app_name}}
 @endsection
 
+@section('body.js')
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="{{asset('js/guest/validator.js')}}"></script>
+    <script src="{{asset('js/guest/contact.js')}}"></script>
+@endsection
+
 @section('body.content')
     <main class="main-content" role="main">
         <div id="page-wrapper">
@@ -18,7 +24,7 @@
                                 <div class="page-body">
                                     <div class="page-body-inner">
                                         <div class="grid md-mg-left-15">
-                                            <div class="grid__item md-pd-left15 large--one-third medium--one-half small--one-whole">
+                                            <div class="grid__item md-pd-left15 large--one-half medium--one-half small--one-whole">
                                                 <div class="contact-wrapper text-center">
                                                     <div class="contact-title">
                                                         <h4>
@@ -50,7 +56,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="grid__item md-pd-left15 large--one-third medium--one-half small--one-whole float-right">
+                                            <!-- <div class="grid__item md-pd-left15 large--one-third medium--one-half small--one-whole float-right">
                                                 <div class="contact-title">
                                                     <h4>
                                                         Form liên hệ:
@@ -60,7 +66,7 @@
                                                     <div class="alert alert-success"> {{ \Session::get('message') }}</div>
                                                 @endif
                                                 <div class="form-vertical clearfix">
-                                                    <form accept-charset="UTF-8" action="{{route('contact.send_contact')}}" class="contact-form" method="post">
+                                                    <form accept-charset="UTF-8" action="{{route('contact.send_contact')}}" class="contact-form" id="contact-form" method="post">
                                                         <input name="form_type" type="hidden" value="contact">
                                                         <input name="utf8" type="hidden" value="✓">
                                                         @csrf
@@ -77,12 +83,18 @@
                                                         <label for="ContactFormMessage" class="hidden-label">Nội dung</label>
                                                         <textarea rows="10" required="" name="guest_content" class="form-control" placeholder="Viết bình luận" id="contactFormMessage"></textarea>
 
+                                                        <div class="form-group">
+                                                            <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                                                            <input class="form-control hide" data-recaptcha="true" required data-error="Please complete the Captcha">
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
+
                                                         <input type="submit" class="btn right btnContactSubmit" value="Gửi">
 
                                                     </form>
                                                 </div>
-                                            </div>
-                                            <div class="grid__item md-pd-left15 large--one-third medium--one-whole small--one-whole">
+                                            </div> -->
+                                            <div class="grid__item md-pd-left15 large--one-half medium--one-whole small--one-whole">
                                                 <iframe src="{{$appInfo->app_address_google_map}}" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen=""></iframe>
                                             </div>
                                         </div>

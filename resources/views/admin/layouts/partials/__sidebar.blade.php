@@ -82,7 +82,18 @@
                 <a class="nav-link" href="{{route('admin.contact.index')}}">
                     <i class="nav-icon icon-envelope-open"></i>
                     Liên Hệ
-                    <span class="badge badge-danger">{{$countContact}}</span>
+                    @if(isset($countContact) && $countContact > 0)
+                        <span class="badge badge-danger">{{$countContact}}</span>
+                    @endif
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.customer_request.index')}}">
+                    <i class="nav-icon icon-envelope-open"></i>
+                    Yêu cầu tư vấn
+                    @if(isset($countCustomerRequest) && $countCustomerRequest > 0)
+                        <span class="badge badge-danger">{{$countCustomerRequest}}</span>
+                    @endif
                 </a>
             </li>
             <li class="nav-item">
@@ -91,12 +102,6 @@
                     Thiết Lặp Chi Phí
                 </a>
             </li>
-            {{--<li class="nav-item">--}}
-                {{--<a class="nav-link" href="{{route('admin.order.index')}}">--}}
-                    {{--<i class="nav-icon icon-basket"></i>--}}
-                    {{--Đơn hàng--}}
-                {{--</a>--}}
-            {{--</li>--}}
         </ul>
         <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
             <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>

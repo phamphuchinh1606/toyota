@@ -39,6 +39,7 @@
                                 $urlCollection = "#tab_li_$tree->product_type_id";
                                 if(count($tree->products) > 0)
                                     $urlCollection = route('product_detail',['slug' => $tree->products[0]->slug, 'id' => $tree->products[0]->id ]);
+                                $urlCollection = route('collection_all',['product_type' => $tree->product_type_id]);
                             ?>
                             <a href="{{$urlCollection}}" class="mobile-nav__link">{{$tree->product_type_name}}</a>
 

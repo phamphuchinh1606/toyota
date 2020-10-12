@@ -48,6 +48,21 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
+                                        <label class="col-md-2 col-form-label" for="text-input">Email Hệ Thống</label>
+                                        <div class="col-md-10">
+                                            <input class="form-control" id="app_system_email" type="email" name="app_system_email" placeholder="Email hệ thống"
+                                                   value="{{$appInfo->app_system_email}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-2 col-form-label" for="text-input">Hiển thị popup sau (giây)</label>
+                                        <div class="col-md-10">
+                                            <input class="form-control" id="app_system_email" type="number" name="app_timer_show_modal_customer_request" placeholder="Nhập số giấy"
+                                                   value="{{$appInfo->app_timer_show_modal_customer_request}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
                                         <label class="col-md-2 col-form-label" for="text-input">Facebook Name</label>
                                         <div class="col-md-10">
                                             <input class="form-control" id="app_facebook" type="text" name="app_facebook" placeholder="Tên Facebook"

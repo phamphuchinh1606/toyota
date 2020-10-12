@@ -33,7 +33,7 @@
                 };
                 jQuery.ajax(params);
             });
-            $('#close').click(function(){
+            $('#productQuickView #close').click(function(){
                 $('#productQuickView').hide();
             })
         });

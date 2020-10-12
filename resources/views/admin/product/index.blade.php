@@ -20,6 +20,12 @@
                         <div class="card-header">
                             <i class="fa fa-edit"></i> Danh Sách Sản Phẩm
                             <div class="card-header-actions">
+                                <div class="float-left" style="margin-top: -4px;margin-right: 5px;">
+                                    @include('admin.common.__select_product_type',
+                                    ['isAllValue' => true,
+                                    'selectName' => 'product_type_id',
+                                    'defaultValue' => $product_type_id])
+                                </div>
                                 <a class="btn btn-sm btn-primary" href="{{route('admin.product.create')}}">
                                     Tạo mới
                                 </a>
@@ -56,6 +62,9 @@
                                                 <th class="sorting app-col-status" >
                                                     Tình Trạng
                                                 </th>
+                                                <th class="sorting app-col-update" >
+                                                    Ngày Cập Nhật
+                                                </th>
                                                 <th class="sorting app-col-action">
                                                     Actions
                                                 </th>
@@ -84,6 +93,9 @@
                                                     </td>
                                                     <td class="">
                                                         <span class="badge {{$product->public_class}}">{{$product->public_name}}</span>
+                                                    </td>
+                                                    <td class="">
+                                                        {{\App\Common\DateUtils::dateFormat($product->updated_at)}}
                                                     </td>
                                                     <td class="text-center">
                                                         {{--<a class="btn btn-success" href="#">--}}
@@ -114,4 +126,16 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('body.js')
+    <script>
+        var urlCurrent = "{{route('admin.product.index')}}";
+        $(document).ready(function () {
+            $('select[name=product_type_id]').on('change',function () {
+                var value = $(this).val();
+                window.location = urlCurrent + "?product_type_id=" + value;
+            });
+        });
+    </script>
 @endsection

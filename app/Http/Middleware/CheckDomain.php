@@ -23,11 +23,11 @@ class CheckDomain
 //            $url = str_replace($hostToyota,$hostOto,$url);
 //            return redirect()->to($url);
 //        }
-        $url = $request->url();
-        if(str_contains($url,"http://")){
-            $url = str_replace("http://","https://",$url);
-            return redirect()->to($url);
-        }
+//        $url = $request->url();
+//        if(str_contains($url,"http://")){
+//            $url = str_replace("http://","https://",$url);
+//            return redirect()->to($url);
+//        }
 
         return $next($request);
     }
