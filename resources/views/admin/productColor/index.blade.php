@@ -76,7 +76,9 @@
                                                             <a class="btn btn-info" href="{{route('admin.product_color.update',['id' => $productColor->id])}}">
                                                                 <i class="fa fa-edit"></i>
                                                             </a>
-                                                            <a class="btn btn-danger" href="#">
+                                                            <a data-toggle="modal" class="btn btn-danger anchorClick"
+                                                               data-url="{{route('admin.product_color.delete',['id' => $productColor->id]) }}"
+                                                               data-name="{{$productColor->color_name}}" href="#deleteModal">
                                                                 <i class="fa fa-trash-o"></i>
                                                             </a>
                                                         </td>

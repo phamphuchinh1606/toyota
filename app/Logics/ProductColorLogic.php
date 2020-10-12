@@ -54,6 +54,10 @@ class ProductColorLogic extends BaseLogic{
         }
     }
 
+    public function delete($colorId){
+        ProductColor::destroy($colorId);
+    }
+
     public function deleteByProduct($productId){
         ProductColor::whereProductId($productId)->delete();
     }

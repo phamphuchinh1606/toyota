@@ -115,7 +115,7 @@
         <p class="block_search_title col-sb-trigger">
             <span>DANH MỤC SẢN PHẨM</span>
         </p>
-        <div class="panel sidebar-sort" style="max-height: 450px;">
+        <div class="panel sidebar-sort" style="max-height: none">
             <ul class="no-bullets clearfix check-box-list">
                 @foreach($productTypes as $productType)
                     <li>

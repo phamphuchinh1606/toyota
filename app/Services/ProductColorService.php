@@ -48,4 +48,8 @@ class ProductColorService extends BaseService{
         }
         $this->productColorLogic->update($colorId,$param);
     }
+
+    public function delete($imageId){
+        $this->productColorLogic->delete($imageId);
+    }
 }

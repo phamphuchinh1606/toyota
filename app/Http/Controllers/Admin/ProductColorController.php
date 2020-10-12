@@ -31,4 +31,9 @@ class ProductColorController extends Controller
         $this->productColorService->update($id, $request);
         return redirect()->route('admin.product_color.index');
     }
+
+    public function delete($id){
+        $this->productColorService->delete($id);
+        return redirect()->route('admin.product_color.index');
+    }
 }
