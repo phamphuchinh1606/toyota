@@ -2091,7 +2091,7 @@ background-color: $colorPrimary;
 }
 
 .template-index .home-section-head::after {
-    background: rgba(235, 235, 235, 0.2);
+    background: #000000;
 }
 
 .template-index .home-section-head h2 {
@@ -2618,16 +2618,37 @@ background-color: $colorPrimary;
 
 #home-flash-sale {
     padding: 100px 0;
-    background-color: #14151b;
+    /*background-color: #14151b;*/
     color: #888888;
 }
 
 #home-flash-sale .home-section-head h2 {
-    background: #14151b;
+    margin: 0 auto;
+    z-index: 2;
+    letter-spacing: 2px;
+    color: #000000;
+    line-height: 62px;
+    padding: 0px 63px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: inset 0 3px 0 0 #000000, inset 0 -3px 0 0 #000000;
 }
 
 #home-flash-sale .home-section-head h2::before, #home-flash-sale .home-section-head h2::after {
-    background-color: #14151b;
+    content: "";
+    display: block;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background: #ffffff;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    border: 4px solid #000000;
 }
 
 #home-flash-sale .home-collection-countdown {
@@ -2652,7 +2673,7 @@ background-color: $colorPrimary;
 }
 
 #home-flash-sale .product-item {
-    border: 2px solid rgba(235, 235, 235, 0.1);
+    /*border: 2px solid rgba(235, 235, 235, 0.1);*/
 }
 
 #home-flash-sale .product-item .product-title {
@@ -2661,7 +2682,6 @@ background-color: $colorPrimary;
 
 #home-flash-sale .product-item .product-title a {
     color: #ffffff;
-    border-bottom: 1px solid rgba(235, 235, 235, 0.1);
 }
 
 #home-flash-sale .product-item .product-desc {
@@ -2676,7 +2696,8 @@ background-color: $colorPrimary;
 }
 
 #home-flash-sale .product-item .product-buynow button {
-    background: #21252c;
+    background: #9a9a9a;
+    color: #000;
 }
 
 #home-flash-sale .product-item .product-buynow button:hover.add-to-cart {
@@ -2875,6 +2896,7 @@ background-color: $colorPrimary;
         margin: 5px 5px !important;
         padding: 5px 10px;
         border-radius: 5px;
+        font-weight: 700;
     }
 
     #home-product .tab button.pro-tablinks.rophi::before {
@@ -2902,17 +2924,39 @@ background-color: $colorPrimary;
 }
 
 #home-product {
-    padding: 100px 0;
-    background-color: #14151b;
+    padding: 50px 0 0 0;
+    /*background-color: #14151b;*/
     color: #888888;
 }
 
 #home-product .home-section-head h2 {
-    background: #14151b;
+    /*background: #14151b;*/
+    margin: 0 auto;
+    z-index: 2;
+    letter-spacing: 2px;
+    color: #000000;
+    line-height: 62px;
+    padding: 0px 63px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: inset 0 3px 0 0 #000000, inset 0 -3px 0 0 #000000;
 }
 
 #home-product .home-section-head h2::before, #home-product .home-section-head h2::after {
-    background-color: #14151b;
+    content: "";
+    display: block;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background: #ffffff;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    border: 4px solid #000000;
 }
 
 #home-product .tab {
@@ -2922,9 +2966,10 @@ background-color: $colorPrimary;
 
 #home-product .tab button.pro-tablinks {
     text-align: center;
-    color: #888888;
+    /*color: #888888;*/
     outline: 0 !important;
     margin: 0 30px;
+    font-weight: 800;
 }
 
 #home-product .tab button.pro-tablinks.rophi {
@@ -2961,8 +3006,8 @@ background-color: $colorPrimary;
 
 #home-product .pro-tabcontent .collection-btn .btnViewMore {
     padding: 10px 70px;
-    background: #21252c;
-    color: #8c939d;
+    background: #9a9a9a;
+    color: #000;
     border-radius: 30px;
 }
 
@@ -2974,13 +3019,12 @@ background-color: $colorPrimary;
 }
 
 #home-product .product-item {
-    border: 2px solid rgba(235, 235, 235, 0.1);
+    /*border: 2px solid rgba(235, 235, 235, 0.1);*/
     margin-bottom: 30px;
 }
 
 #home-product .product-item .product-title a {
     color: #ffffff;
-    border-bottom: 1px solid rgba(235, 235, 235, 0.1);
 }
 
 #home-product .product-item .product-buynow button {
