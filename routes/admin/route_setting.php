@@ -38,3 +38,7 @@ Route::get('/setting/app-about','SettingController@appAboutUpdate')->name('setti
 Route::post('/setting/app-about/update','SettingController@updateAboutAppInfo')->name('setting.app_about');
 
 
+Route::get('/setting/storage-link','SettingController@storeLink');
+Route::get('/setting/cache','SettingController@cache');
+Route::get('/setting/clear','SettingController@clear');
+
