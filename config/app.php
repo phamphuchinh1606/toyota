@@ -149,7 +149,6 @@ return [
         Darryldecode\Cart\CartServiceProvider::class,
         Galahad\LaravelAddressing\ServiceProvider::class,
         Ixudra\Curl\CurlServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
 
@@ -218,7 +217,6 @@ return [
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
         'Addressing' => Galahad\LaravelAddressing\AddressFacade::class,
         'Curl' => Ixudra\Curl\Facades\Curl::class,
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Slug' => Cviebrock\EloquentSluggable\Services\SlugService::class,
     ],
 
